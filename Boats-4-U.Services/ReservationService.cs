@@ -44,7 +44,7 @@ namespace Boats_4_U.Services
         // GET - View all Reservations (for User)
         public IEnumerable<ReservationListItem> GetReservations()
         {
-            using (var ctx = ApplicationDbContext)
+            using (var ctx = new ApplicationDbContext)
             {
                 var query =
                     ctx
@@ -60,7 +60,7 @@ namespace Boats_4_U.Services
                                 DriverFullName = e.Driver.DriverFullName,
                                 DateReservedFor = e.DateReservedFor,
                                 ReservationDuration = e.ReservationDuration,
-                                BoatTypeString = e.Driver.BoatTypeString,
+                                BoatName = e.Driver.BoatName,
                                 NumberOfPassengers = e.NumberOfPassengers,
                                 ReservationDetails = e.ReservationDetails,
                                 Last4Digits = e.Renter.Last4Digits,
