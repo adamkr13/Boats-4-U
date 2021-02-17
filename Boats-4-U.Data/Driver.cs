@@ -36,6 +36,27 @@ namespace Boats_4_U.Data
         [Required]
         public Guid User { get; set; }
 
+        public string DriverFullName
+        {
+            get
+            {
+                var fullName = $"{DriverFirstName} {DriverLastName}";
+                return fullName;
+            }
+        }
+
+        public string BoatName
+        {
+            get
+            {
+                using (var ctx = new ApplicationDbContext())
+                {
+                    string boatName = Enum.GetName(typeof(BoatType), ctx);
+                    return boatName;
+                }
+            }
+        }
+
         public virtual List<Reservation> ReservationDriver { get; set; } = new List<Reservation>();
     }
 
