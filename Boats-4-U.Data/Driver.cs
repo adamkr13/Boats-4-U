@@ -28,7 +28,7 @@ namespace Boats_4_U.Data
         public BoatType TypeOfBoat { get; set; }
 
         [Required]
-        public List<Driver> DaysAvailable { get; set; } = new List<Driver>();
+        public List<DayOfWeek> DaysAvailable { get; set; } = new List<DayOfWeek>();
 
         [Required]
         public int MaximumOccupants { get; set; }

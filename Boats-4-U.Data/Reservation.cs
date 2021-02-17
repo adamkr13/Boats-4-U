@@ -47,6 +47,28 @@ namespace Boats_4_U.Data
             }
         }
 
+        public string DisplayDateReservedFor
+        {
+            get
+            {
+                var date = DateReservedFor;
+                string fmt = "D";
+                var displayDate = date.Date.ToString(fmt);
+                return displayDate;
+            }
+        }
+
+        public string DisplayDateReservationMade
+        {
+            get
+            {
+                var date = DateReservedFor;
+                string fmt = "D";
+                var displayDate = date.Date.ToString(fmt);
+                return displayDate;
+            }
+        }
+
         public DateTimeOffset? ModifiedDate { get; set; }
     }
 }

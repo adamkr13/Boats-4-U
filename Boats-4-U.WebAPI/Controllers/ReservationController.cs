@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Boats_4_U.Models;
+using Boats_4_U.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,7 +18,7 @@ namespace Boats_4_U.WebAPI.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return BadRequest(ModelState)
+                return BadRequest(ModelState);
             }
 
             var service = CreateReservationService();
@@ -27,13 +29,53 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok("Your reservation was successfully created.");
         }
         // GET
+        [HttpGet]
+        public IHttpActionResult Get()
+        {
+            ReservationService reservationService = CreateReservationService();
+            var reservations = reservationService.GetReservations();
+            return Ok(reservations);
+        }
+        // GET Reservation by Reservation Id
+        [Route("api/Reservation/GetByReservationId/{id}")]
+        public IHttpActionResult GetByReservationId(int id)
+        {
+            ReservationService reservationService = CreateReservationService();
+            var reservation = reservationService.GetReservationById(id);
+            return Ok(reservation);
+        }
+        // GET Reservation by Driver Id
+        [Route("api/Reservation/GetByDriverId/{id}")]
+        public IHttpActionResult GetByDriverId(int id)
+        {
+            ReservationService reservationService = CreateReservationService();
+            var reservation = reservationService.GetReservationByDriverId(id);
+            return Ok(reservation);
+        }
+        // GET Reservation by Renter Id
+        [Route("api/Reservation/GetByRenterId/{id}")]
+        public IHttpActionResult GetByRenterId(int id)
+        {
+            ReservationService reservationService = CreateReservationService();
+            var reservation = reservationService.GetReservationByRenterId(id);
+            return Ok(reservation);
+        }
+        // GET Reservation by Date
+        //[Route("api/Reservation/GetByDate/{date}")]
+        //public IHttpActionResult GetByDate(DateTimeOffset date)
+        //{
+        //    ReservationService reservationService = CreateReservationService();
+        //    var reservation = reservationService.GetReservationByDate(date);
+        //    return Ok(reservation);
+        //}
 
         // PUT
+        //[HttpPut]
+        //public 
 
         // DELETE
 
         // Helper
-
         private ReservationService CreateReservationService()
         {
             Guid userId = Guid.Parse(User.Identity.GetUserId());
