@@ -41,7 +41,36 @@ namespace Boats_4_U.Services
             }
         }
 
-        // GET - View all Reservations
+        // GET - View all Reservations (for User)
+        public IEnumerable<ReservationListItem> GetReservations()
+        {
+            using (var ctx = ApplicationDbContext)
+            {
+                var query =
+                    ctx
+                    .Reservations
+                    .Where(e => e.User == _userId)
+                    .Select(
+                        e =>
+                            new ReservationListItem
+                            {
+                                ReservationId = e.ReservationId,
+                                User = e.User,
+                                RenterFullName = e.Renter.RenterFullName,
+                                DriverFullName = e.Driver.DriverFullName,
+                                DateReservedFor = e.DateReservedFor,
+                                ReservationDuration = e.ReservationDuration,
+                                BoatTypeString = e.Driver.BoatTypeString,
+                                NumberOfPassengers = e.NumberOfPassengers,
+                                ReservationDetails = e.ReservationDetails,
+                                Last4Digits = e.Renter.Last4Digits,
+                                EstimatedTotalCost = e.EstimatedTotalCost,
+                                DateReservationMade = e.DateReservationMade
+                            }
+                        );
+                ;
+            }
+        }
 
         // GET - View Reservation(s) by Driver
 
