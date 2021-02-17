@@ -20,8 +20,9 @@ namespace Boats_4_U.Models.Driver
         public string Location { get; set; }
         [Required]
         public BoatType TypeOfBoat { get; set; }
+        [Required]
         public List<DayOfWeek> DaysAvailable { get; set; } = new List<DayOfWeek>();
-        public int MaximumOccupants { get; set; }
-        public Guid User { get; set; }
+        [Required]
+        public int MaximumOccupants { get; set; }       
     }
 }
