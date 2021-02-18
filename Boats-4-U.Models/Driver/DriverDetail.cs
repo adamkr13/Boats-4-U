@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Boats_4_U.Models.Driver
 {
-    class DriverDetail
+    public class DriverDetail
     {
         public int DriverId { get; set; }
         

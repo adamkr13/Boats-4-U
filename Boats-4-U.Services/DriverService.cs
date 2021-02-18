@@ -53,5 +53,27 @@ namespace Boats_4_U.Services
                 return query.ToArray();
             }
         }
+
+        public DriverDetail GetDriverById(int driverId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Drivers
+                    .Single(e => e.DriverId == driverId);
+                return
+                    new DriverDetail
+                    {
+                        DriverId = entity.DriverId,
+                        DriverFirstName = entity.DriverFirstName,
+                        DriverLastName = entity.DriverLastName,
+                        HourlyRate = entity.HourlyRate,
+                        Location = entity.Location,
+                        TypeOfBoat = entity.TypeOfBoat,
+                        DaysAvailable = entity.DaysAvailable,
+                        MaximumOccupants = entity.MaximumOccupants                        
+                    };
+            }
+        }
     }
 }

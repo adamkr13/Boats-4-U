@@ -39,5 +39,12 @@ namespace Boats_4_U.WebAPI.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult GetDriverDetail(int driverId)
+        {
+            DriverService driverService = CreateDriverService();
+            var driver = driverService.GetDriverById(driverId);
+            return Ok(driver);
+        }
     }
 }
