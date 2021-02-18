@@ -86,6 +86,7 @@
   <ItemGroup>
     <Compile Include="Driver\DriverCreate.cs" />
     <Compile Include="Driver\DriverDetail.cs" />
+    <Compile Include="Driver\DriverEdit.cs" />
     <Compile Include="Driver\DriverListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

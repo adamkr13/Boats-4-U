@@ -75,5 +75,25 @@ namespace Boats_4_U.Services
                     };
             }
         }
+
+        public bool UpdateDriver(DriverEdit model)
+        {
+            using(var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Drivers
+                    .Single(e => e.DriverId == model.DriverId && e.User == _userId);
+
+                entity.DriverFirstName = model.DriverFirstName;
+                entity.DriverLastName = model.DriverLastName;
+                entity.HourlyRate = model.HourlyRate;
+                entity.Location = model.Location;
+                entity.TypeOfBoat = model.TypeOfBoat;
+                entity.DaysAvailable = model.DaysAvailable;
+                entity.MaximumOccupants = model.MaximumOccupants;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

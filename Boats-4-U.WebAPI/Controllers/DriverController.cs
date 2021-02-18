@@ -46,5 +46,18 @@ namespace Boats_4_U.WebAPI.Controllers
             var driver = driverService.GetDriverById(driverId);
             return Ok(driver);
         }
+
+        public IHttpActionResult Put(DriverEdit driver)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var service = CreateDriverService();
+
+            if (!service.UpdateDriver(driver))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }
