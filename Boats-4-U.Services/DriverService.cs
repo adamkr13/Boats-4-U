@@ -95,5 +95,19 @@ namespace Boats_4_U.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        public bool DeleteDriver(int driverId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Drivers
+                    .Single(e => e.DriverId == driverId && e.User == _userId);
+
+                ctx.Drivers.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

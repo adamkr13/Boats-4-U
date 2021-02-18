@@ -59,5 +59,15 @@ namespace Boats_4_U.WebAPI.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult Delete(int driverId)
+        {
+            var service = CreateDriverService();
+
+            if (!service.DeleteDriver(driverId))
+                return InternalServerError();
+
+            return Ok();
+        }
     }
 }
