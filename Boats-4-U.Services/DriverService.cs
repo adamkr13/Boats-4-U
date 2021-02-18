@@ -37,5 +37,21 @@ namespace Boats_4_U.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        public IEnumerable<DriverListItem> GetDrivers()
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Drivers
+                        .Select(e => new DriverListItem
+                        {
+                            DriverId = e.DriverId,
+                            DriverFirstName = e.DriverFirstName,
+                            DriverLastName = e.DriverLastName
+                        });
+                return query.ToArray();
+            }
+        }
     }
 }
