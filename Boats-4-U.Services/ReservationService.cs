@@ -41,8 +41,7 @@ namespace Boats_4_U.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-
-        // GET - View all Reservations (for User)
+        // GET - View all Reservations (for User) - this will only work for Renters ATM
         public IEnumerable<ReservationListItem> GetReservations()
         {
             using (var ctx = new ApplicationDbContext())
@@ -50,7 +49,7 @@ namespace Boats_4_U.Services
                 var query =
                     ctx
                     .Reservations
-                    .Where(e => e.User == _userId || e.Driver.User == _userId) // Not sure this is the answer
+                    .Where(e => e.User == _userId)
                     .Select(
                         e =>
                             new ReservationListItem
@@ -72,7 +71,7 @@ namespace Boats_4_U.Services
                 return query.ToArray();
             }
         }
-        // GET - View Reservation by Reservation ID
+        // GET - View Reservation by Reservation ID - This theoretically will work for Drivers and Renters with the correct Id
         public ReservationDetail GetReservationById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -80,7 +79,7 @@ namespace Boats_4_U.Services
                 Reservation entity =
                     ctx
                     .Reservations
-                    .Single(e => e.ReservationId == id && e.User == _userId);
+                    .Single(e => e.ReservationId == id);
                 return
                     new ReservationDetail
                     {
@@ -99,37 +98,37 @@ namespace Boats_4_U.Services
                     };
             }
         }
-        // GET - View Reservation(s) by Driver
+        // GET - View Reservation(s) by Driver - This theoretically will work for Drivers or Renters wanting to view Reservations by a particular Driver - would like to only allow Driver role to have access to this service
         public IEnumerable<ReservationDetail> GetReservationByDriverId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
-                    ctx
-                    .Reservations
-                    .Where(e => e.DriverId == id && e.User == _userId)
-                    .Select(
-                        e =>
-                            new ReservationDetail
-                            {
-                                ReservationId = e.ReservationId,
-                                User = e.User,
-                                RenterFullName = e.Renter.RenterFullName,
-                                DriverFullName = e.Driver.DriverFullName,
-                                DisplayDateReservedFor = e.DisplayDateReservedFor,
-                                ReservationDuration = e.ReservationDuration,
-                                BoatName = e.Driver.BoatName,
-                                NumberOfPassengers = e.NumberOfPassengers,
-                                ReservationDetails = e.ReservationDetails,
-                                Last4Digits = e.Renter.Last4Digits,
-                                EstimatedTotalCost = e.EstimatedTotalCost,
-                                DisplayDateReservationMade = e.DisplayDateReservationMade
-                            }
-                       );
-                return query.ToArray();
+                    var query =
+                        ctx
+                        .Reservations
+                        .Where(e => e.DriverId == id)
+                        .Select(
+                            e =>
+                                new ReservationDetail
+                                {
+                                    ReservationId = e.ReservationId,
+                                    User = e.User,
+                                    RenterFullName = e.Renter.RenterFullName,
+                                    DriverFullName = e.Driver.DriverFullName,
+                                    DisplayDateReservedFor = e.DisplayDateReservedFor,
+                                    ReservationDuration = e.ReservationDuration,
+                                    BoatName = e.Driver.BoatName,
+                                    NumberOfPassengers = e.NumberOfPassengers,
+                                    ReservationDetails = e.ReservationDetails,
+                                    Last4Digits = e.Renter.Last4Digits,
+                                    EstimatedTotalCost = e.EstimatedTotalCost,
+                                    DisplayDateReservationMade = e.DisplayDateReservationMade
+                                }
+                           );
+                    return query.ToArray();
             }
         }
-        // GET - View Reservation(s) by Renter
+        // GET - View Reservation(s) by Renter - This theoretically is only accessible by unique Renters - Renters will only be able to see Reservations associated with their unique User Id
         public IEnumerable<ReservationDetail> GetReservationByRenterId(int id)
         {
             using (var ctx = new ApplicationDbContext())
