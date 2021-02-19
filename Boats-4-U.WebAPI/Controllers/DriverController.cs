@@ -40,10 +40,10 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok();
         }
 
-        public IHttpActionResult GetDriverDetail(int driverId)
+        public IHttpActionResult Get(int id)
         {
             DriverService driverService = CreateDriverService();
-            var driver = driverService.GetDriverById(driverId);
+            var driver = driverService.GetDriverById(id);
             return Ok(driver);
         }
 
@@ -60,11 +60,11 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok();
         }
 
-        public IHttpActionResult Delete(int driverId)
+        public IHttpActionResult Delete(int id)
         {
             var service = CreateDriverService();
 
-            if (!service.DeleteDriver(driverId))
+            if (!service.DeleteDriver(id))
                 return InternalServerError();
 
             return Ok();

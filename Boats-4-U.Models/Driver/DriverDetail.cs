@@ -9,22 +9,14 @@ namespace Boats_4_U.Models.Driver
 {
     public class DriverDetail
     {
-        public int DriverId { get; set; }
-        
+        public int DriverId { get; set; }        
         public string DriverFirstName { get; set; }
-
         public string DriverLastName { get; set; }
-
         public decimal HourlyRate { get; set; }
-
         public string Location { get; set; }
-
         public BoatType TypeOfBoat { get; set; }
-
         public List<DayOfWeek> DaysAvailable { get; set; } = new List<DayOfWeek>();
-
-        public int MaximumOccupants { get; set; }
-                
+        public int MaximumOccupants { get; set; }                
         public string DriverFullName
         {
             get
@@ -37,11 +29,9 @@ namespace Boats_4_U.Models.Driver
         {
             get
             {
-                using (var ctx = new ApplicationDbContext())
-                {
-                    string boatName = Enum.GetName(typeof(BoatType), ctx);
-                    return boatName;
-                }
+                int value = (int)TypeOfBoat;
+                string boatName = Enum.GetName(typeof(BoatType), value);
+                return boatName;
             }
         }
     }
