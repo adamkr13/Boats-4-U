@@ -11,21 +11,34 @@ namespace Boats_4_U.Data
     {
         [Key]
         public int RenterId { get; set; }
-
         [Required]
         public string RenterFirstName { get; set; }
-
         [Required]
         public string RenterLastName { get; set; }
-
         [Required]
         public int RenterAge { get; set; }
-
         [Required]
         public long CreditCardNumber { get; set; }
-
         [Required]
         public Guid User { get; set; }
+
+        public string RenterFullName
+        {
+            get
+            {
+                var fullName = $"{RenterFirstName} {RenterLastName}";
+                return fullName;
+            }
+        }
+
+        public string Last4Digits
+        {
+            get
+            {
+                var creditCardNumber = $"{CreditCardNumber}";
+                return creditCardNumber.Substring(creditCardNumber.Length - 4, 4);
+            }
+        }
 
         public virtual List<Reservation> ReservationRenter { get; set; } = new List<Reservation>();
     }
