@@ -52,7 +52,7 @@ namespace Boats_4_U.Services
                             HourlyRate = e.HourlyRate,
                             Location = e.Location,
                             TypeOfBoat = e.TypeOfBoat,
-                            DaysAvailable = e.DaysAvailable,
+                            //DaysAvailable = e.DaysAvailable,
                             MaximumOccupants = e.MaximumOccupants
                         });
                 return query.ToArray();
