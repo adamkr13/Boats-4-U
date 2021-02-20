@@ -26,6 +26,12 @@ namespace Boats_4_U.WebAPI.Controllers
             var drivers = driverService.GetDrivers();
             return Ok(drivers);
         }
+        public IHttpActionResult GetByLocation(string location)
+        {
+            DriverService driverService = CreateDriverService();
+            var drivers = driverService.GetDriversByLocation(location);
+            return Ok(drivers);
+        }
 
         public IHttpActionResult Post(DriverCreate driver)
         {
