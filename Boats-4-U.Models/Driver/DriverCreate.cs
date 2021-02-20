@@ -21,7 +21,7 @@ namespace Boats_4_U.Models.Driver
         [Required]
         public BoatType TypeOfBoat { get; set; }
         [Required]
-        public List<string> DaysAvailable { get; set; } = new List<string>();
+        public List<string> DaysAvailable { get; set; }
         [Required]
         public int MaximumOccupants { get; set; }       
     }
