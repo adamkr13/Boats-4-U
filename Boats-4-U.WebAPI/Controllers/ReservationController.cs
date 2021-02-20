@@ -70,11 +70,30 @@ namespace Boats_4_U.WebAPI.Controllers
         //}
 
         // PUT
-        //[HttpPut]
-        //public 
+        [HttpPut]
+        public IHttpActionResult Put(ReservationEdit reservation)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
 
+            var service = CreateReservationService();
+
+            if (!service.UpdateReservation(reservation))
+                return InternalServerError();
+
+            return Ok();
+        }
         // DELETE
+        [HttpDelete]
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateReservationService();
 
+            if (!service.DeleteReservation(id))
+                return InternalServerError();
+
+            return Ok();
+        }
         // Helper
         private ReservationService CreateReservationService()
         {

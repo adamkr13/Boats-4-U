@@ -49,11 +49,9 @@ namespace Boats_4_U.Data
         {
             get
             {
-                using (var ctx = new ApplicationDbContext())
-                {
-                    string boatName = Enum.GetName(typeof(BoatType), ctx);
-                    return boatName;
-                }   
+                int value = (int)TypeOfBoat;
+                string boatName = Enum.GetName(typeof(BoatType), value);
+                return boatName;
             }
         }
 

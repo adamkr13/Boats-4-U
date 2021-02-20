@@ -189,8 +189,39 @@ namespace Boats_4_U.Services
         //    }
         //}
         // PUT - Update Reservation
+        public bool UpdateReservation(ReservationEdit model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Reservations
+                    .Single(e => e.ReservationId == model.ReservationId && e.User == _userId);
 
+                entity.NumberOfPassengers = model.NumberOfPassengers;
+                entity.DateReservedFor = model.DateReservedFor;
+                entity.ReservationDuration = model.ReservationDuration;
+                entity.ReservationDetails = model.ReservationDetails;
+                entity.DateReservationMade = DateTimeOffset.Now;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
         // DELETE - Delete Reservation
+        public bool DeleteReservation(int reservationId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .Reservations
+                    .Single(e => e.ReservationId == reservationId && e.User == _userId);
+
+                ctx.Reservations.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
 
     }
 }
