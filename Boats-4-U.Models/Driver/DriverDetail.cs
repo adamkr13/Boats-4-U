@@ -1,41 +1,22 @@
-﻿using System;
+﻿using Boats_4_U.Data;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boats_4_U.Data
+namespace Boats_4_U.Models.Driver
 {
-    public class Driver
+    public class DriverDetail
     {
-        [Key]
-        public int DriverId { get; set; }
-
-        [Required]
+        public int DriverId { get; set; }        
         public string DriverFirstName { get; set; }
-
-        [Required]
         public string DriverLastName { get; set; }
-
-        [Required]
         public decimal HourlyRate { get; set; }
-
-        [Required]
         public string Location { get; set; }
-
-        [Required]
         public BoatType TypeOfBoat { get; set; }
-
-        [Required]
-        public List<string> DaysAvailable { get; set; } = new List<string>();
-
-        [Required]
-        public int MaximumOccupants { get; set; }
-
-        [Required]
-        public Guid User { get; set; }
-
+        public List<string> DaysAvailable { get; set; }
+        public int MaximumOccupants { get; set; }                
         public string DriverFullName
         {
             get
@@ -44,7 +25,6 @@ namespace Boats_4_U.Data
                 return fullName;
             }
         }
-
         public string BoatName
         {
             get
@@ -54,16 +34,5 @@ namespace Boats_4_U.Data
                 return boatName;
             }
         }
-
-        public virtual List<Reservation> ReservationDriver { get; set; } = new List<Reservation>();
-    }
-
-    public enum BoatType
-    {
-        FishingBoat = 1,
-        HouseBoat,
-        PontoonBoat,
-        SailBoat,
-        SpeedBoat
     }
 }

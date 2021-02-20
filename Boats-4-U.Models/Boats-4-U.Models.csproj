@@ -84,11 +84,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Driver\DriverCreate.cs" />
+    <Compile Include="Driver\DriverDetail.cs" />
+    <Compile Include="Driver\DriverEdit.cs" />
+    <Compile Include="Driver\DriverListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Boats-4-U.Data\Boats-4-U.Data.csproj">
+      <Project>{d6f5fa0e-4b1d-47a6-9632-8cb1e4f9142b}</Project>
+      <Name>Boats-4-U.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
