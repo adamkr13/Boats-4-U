@@ -27,6 +27,24 @@ namespace Boats_4_U.Data
         [Required]
         public Guid User { get; set; }
 
+        public string RenterFullName
+        {
+            get
+            {
+                var fullName = $"{RenterFirstName} {RenterLastName}";
+                return fullName;
+            }
+        }
+
+        public string Last4Digits
+        {
+            get
+            {
+                var creditCardNumber = $"{CreditCardNumber}";
+                return creditCardNumber.Substring(creditCardNumber.Length-4,4);
+            }
+        }
+
         public virtual List<Reservation> ReservationRenter { get; set; } = new List<Reservation>();
     }
 }
