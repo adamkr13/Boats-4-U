@@ -11,19 +11,14 @@ namespace Boats_4_U.Data
     {
         [Key]
         public int RenterId { get; set; }
-
         [Required]
         public string RenterFirstName { get; set; }
-
         [Required]
         public string RenterLastName { get; set; }
-
         [Required]
         public int RenterAge { get; set; }
-
         [Required]
         public long CreditCardNumber { get; set; }
-
         [Required]
         public Guid User { get; set; }
 
@@ -41,7 +36,8 @@ namespace Boats_4_U.Data
             get
             {
                 var creditCardNumber = $"{CreditCardNumber}";
-                return creditCardNumber.Substring(creditCardNumber.Length-4,4);
+
+                return creditCardNumber.Substring(creditCardNumber.Length - 4, 4)
             }
         }
 
