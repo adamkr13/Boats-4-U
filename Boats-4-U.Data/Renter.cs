@@ -37,7 +37,7 @@ namespace Boats_4_U.Data
             {
                 var creditCardNumber = $"{CreditCardNumber}";
 
-                return creditCardNumber.Substring(creditCardNumber.Length - 4, 4)
+                return creditCardNumber.Substring(creditCardNumber.Length - 4, 4);
             }
         }
 
