@@ -91,6 +91,7 @@
     <Compile Include="Driver\DriverListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenterCreate.cs" />
+    <Compile Include="RenterDetail.cs" />
     <Compile Include="RenterListItem.cs" />
     <Compile Include="RenterUpdate.cs" />
     <Compile Include="ReservationModels\ReservationEdit.cs" />
