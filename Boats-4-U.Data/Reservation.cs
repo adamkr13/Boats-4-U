@@ -22,7 +22,7 @@ namespace Boats_4_U.Data
         public virtual Renter Renter { get; set; }
 
         [Required]
-        public int NumberofPassengers { get; set; }
+        public int NumberOfPassengers { get; set; }
 
         [Required]
         public DateTimeOffset DateReservedFor { get; set; }
@@ -46,7 +46,30 @@ namespace Boats_4_U.Data
                 return estimatedTotalCost;
             }
         }
- 
+
+
+        public string DisplayDateReservedFor
+        {
+            get
+            {
+                var date = DateReservedFor;
+                string fmt = "D";
+                var displayDate = date.Date.ToString(fmt);
+                return displayDate;
+            }
+        }
+
+        public string DisplayDateReservationMade
+        {
+            get
+            {
+                var date = DateReservedFor;
+                string fmt = "D";
+                var displayDate = date.Date.ToString(fmt);
+                return displayDate;
+            }
+        }
+
         public DateTimeOffset? ModifiedDate { get; set; }
     }
 }
