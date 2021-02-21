@@ -2,6 +2,7 @@
 using Boats_4_U.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,11 +14,11 @@ namespace Boats_4_U.Services
         private readonly Guid _userId;
 
         public RenterService(Guid userId)
-        {
+        {  
             _userId = userId;
         }
 
-        //POST
+        // POST
         public bool CreateRenter(RenterCreate model)
         {
             var entity =
@@ -25,7 +26,6 @@ namespace Boats_4_U.Services
                 new Renter()
                 {
                     User = _userId,
-                    //RenterId = model.RenterId, Create doesnt have renter Id
                     RenterFirstName = model.RenterFirstName,
                     RenterLastName = model.RenterLastName,
                     RenterAge = model.RenterAge,
@@ -39,7 +39,7 @@ namespace Boats_4_U.Services
             }
         }
 
-        //Get
+        // GET
         public IEnumerable<RenterListItem> GetRenters()
         {
             using (var ctx = new ApplicationDbContext())
@@ -51,13 +51,13 @@ namespace Boats_4_U.Services
                         .Select(e => new RenterListItem
                         {
                             RenterId = e.RenterId,
-                            RenterFullName = e.RenterFullName,
                             RenterAge = e.RenterAge,
+                            RenterFirstName = e.RenterFirstName,
+                            RenterLastName = e.RenterLastName,
                             CreditCardNumber = e.CreditCardNumber
-                            //Last4Digits = e.Renter.Last4Digits
-
                         }
                         );
+
                 return query.ToArray();
             }
         }

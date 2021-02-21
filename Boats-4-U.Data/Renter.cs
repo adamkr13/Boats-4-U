@@ -18,7 +18,7 @@ namespace Boats_4_U.Data
         [Required]
         public int RenterAge { get; set; }
         [Required]
-        public long CreditCardNumber { get; set; }
+        public string CreditCardNumber { get; set; }
         [Required]
         public Guid User { get; set; }
 

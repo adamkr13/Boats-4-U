@@ -21,7 +21,7 @@ namespace Boats_4_U.Models
         [Required]
         [MinLength(16, ErrorMessage = "Please Enter a Valid 16 Digit Credit Card Number")]
         [MaxLength(16, ErrorMessage = "Please Enter a Valid 16 Digit Credit Card Number")]
-        public long CreditCardNumber { get; set; }
+        public string CreditCardNumber { get; set; }
 
     }
 }

@@ -12,6 +12,6 @@ namespace Boats_4_U.Models
         public string RenterFirstName { get; set; }
         public string RenterLastName { get; set; }
         public int RenterAge { get; set; }
-        public long CreditCardNumber { get; set; }
+        public string CreditCardNumber { get; set; }
     }
 }
