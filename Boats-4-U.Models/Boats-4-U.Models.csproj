@@ -90,10 +90,10 @@
     <Compile Include="Driver\DriverEdit.cs" />
     <Compile Include="Driver\DriverListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RenterCreate.cs" />
-    <Compile Include="RenterDetail.cs" />
-    <Compile Include="RenterListItem.cs" />
-    <Compile Include="RenterUpdate.cs" />
+    <Compile Include="Renter\RenterCreate.cs" />
+    <Compile Include="Renter\RenterDetail.cs" />
+    <Compile Include="Renter\RenterListItem.cs" />
+    <Compile Include="Renter\RenterUpdate.cs" />
     <Compile Include="ReservationModels\ReservationEdit.cs" />
     <Compile Include="ReservationModels\ReservationCreate.cs" />
     <Compile Include="ReservationModels\ReservationDetail.cs" />
@@ -109,5 +109,6 @@
       <Name>Boats-4-U.Data</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
