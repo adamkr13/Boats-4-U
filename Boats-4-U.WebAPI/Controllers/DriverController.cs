@@ -33,6 +33,13 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok(drivers);
         }
 
+        public IHttpActionResult GetByMaxOccupants(int occupancy)
+        {
+            DriverService driverService = CreateDriverService();
+            var drivers = driverService.GetDriversByOccupancy(occupancy);
+            return Ok(drivers);
+        }
+
         public IHttpActionResult Post(DriverCreate driver)
         {
             if (!ModelState.IsValid)
