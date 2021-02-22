@@ -1,4 +1,5 @@
-﻿using Boats_4_U.Models.Driver;
+﻿using Boats_4_U.Data;
+using Boats_4_U.Models.Driver;
 using Boats_4_U.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -37,6 +38,13 @@ namespace Boats_4_U.WebAPI.Controllers
         {
             DriverService driverService = CreateDriverService();
             var drivers = driverService.GetDriversByOccupancy(occupancy);
+            return Ok(drivers);
+        }
+
+        public IHttpActionResult GetByBoatType(BoatType boatType)
+        {
+            DriverService driverService = CreateDriverService();
+            var drivers = driverService.GetDriversByBoatType(boatType);
             return Ok(drivers);
         }
 

@@ -81,6 +81,29 @@ namespace Boats_4_U.Services
             }
         }
 
+        public IEnumerable<DriverListItem> GetDriversByBoatType(BoatType boatType)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Drivers
+                        .Where(e => e.TypeOfBoat == boatType)
+                        .Select(e => new DriverListItem
+                        {
+                            DriverId = e.DriverId,
+                            DriverFirstName = e.DriverFirstName,
+                            DriverLastName = e.DriverLastName,
+                            HourlyRate = e.HourlyRate,
+                            Location = e.Location,
+                            TypeOfBoat = e.TypeOfBoat,
+                            //DaysAvailable = e.DaysAvailable,
+                            MaximumOccupants = e.MaximumOccupants
+                        });
+                return query.ToArray();
+            }
+        }
+
         public IEnumerable<DriverListItem> GetDriversByOccupancy(int occupancy)
         {
             using (var ctx = new ApplicationDbContext())
