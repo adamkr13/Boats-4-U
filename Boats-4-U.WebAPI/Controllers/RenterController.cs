@@ -13,13 +13,6 @@ namespace Boats_4_U.WebAPI.Controllers
     [Authorize]
     public class RenterController : ApiController
     {
-        public IHttpActionResult Get()
-        {
-            RenterService renterService = CreateRenterService();
-            var renters = renterService.GetRenters();
-            return Ok(renters);
-        }
-        
         public IHttpActionResult Post(RenterCreate renter)
         {
             if (!ModelState.IsValid)
@@ -32,6 +25,22 @@ namespace Boats_4_U.WebAPI.Controllers
 
             return Ok();
         }
+
+        public IHttpActionResult Get()
+        {
+            RenterService renterService = CreateRenterService();
+            var renters = renterService.GetRenters();
+            return Ok(renters);
+        }
+
+        public IHttpActionResult Get(int id)
+        {
+            RenterService renterService = CreateRenterService();
+            var renter = renterService.GetRenterById(id);
+            return Ok(renter);
+        }
+
+        
 
         public IHttpActionResult Delete(int id)
         {
