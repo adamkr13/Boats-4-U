@@ -62,6 +62,26 @@ namespace Boats_4_U.Services
             }
         }
 
+        //Get by ID
+        public RenterDetail GetRenterById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx
+                    .Renters
+                    .Single(e => e.RenterId == id);
+                return
+                    new RenterDetail
+                    {
+                        RenterId = entity.RenterId,
+                        RenterFirstName = entity.RenterFirstName,
+                        RenterLastName = entity.RenterLastName,
+                        RenterAge = entity.RenterAge,
+                        
+                    };
+            }
+        }
+
         //Update
         public bool UpdateRenter(RenterUpdate model)
         {
