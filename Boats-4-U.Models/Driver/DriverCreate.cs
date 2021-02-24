@@ -12,16 +12,22 @@ namespace Boats_4_U.Models.Driver
     {
         [Required]
         public string DriverFirstName { get; set; }
+
         [Required]
         public string DriverLastName { get; set; }
+
         [Required]
         public decimal HourlyRate { get; set; }
+
         [Required]
         public string Location { get; set; }
+
         [Required]
         public BoatType TypeOfBoat { get; set; }
+
         [Required]
-        public List<string> DaysAvailable { get; set; }
+        public DaysOfWeek DaysAvailable { get; set; }
+
         [Required]
         public int MaximumOccupants { get; set; }       
     }

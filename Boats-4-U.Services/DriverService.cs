@@ -1,5 +1,6 @@
 ﻿using Boats_4_U.Data;
 using Boats_4_U.Models.Driver;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +53,7 @@ namespace Boats_4_U.Services
                             HourlyRate = e.HourlyRate,
                             Location = e.Location,
                             TypeOfBoat = e.TypeOfBoat,
-                            //DaysAvailable = e.DaysAvailable,
+                            DaysAvailable = e.DaysAvailable,
                             MaximumOccupants = e.MaximumOccupants
                         });
                 return query.ToArray();
@@ -143,7 +144,7 @@ namespace Boats_4_U.Services
                         HourlyRate = entity.HourlyRate,
                         Location = entity.Location,
                         TypeOfBoat = entity.TypeOfBoat,
-                        DaysAvailable = entity.DaysAvailable,
+                        //DaysAvailable = entity.DaysAvailable,
                         MaximumOccupants = entity.MaximumOccupants                        
                     };
             }
@@ -162,7 +163,7 @@ namespace Boats_4_U.Services
                 entity.HourlyRate = model.HourlyRate;
                 entity.Location = model.Location;
                 entity.TypeOfBoat = model.TypeOfBoat;
-                entity.DaysAvailable = model.DaysAvailable;
+                //entity.DaysAvailable = model.DaysAvailable;
                 entity.MaximumOccupants = model.MaximumOccupants;
 
                 return ctx.SaveChanges() == 1;

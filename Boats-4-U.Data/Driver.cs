@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace Boats_4_U.Data
         public BoatType TypeOfBoat { get; set; }
 
         [Required]
-        public List<string> DaysAvailable { get; set; } = new List<string>();
+        public DaysOfWeek DaysAvailable { get; set; }
 
         [Required]
         public int MaximumOccupants { get; set; }
@@ -66,4 +67,18 @@ namespace Boats_4_U.Data
         SailBoat,
         SpeedBoat
     }
+
+    [Flags]
+    [JsonConverter(typeof(FlagConverter))]
+    public enum DaysOfWeek
+    {
+        Sunday = 1,
+        Monday = 2,
+        Tuesday = 4,
+        Wednesday = 8,
+        Thursday = 16,
+        Friday = 32,
+        Saturday = 64,
+    }
+    // MyMethod(DayOfWeek.Sunday|DayOfWeek.Tuesday|DayOfWeek.Friday)
 }
