@@ -16,7 +16,7 @@ namespace Boats_4_U.Models
         public string RenterLastName { get; set; }
 
         [Required]
-        public int RenterAge { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [Required]
         [MinLength(16, ErrorMessage = "Please Enter a Valid 16 Digit Credit Card Number")]

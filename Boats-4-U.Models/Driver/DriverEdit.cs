@@ -15,7 +15,7 @@ namespace Boats_4_U.Models.Driver
         public decimal HourlyRate { get; set; }
         public string Location { get; set; }
         public BoatType TypeOfBoat { get; set; }
-        public List<string> DaysAvailable { get; set; }
+        public DaysOfWeek DaysAvailable { get; set; }
         public int MaximumOccupants { get; set; }
     }
 }

@@ -33,23 +33,12 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok(renters);
         }
 
+        [Route("api/Renter/{id}")]
         public IHttpActionResult Get(int id)
         {
             RenterService renterService = CreateRenterService();
             var renter = renterService.GetRenterById(id);
             return Ok(renter);
-        }
-
-        
-
-        public IHttpActionResult Delete(int id)
-        {
-            var service = CreateRenterService();
-
-            if (!service.DeleteRenter(id))
-                return InternalServerError();
-
-            return Ok();
         }
 
         public IHttpActionResult Put(RenterUpdate renter)
@@ -60,6 +49,17 @@ namespace Boats_4_U.WebAPI.Controllers
             var service = CreateRenterService();
 
             if (!service.UpdateRenter(renter))
+                return InternalServerError();
+
+            return Ok();
+        }
+
+        [Route("api/Renter/{id}")]
+        public IHttpActionResult Delete(int id)
+        {
+            var service = CreateRenterService();
+
+            if (!service.DeleteRenter(id))
                 return InternalServerError();
 
             return Ok();

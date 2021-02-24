@@ -16,6 +16,12 @@ namespace Boats_4_U.Models
         public int RenterId { get; set; }
 
         [JsonProperty]
+        public Guid ApplicationUser { get; set; }
+
+        public string RenterFirstName { get; set; }
+        public string RenterLastName { get; set; }
+
+        [JsonProperty]
         public string RenterFullName
         {
             get
@@ -27,26 +33,19 @@ namespace Boats_4_U.Models
             }
         }
 
-        [JsonProperty]
-        public int RenterAge { get; set; }
+        public DateTime DateOfBirth { get; set; }
 
         [JsonProperty]
-        public string Last4Digits
+        public int RenterAge
         {
             get
             {
-                var creditCardNumber = $"{CreditCardNumber}";
-
-                return creditCardNumber.Substring(creditCardNumber.Length - 4, 4);
+                var today = DateTime.Today;
+                var age = today.Year - DateOfBirth.Year;
+                if (DateOfBirth.Date > today.AddYears(-age))
+                    age--;
+                return age;
             }
         }
-
-        public string RenterFirstName { get; set; }
-
-        public string RenterLastName { get; set; }
-
-        public string CreditCardNumber { get; set; }
-
-        
     }
 }

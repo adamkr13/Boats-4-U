@@ -11,7 +11,7 @@ namespace Boats_4_U.Models
         public int RenterId { get; set; }
         public string RenterFirstName { get; set; }
         public string RenterLastName { get; set; }
-        public int RenterAge { get; set; }
+        public DateTime DateOfBirth { get; set; }
         public string CreditCardNumber { get; set; }
     }
 }

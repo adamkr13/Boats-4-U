@@ -25,10 +25,10 @@ namespace Boats_4_U.Services
 
                 new Renter()
                 {
-                    User = _userId,
+                    ApplicationUser = _userId,
                     RenterFirstName = model.RenterFirstName,
                     RenterLastName = model.RenterLastName,
-                    RenterAge = model.RenterAge,
+                    DateOfBirth = model.DateOfBirth,
                     CreditCardNumber = model.CreditCardNumber
                 };
 
@@ -47,22 +47,20 @@ namespace Boats_4_U.Services
                 var query =
                     ctx
                         .Renters
-                        .Where(e => e.User == _userId)
                         .Select(e => new RenterListItem
                         {
                             RenterId = e.RenterId,
-                            RenterAge = e.RenterAge,
+                            ApplicationUser = e.ApplicationUser,
                             RenterFirstName = e.RenterFirstName,
                             RenterLastName = e.RenterLastName,
-                            CreditCardNumber = e.CreditCardNumber
+                            DateOfBirth = e.DateOfBirth
                         }
                         );
-
                 return query.ToArray();
             }
         }
 
-        //Get by ID
+        // GET by Id
         public RenterDetail GetRenterById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -74,40 +72,39 @@ namespace Boats_4_U.Services
                     new RenterDetail
                     {
                         RenterId = entity.RenterId,
-                        RenterFirstName = entity.RenterFirstName,
-                        RenterLastName = entity.RenterLastName,
-                        RenterAge = entity.RenterAge,
-                        
+                        ApplicationUser = entity.ApplicationUser,
+                        RenterFullName = entity.RenterFullName,
+                        RenterAge = entity.RenterAge
                     };
             }
         }
 
-        //Update
+        // PUT
         public bool UpdateRenter(RenterUpdate model)
         {
             using(var ctx = new ApplicationDbContext())
             {
                 var entity = ctx
                     .Renters
-                    .Single(e => e.RenterId == model.RenterId && e.User == _userId);
+                    .Single(e => e.RenterId == model.RenterId && e.ApplicationUser == _userId);
 
                 entity.RenterFirstName = model.RenterFirstName;
                 entity.RenterLastName = model.RenterLastName;
-                entity.RenterAge = model.RenterAge;
+                entity.DateOfBirth = model.DateOfBirth;
                 entity.CreditCardNumber = model.CreditCardNumber;
 
                 return ctx.SaveChanges() == 1;
             }
         }
 
-        //Delete
+        // DELETE
         public bool DeleteRenter(int renterId)
         {
             using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx
                     .Renters
-                    .Single(e => e.RenterId == renterId && e.User == _userId);
+                    .Single(e => e.RenterId == renterId && e.ApplicationUser == _userId);
 
                 ctx.Renters.Remove(entity);
 
