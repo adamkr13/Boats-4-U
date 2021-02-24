@@ -54,6 +54,7 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok();
         }
 
+        [Route("api/Renter/{id}")]
         public IHttpActionResult Delete(int id)
         {
             var service = CreateRenterService();

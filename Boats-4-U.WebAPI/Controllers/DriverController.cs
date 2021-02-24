@@ -87,6 +87,7 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok();
         }
 
+        [Route("api/Driver/{id}")]
         public IHttpActionResult Delete(int id)
         {
             var service = CreateDriverService();
