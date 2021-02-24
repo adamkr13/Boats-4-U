@@ -94,6 +94,7 @@
     <Compile Include="Renter\RenterDetail.cs" />
     <Compile Include="Renter\RenterListItem.cs" />
     <Compile Include="Renter\RenterUpdate.cs" />
+    <Compile Include="ReservationModels\ReservationDetailTwo.cs" />
     <Compile Include="ReservationModels\ReservationEdit.cs" />
     <Compile Include="ReservationModels\ReservationCreate.cs" />
     <Compile Include="ReservationModels\ReservationDetail.cs" />

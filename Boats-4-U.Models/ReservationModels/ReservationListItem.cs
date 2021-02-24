@@ -3,33 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Boats_4_U.Models
 {
+    [JsonObject(MemberSerialization.OptIn)]
     public class ReservationListItem
     {
+        [JsonProperty]
         public int ReservationId { get; set; }
 
+        [JsonProperty]
         public Guid User { get; set; }
 
-        public string RenterFullName { get; set; }
+        [JsonProperty]
+        public string DisplayDateReservedFor
+        {
+            get
+            {
+                var date = DateReservedFor;
+                string fmt = "D";
+                var displayDate = date.Date.ToString(fmt);
+                return displayDate;
+            }
+        }
 
-        public string DriverFullName { get; set; }
+        [JsonProperty]
+        public string DisplayDateReservationMade
+        {
+            get
+            {
+                var date = DateReservationMade;
+                string fmt = "D";
+                var displayDate = date.Date.ToString(fmt);
+                return displayDate;
+            }
+        }
 
-        public string DisplayDateReservedFor { get; set; }
+        public DateTimeOffset DateReservedFor { get; set; }
 
-        public decimal ReservationDuration { get; set; }
-
-        public string BoatName { get; set; }
-
-        public int NumberOfPassengers { get; set; }
-
-        public string ReservationDetails { get; set; }
-
-        public string Last4Digits { get; set; }
-
-        public decimal EstimatedTotalCost { get; set; }
-
-        public string DisplayDateReservationMade { get; set; }
+        public DateTimeOffset DateReservationMade { get; set; }
     }
 }
