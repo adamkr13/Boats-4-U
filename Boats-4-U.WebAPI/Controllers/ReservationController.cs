@@ -83,6 +83,7 @@ namespace Boats_4_U.WebAPI.Controllers
 
             return Ok();
         }
+        [Route("api/Reservation/{id}")]
         // DELETE
         [HttpDelete]
         public IHttpActionResult Delete(int id)
