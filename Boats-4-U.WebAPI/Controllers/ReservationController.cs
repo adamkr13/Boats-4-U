@@ -61,13 +61,13 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok(reservation);
         }
         // GET Reservation by Date
-        //[Route("api/Reservation/GetByDate/{date}")]
-        //public IHttpActionResult GetByDate(DateTimeOffset date)
-        //{
-        //    ReservationService reservationService = CreateReservationService();
-        //    var reservation = reservationService.GetReservationByDate(date);
-        //    return Ok(reservation);
-        //}
+        [Route("api/Reservation/GetByDate/{date}")]
+        public IHttpActionResult GetByDate(DateTimeOffset date)
+        {
+            ReservationService reservationService = CreateReservationService();
+            var reservation = reservationService.GetReservationByDate(date);
+            return Ok(reservation);
+        }
 
         // PUT
         [HttpPut]

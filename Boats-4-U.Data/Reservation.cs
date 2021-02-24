@@ -43,7 +43,7 @@ namespace Boats_4_U.Data
             get
             {
                 var estimatedTotalCost = Driver.HourlyRate * ReservationDuration;
-                return estimatedTotalCost;
+                return estimatedTotalCost = (decimal)System.Math.Round(estimatedTotalCost,2);
             }
         }
 
@@ -63,7 +63,7 @@ namespace Boats_4_U.Data
         {
             get
             {
-                var date = DateReservedFor;
+                var date = DateReservationMade;
                 string fmt = "D";
                 var displayDate = date.Date.ToString(fmt);
                 return displayDate;

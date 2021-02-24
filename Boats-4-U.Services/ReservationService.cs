@@ -41,7 +41,7 @@ namespace Boats_4_U.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        // GET - View all Reservations (for User) - this will only work for Renters ATM
+        // GET - View all Reservations (for all Users)
         public IEnumerable<ReservationListItem> GetReservations()
         {
             using (var ctx = new ApplicationDbContext())
@@ -49,23 +49,15 @@ namespace Boats_4_U.Services
                 var query =
                     ctx
                     .Reservations
-                    .Where(e => e.User == _userId)
+                    //.Where(e => e.User == _userId)
                     .Select(
                         e =>
                             new ReservationListItem
                             {
                                 ReservationId = e.ReservationId,
                                 User = e.User,
-                                RenterFullName = e.Renter.RenterFullName,
-                                DriverFullName = e.Driver.DriverFullName,
-                                DisplayDateReservedFor = e.DisplayDateReservedFor,
-                                ReservationDuration = e.ReservationDuration,
-                                BoatName = e.Driver.BoatName,
-                                NumberOfPassengers = e.NumberOfPassengers,
-                                ReservationDetails = e.ReservationDetails,
-                                Last4Digits = e.Renter.Last4Digits,
-                                EstimatedTotalCost = e.EstimatedTotalCost,
-                                DisplayDateReservationMade = e.DisplayDateReservationMade
+                                DateReservedFor = e.DateReservedFor,
+                                DateReservationMade = e.DateReservationMade
                             }
                         );
                 return query.ToArray();
@@ -99,7 +91,7 @@ namespace Boats_4_U.Services
             }
         }
         // GET - View Reservation(s) by Driver - This theoretically will work for Drivers or Renters wanting to view Reservations by a particular Driver - would like to only allow Driver role to have access to this service
-        public IEnumerable<ReservationDetail> GetReservationByDriverId(int id)
+        public IEnumerable<ReservationDetailTwo> GetReservationByDriverId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -109,27 +101,29 @@ namespace Boats_4_U.Services
                         .Where(e => e.DriverId == id)
                         .Select(
                             e =>
-                                new ReservationDetail
+                                new ReservationDetailTwo
                                 {
                                     ReservationId = e.ReservationId,
                                     User = e.User,
-                                    RenterFullName = e.Renter.RenterFullName,
-                                    DriverFullName = e.Driver.DriverFullName,
-                                    DisplayDateReservedFor = e.DisplayDateReservedFor,
+                                    RenterFirstName = e.Renter.RenterFirstName,
+                                    RenterLastName = e.Renter.RenterLastName,
+                                    DriverFirstName = e.Driver.DriverFirstName,
+                                    DriverLastName = e.Driver.DriverLastName,
+                                    DateReservedFor = e.DateReservedFor,
                                     ReservationDuration = e.ReservationDuration,
-                                    BoatName = e.Driver.BoatName,
+                                    TypeOfBoat = e.Driver.TypeOfBoat,
                                     NumberOfPassengers = e.NumberOfPassengers,
                                     ReservationDetails = e.ReservationDetails,
-                                    Last4Digits = e.Renter.Last4Digits,
-                                    EstimatedTotalCost = e.EstimatedTotalCost,
-                                    DisplayDateReservationMade = e.DisplayDateReservationMade
+                                    CreditCardNumber = e.Renter.CreditCardNumber,
+                                    HourlyRate = e.Driver.HourlyRate,
+                                    DateReservationMade = e.DateReservationMade
                                 }
                            );
                     return query.ToArray();
             }
         }
         // GET - View Reservation(s) by Renter - This theoretically is only accessible by unique Renters - Renters will only be able to see Reservations associated with their unique User Id
-        public IEnumerable<ReservationDetail> GetReservationByRenterId(int id)
+        public IEnumerable<ReservationDetailTwo> GetReservationByRenterId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -139,55 +133,60 @@ namespace Boats_4_U.Services
                     .Where(e => e.RenterId == id && e.User == _userId)
                     .Select(
                         e =>
-                            new ReservationDetail
+                            new ReservationDetailTwo
                             {
                                 ReservationId = e.ReservationId,
                                 User = e.User,
-                                RenterFullName = e.Renter.RenterFullName,
-                                DriverFullName = e.Driver.DriverFullName,
-                                DisplayDateReservedFor = e.DisplayDateReservedFor,
+                                RenterFirstName = e.Renter.RenterFirstName,
+                                RenterLastName = e.Renter.RenterLastName,
+                                DriverFirstName = e.Driver.DriverFirstName,
+                                DriverLastName = e.Driver.DriverLastName,
+                                DateReservedFor = e.DateReservedFor,
                                 ReservationDuration = e.ReservationDuration,
-                                BoatName = e.Driver.BoatName,
+                                TypeOfBoat = e.Driver.TypeOfBoat,
                                 NumberOfPassengers = e.NumberOfPassengers,
                                 ReservationDetails = e.ReservationDetails,
-                                Last4Digits = e.Renter.Last4Digits,
-                                EstimatedTotalCost = e.EstimatedTotalCost,
-                                DisplayDateReservationMade = e.DisplayDateReservationMade
+                                CreditCardNumber = e.Renter.CreditCardNumber,
+                                HourlyRate = e.Driver.HourlyRate,
+                                DateReservationMade = e.DateReservationMade
+
                             }
                        );
                 return query.ToArray();
             }
         }
         // GET - View Reservation(s) by Date
-        //public IEnumerable<ReservationDetail> GetReservationByDate(DateTimeOffset date)
-        //{
-        //    using (var ctx = new ApplicationDbContext())
-        //    {
-        //        var query =
-        //            ctx
-        //            .Reservations
-        //            .Where(e => e.DateReservedFor == date && e.User == _userId)
-        //            .Select(
-        //                e =>
-        //                    new ReservationDetail
-        //                    {
-        //                        ReservationId = e.ReservationId,
-        //                        User = e.User,
-        //                        RenterFullName = e.Renter.RenterFullName,
-        //                        DriverFullName = e.Driver.DriverFullName,
-        //                        DisplayDateReservedFor = e.DisplayDateReservedFor,
-        //                        ReservationDuration = e.ReservationDuration,
-        //                        BoatName = e.Driver.BoatName,
-        //                        NumberOfPassengers = e.NumberOfPassengers,
-        //                        ReservationDetails = e.ReservationDetails,
-        //                        Last4Digits = e.Renter.Last4Digits,
-        //                        EstimatedTotalCost = e.EstimatedTotalCost,
-        //                        DisplayDateReservationMade = e.DisplayDateReservationMade
-        //                    }
-        //               );
-        //        return query.ToArray();
-        //    }
-        //}
+        public IEnumerable<ReservationDetailTwo> GetReservationByDate(DateTimeOffset date)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                    .Reservations
+                    .Where(e => e.DateReservedFor == date)
+                    .Select(
+                        e =>
+                            new ReservationDetailTwo
+                            {
+                                ReservationId = e.ReservationId,
+                                User = e.User,
+                                RenterFirstName = e.Renter.RenterFirstName,
+                                RenterLastName = e.Renter.RenterLastName,
+                                DriverFirstName = e.Driver.DriverFirstName,
+                                DriverLastName = e.Driver.DriverLastName,
+                                DateReservedFor = e.DateReservedFor,
+                                ReservationDuration = e.ReservationDuration,
+                                TypeOfBoat = e.Driver.TypeOfBoat,
+                                NumberOfPassengers = e.NumberOfPassengers,
+                                ReservationDetails = e.ReservationDetails,
+                                CreditCardNumber = e.Renter.CreditCardNumber,
+                                HourlyRate = e.Driver.HourlyRate,
+                                DateReservationMade = e.DateReservationMade
+                            }
+                       );
+                return query.ToArray();
+            }
+        }
         // PUT - Update Reservation
         public bool UpdateReservation(ReservationEdit model)
         {

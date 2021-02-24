@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Boats_4_U.Data;
+using Newtonsoft.Json;
 
 namespace Boats_4_U.Models.ReservationModels
 {
