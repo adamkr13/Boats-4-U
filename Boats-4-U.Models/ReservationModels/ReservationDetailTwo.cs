@@ -15,7 +15,7 @@ namespace Boats_4_U.Models.ReservationModels
         public int ReservationId { get; set; }
 
         [JsonProperty]
-        public Guid User { get; set; }
+        public Guid ApplicationUser { get; set; }
 
         public string RenterFirstName { get; set; }
         public string RenterLastName { get; set; }

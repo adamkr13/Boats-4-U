@@ -25,7 +25,7 @@ namespace Boats_4_U.Services
 
                 new Reservation()
                 {
-                    User = _userId,
+                    ApplicationUser = _userId,
                     DriverId = model.DriverId,
                     RenterId = model.RenterId,
                     NumberOfPassengers = model.NumberOfPassengers,
@@ -49,13 +49,12 @@ namespace Boats_4_U.Services
                 var query =
                     ctx
                     .Reservations
-                    //.Where(e => e.User == _userId)
                     .Select(
                         e =>
                             new ReservationListItem
                             {
                                 ReservationId = e.ReservationId,
-                                User = e.User,
+                                ApplicationUser = e.ApplicationUser,
                                 DateReservedFor = e.DateReservedFor,
                                 DateReservationMade = e.DateReservationMade
                             }
@@ -76,7 +75,7 @@ namespace Boats_4_U.Services
                     new ReservationDetail
                     {
                         ReservationId = entity.ReservationId,
-                        User = entity.User,
+                        ApplicationUser = entity.ApplicationUser,
                         RenterFullName = entity.Renter.RenterFullName,
                         DriverFullName = entity.Driver.DriverFullName,
                         DisplayDateReservedFor = entity.DisplayDateReservedFor,
@@ -104,7 +103,7 @@ namespace Boats_4_U.Services
                                 new ReservationDetailTwo
                                 {
                                     ReservationId = e.ReservationId,
-                                    User = e.User,
+                                    ApplicationUser = e.ApplicationUser,
                                     RenterFirstName = e.Renter.RenterFirstName,
                                     RenterLastName = e.Renter.RenterLastName,
                                     DriverFirstName = e.Driver.DriverFirstName,
@@ -130,13 +129,13 @@ namespace Boats_4_U.Services
                 var query =
                     ctx
                     .Reservations
-                    .Where(e => e.RenterId == id && e.User == _userId)
+                    .Where(e => e.RenterId == id && e.ApplicationUser == _userId)
                     .Select(
                         e =>
                             new ReservationDetailTwo
                             {
                                 ReservationId = e.ReservationId,
-                                User = e.User,
+                                ApplicationUser = e.ApplicationUser,
                                 RenterFirstName = e.Renter.RenterFirstName,
                                 RenterLastName = e.Renter.RenterLastName,
                                 DriverFirstName = e.Driver.DriverFirstName,
@@ -169,7 +168,7 @@ namespace Boats_4_U.Services
                             new ReservationDetailTwo
                             {
                                 ReservationId = e.ReservationId,
-                                User = e.User,
+                                ApplicationUser = e.ApplicationUser,
                                 RenterFirstName = e.Renter.RenterFirstName,
                                 RenterLastName = e.Renter.RenterLastName,
                                 DriverFirstName = e.Driver.DriverFirstName,
@@ -195,7 +194,7 @@ namespace Boats_4_U.Services
                 var entity =
                     ctx
                     .Reservations
-                    .Single(e => e.ReservationId == model.ReservationId && e.User == _userId);
+                    .Single(e => e.ReservationId == model.ReservationId && e.ApplicationUser == _userId);
 
                 entity.NumberOfPassengers = model.NumberOfPassengers;
                 entity.DateReservedFor = model.DateReservedFor;
@@ -214,7 +213,7 @@ namespace Boats_4_U.Services
                 var entity =
                     ctx
                     .Reservations
-                    .Single(e => e.ReservationId == reservationId && e.User == _userId);
+                    .Single(e => e.ReservationId == reservationId && e.ApplicationUser == _userId);
 
                 ctx.Reservations.Remove(entity);
 

@@ -35,7 +35,7 @@ namespace Boats_4_U.Data
         public int MaximumOccupants { get; set; }
 
         [Required]
-        public Guid User { get; set; }
+        public Guid ApplicationUser { get; set; }
 
         public string DriverFullName
         {

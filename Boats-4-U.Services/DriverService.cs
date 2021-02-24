@@ -23,7 +23,7 @@ namespace Boats_4_U.Services
             var entity =
                 new Driver()
                 {
-                    User = _userId,
+                    ApplicationUser = _userId,
                     DriverFirstName = model.DriverFirstName,
                     DriverLastName = model.DriverLastName,
                     HourlyRate = model.HourlyRate,
@@ -48,18 +48,15 @@ namespace Boats_4_U.Services
                         .Select(e => new DriverListItem
                         {
                             DriverId = e.DriverId,
+                            ApplicationUser = e.ApplicationUser,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
-                            HourlyRate = e.HourlyRate,
                             Location = e.Location,
-                            TypeOfBoat = e.TypeOfBoat,
-                            DaysAvailable = e.DaysAvailable,
-                            MaximumOccupants = e.MaximumOccupants
                         });
                 return query.ToArray();
             }
         }
-        public IEnumerable<DriverListItem> GetDriversByLocation(string location)
+        public IEnumerable<DriverDetailTwo> GetDriversByLocation(string location)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -67,22 +64,23 @@ namespace Boats_4_U.Services
                     ctx
                         .Drivers
                         .Where(e => e.Location == location)
-                        .Select(e => new DriverListItem
+                        .Select(e => new DriverDetailTwo
                         {
                             DriverId = e.DriverId,
+                            ApplicationUser = e.ApplicationUser,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
-                            HourlyRate = e.HourlyRate,
                             Location = e.Location,
+                            DaysAvailable = e.DaysAvailable,
                             TypeOfBoat = e.TypeOfBoat,
-                            //DaysAvailable = e.DaysAvailable,
-                            MaximumOccupants = e.MaximumOccupants
+                            MaximumOccupants = e.MaximumOccupants,
+                            HourlyRate = e.HourlyRate
                         });
                 return query.ToArray();
             }
         }
 
-        public IEnumerable<DriverListItem> GetDriversByBoatType(BoatType boatType)
+        public IEnumerable<DriverDetailTwo> GetDriversByBoatType(BoatType boatType)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -90,22 +88,23 @@ namespace Boats_4_U.Services
                     ctx
                         .Drivers
                         .Where(e => e.TypeOfBoat == boatType)
-                        .Select(e => new DriverListItem
+                        .Select(e => new DriverDetailTwo
                         {
                             DriverId = e.DriverId,
+                            ApplicationUser = e.ApplicationUser,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
-                            HourlyRate = e.HourlyRate,
                             Location = e.Location,
+                            DaysAvailable = e.DaysAvailable,
                             TypeOfBoat = e.TypeOfBoat,
-                            //DaysAvailable = e.DaysAvailable,
-                            MaximumOccupants = e.MaximumOccupants
+                            MaximumOccupants = e.MaximumOccupants,
+                            HourlyRate = e.HourlyRate
                         });
                 return query.ToArray();
             }
         }
 
-        public IEnumerable<DriverListItem> GetDriversByOccupancy(int occupancy)
+        public IEnumerable<DriverDetailTwo> GetDriversByOccupancy(int occupancy)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -113,16 +112,41 @@ namespace Boats_4_U.Services
                     ctx
                         .Drivers
                         .Where(e => e.MaximumOccupants >= occupancy)
-                        .Select(e => new DriverListItem
+                        .Select(e => new DriverDetailTwo
                         {
                             DriverId = e.DriverId,
+                            ApplicationUser = e.ApplicationUser,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
-                            HourlyRate = e.HourlyRate,
                             Location = e.Location,
+                            DaysAvailable = e.DaysAvailable,
                             TypeOfBoat = e.TypeOfBoat,
-                            //DaysAvailable = e.DaysAvailable,
-                            MaximumOccupants = e.MaximumOccupants
+                            MaximumOccupants = e.MaximumOccupants,
+                            HourlyRate = e.HourlyRate
+                        });
+                return query.ToArray();
+            }
+        }
+
+        public IEnumerable<DriverDetailTwo> GetDriversByDaysAvailable(DaysOfWeek daysOfWeek)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var query =
+                    ctx
+                        .Drivers
+                        .Where(e => e.DaysAvailable.HasFlag(daysOfWeek))
+                        .Select(e => new DriverDetailTwo
+                        {
+                            DriverId = e.DriverId,
+                            ApplicationUser = e.ApplicationUser,
+                            DriverFirstName = e.DriverFirstName,
+                            DriverLastName = e.DriverLastName,
+                            Location = e.Location,
+                            DaysAvailable = e.DaysAvailable,
+                            TypeOfBoat = e.TypeOfBoat,
+                            MaximumOccupants = e.MaximumOccupants,
+                            HourlyRate = e.HourlyRate
                         });
                 return query.ToArray();
             }
@@ -139,13 +163,13 @@ namespace Boats_4_U.Services
                     new DriverDetail
                     {
                         DriverId = entity.DriverId,
-                        DriverFirstName = entity.DriverFirstName,
-                        DriverLastName = entity.DriverLastName,
-                        HourlyRate = entity.HourlyRate,
+                        ApplicationUser = entity.ApplicationUser,
+                        DriverFullName = entity.DriverFullName,
                         Location = entity.Location,
-                        TypeOfBoat = entity.TypeOfBoat,
-                        //DaysAvailable = entity.DaysAvailable,
-                        MaximumOccupants = entity.MaximumOccupants                        
+                        DaysAvailable = entity.DaysAvailable,
+                        BoatName = entity.BoatName,
+                        MaximumOccupants = entity.MaximumOccupants,
+                        HourlyRate = entity.HourlyRate                    
                     };
             }
         }
@@ -156,14 +180,14 @@ namespace Boats_4_U.Services
             {
                 var entity = ctx
                     .Drivers
-                    .Single(e => e.DriverId == model.DriverId && e.User == _userId);
+                    .Single(e => e.DriverId == model.DriverId && e.ApplicationUser == _userId);
 
                 entity.DriverFirstName = model.DriverFirstName;
                 entity.DriverLastName = model.DriverLastName;
                 entity.HourlyRate = model.HourlyRate;
                 entity.Location = model.Location;
                 entity.TypeOfBoat = model.TypeOfBoat;
-                //entity.DaysAvailable = model.DaysAvailable;
+                entity.DaysAvailable = model.DaysAvailable;
                 entity.MaximumOccupants = model.MaximumOccupants;
 
                 return ctx.SaveChanges() == 1;
@@ -176,7 +200,7 @@ namespace Boats_4_U.Services
             {
                 var entity = ctx
                     .Drivers
-                    .Single(e => e.DriverId == driverId && e.User == _userId);
+                    .Single(e => e.DriverId == driverId && e.ApplicationUser == _userId);
 
                 ctx.Drivers.Remove(entity);
 

@@ -37,7 +37,7 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok(reservations);
         }
         // GET Reservation by Reservation Id
-        [Route("api/Reservation/GetByReservationId/{id}")]
+        [Route("api/Reservation/{id}")]
         public IHttpActionResult GetByReservationId(int id)
         {
             ReservationService reservationService = CreateReservationService();

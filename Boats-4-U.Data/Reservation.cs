@@ -34,7 +34,7 @@ namespace Boats_4_U.Data
         public DateTimeOffset DateReservationMade { get; set; }
 
         [Required]
-        public Guid User { get; set; }
+        public Guid ApplicationUser { get; set; }
 
         public string ReservationDetails { get; set; }
 
