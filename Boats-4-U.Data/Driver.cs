@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -28,13 +30,32 @@ namespace Boats_4_U.Data
         public BoatType TypeOfBoat { get; set; }
 
         [Required]
-        public List<Driver> DaysAvailable { get; set; } = new List<Driver>();
+        public DaysOfWeek DaysAvailable { get; set; }
 
         [Required]
         public int MaximumOccupants { get; set; }
 
         [Required]
-        public Guid User { get; set; }
+        public Guid ApplicationUser { get; set; }
+
+        public string DriverFullName
+        {
+            get
+            {
+                var fullName = $"{DriverFirstName} {DriverLastName}";
+                return fullName;
+            }
+        }
+
+        public string BoatName
+        {
+            get
+            {                
+                int value = (int)TypeOfBoat;
+                string boatName = Enum.GetName(typeof(BoatType), value);
+                return boatName;
+            }
+        }
 
         public virtual List<Reservation> ReservationDriver { get; set; } = new List<Reservation>();
     }
@@ -46,5 +67,18 @@ namespace Boats_4_U.Data
         PontoonBoat,
         SailBoat,
         SpeedBoat
+    }
+
+    [Flags]
+    [JsonConverter(typeof(FlagConverter))]
+    public enum DaysOfWeek
+    {
+        Sunday = 1,
+        Monday = 2,
+        Tuesday = 4,
+        Wednesday = 8,
+        Thursday = 16,
+        Friday = 32,
+        Saturday = 64,
     }
 }

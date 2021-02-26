@@ -12,6 +12,7 @@
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -84,11 +85,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Driver\DriverCreate.cs" />
+    <Compile Include="Driver\DriverDetail.cs" />
+    <Compile Include="Driver\DriverDetailTwo.cs" />
+    <Compile Include="Driver\DriverEdit.cs" />
+    <Compile Include="Driver\DriverListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Renter\RenterCreate.cs" />
+    <Compile Include="Renter\RenterDetail.cs" />
+    <Compile Include="Renter\RenterListItem.cs" />
+    <Compile Include="Renter\RenterUpdate.cs" />
+    <Compile Include="ReservationModels\ReservationDetailTwo.cs" />
+    <Compile Include="ReservationModels\ReservationEdit.cs" />
+    <Compile Include="ReservationModels\ReservationCreate.cs" />
+    <Compile Include="ReservationModels\ReservationDetail.cs" />
+    <Compile Include="ReservationModels\ReservationListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Boats-4-U.Data\Boats-4-U.Data.csproj">
+      <Project>{d6f5fa0e-4b1d-47a6-9632-8cb1e4f9142b}</Project>
+      <Name>Boats-4-U.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

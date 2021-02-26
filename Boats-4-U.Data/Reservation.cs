@@ -14,34 +14,61 @@ namespace Boats_4_U.Data
         public int ReservationId { get; set; }
 
         [ForeignKey(nameof(Driver))]
-        public int DriverId { get; set; }
+        public int? DriverId { get; set; }
         public virtual Driver Driver { get; set; }
 
         [ForeignKey(nameof(Renter))]
-        public int RenterId { get; set; }
+        public int? RenterId { get; set; }
         public virtual Renter Renter { get; set; }
 
         [Required]
-        public decimal ReservationDuration { get; set; }
+        public int NumberOfPassengers { get; set; }
 
         [Required]
         public DateTimeOffset DateReservedFor { get; set; }
 
         [Required]
+        public decimal ReservationDuration { get; set; }
+
+        [Required]
         public DateTimeOffset DateReservationMade { get; set; }
 
         [Required]
+        public Guid ApplicationUser { get; set; }
+
+        public string ReservationDetails { get; set; }
+
         public decimal EstimatedTotalCost
         {
             get
             {
                 var estimatedTotalCost = Driver.HourlyRate * ReservationDuration;
-                return estimatedTotalCost;
+                return estimatedTotalCost = (decimal)System.Math.Round(estimatedTotalCost,2);
             }
         }
 
-        [Required]
-        public int NumberOfPassengers { get; set; }
+
+        public string DisplayDateReservedFor
+        {
+            get
+            {
+                var date = DateReservedFor;
+                string fmt = "D";
+                var displayDate = date.Date.ToString(fmt);
+                return displayDate;
+            }
+        }
+
+        public string DisplayDateReservationMade
+        {
+            get
+            {
+                var date = DateReservationMade;
+                string fmt = "D";
+                var displayDate = date.Date.ToString(fmt);
+                return displayDate;
+            }
+        }
 
         public DateTimeOffset? ModifiedDate { get; set; }
     }
