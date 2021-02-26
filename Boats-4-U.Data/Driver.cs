@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -80,5 +81,4 @@ namespace Boats_4_U.Data
         Friday = 32,
         Saturday = 64,
     }
-    // MyMethod(DayOfWeek.Sunday|DayOfWeek.Tuesday|DayOfWeek.Friday)
 }

@@ -48,6 +48,8 @@ namespace Boats_4_U.Data
                 .Configurations
                 .Add(new IdentityUserLoginConfiguration())
                 .Add(new IdentityUserRoleConfiguration());
+
+            //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
     }
 
