@@ -14,11 +14,11 @@ namespace Boats_4_U.Data
         public int ReservationId { get; set; }
 
         [ForeignKey(nameof(Driver))]
-        public int DriverId { get; set; }
+        public int? DriverId { get; set; }
         public virtual Driver Driver { get; set; }
 
         [ForeignKey(nameof(Renter))]
-        public int RenterId { get; set; }
+        public int? RenterId { get; set; }
         public virtual Renter Renter { get; set; }
 
         [Required]

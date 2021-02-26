@@ -90,6 +90,11 @@ namespace Boats_4_U.WebAPI.Controllers
         [Route("api/Driver/{id}")]
         public IHttpActionResult Delete(int id)
         {
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var reservationService = new ReservationService(userId);
+
+            reservationService.NullDriver(id);
+
             var service = CreateDriverService();
 
             if (!service.DeleteDriver(id))

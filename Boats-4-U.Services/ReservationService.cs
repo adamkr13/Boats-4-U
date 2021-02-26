@@ -220,6 +220,28 @@ namespace Boats_4_U.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+        // Helper
+        public void NullRenter(int Id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Reservations.Where(e => e.RenterId == Id);
+                foreach (var reservation in entity)
+                    reservation.RenterId = null;
+                var test = (ctx.SaveChanges() > 0);
+            }
+        }
+        // Helper
+        public void NullDriver(int Id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Reservations.Where(e => e.DriverId == Id);
+                foreach (var reservation in entity)
+                    reservation.DriverId = null;
+                var test = (ctx.SaveChanges() > 0);
+            }
+        }
 
     }
 }
