@@ -36,6 +36,24 @@ Renters can create, update, and delete reservations. Drivers may view reservatio
 - The last 4 digits of the renter's credit card number
 - The estimated total cost of the reservation
 
-### Required Installations
+### Installations
 
-You will need a program to run the Web App. Visual Studio is a good option.
+This app was optimized for running with Visual Studio Community 2019 Version 16.8.5
+Instructions for downloading and installing it are [here.](https://visualstudio.microsoft.com/vs/community/)
+Microsoft .NET Framework Version 4.8 was used
+
+A web browser (Chrome, Edge, Firefox, etc) is required.
+
+Information is entered and viewed with Postman.
+Resources for installing and using Postman are [here](https://www.postman.com/)
+
+Download the Boats-4-U repository from GitHub [here.](https://github.com/adamkr13/Boats-4-U.git)
+
+Load the file Boats-4-U.sln by opening it in Visual Studio Community or by double clicking it in Windows Explorer.
+
+#### Requirements
+
+The following Nuget packages may need to be loaded/updated for Visual Studio:
+- Microsoft.AspNet.Identity.EntityFramework by Microsoft, Version: 2.2.3
+- Microsoft.AspNet.Identity.Owin by Microsoft, Version: 2.2.3
+- Microsoft.AspNet.WebApi.Owin by Microsoft, Version 5.2.7
