@@ -61,3 +61,8 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 ## Usage
 
+### Initial Setup
+
+- Open the Boats-4-U solution in Visual Studio and run the program by pressing the icon in the image
+
+![Run the program](/images/RunSolution.jpg "Run the solution")
