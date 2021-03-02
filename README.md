@@ -61,7 +61,7 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 ## Usage
 
-### Initial Setup and Registration
+### Initial Setup and Account Setup
 
 - Open the Boats-4-U solution in Visual Studio and run the program by pressing the icon in the image
 
@@ -70,22 +70,41 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 - This should ope your browser.
 - Copy the URL _https://localhost:XXXXX_
 - Open Postman
-- Paste the URL into the address bar of Postman and make sure the HTTP drop-down is set to _POST_
+- Paste the URL into the address bar of Postman and make sure the HTTP drop-down is set to __POST__
 - In the browser, click on API to check the documentation.
 
 ![API Click](/Images/APIDocumentationLink.jpg)
 
 - Under Account you should see a Register endpoint. Click on it.
 
-[Register Browser](/Images/RegisterBrowser.jpg)
+![Register Browser](/Images/RegisterBrowser.jpg)
 
 - Go to Postman and paste the Register address into the address bar.
 - Select body and x-www-form-urlencoded and enter the key information as in the image.
 - Enter your email and password information.
 - Make sure it is set to POST and send the request. You should get a 200 Ok Response.
 
-[Register Browser](/Images/RegisterBrowser.jpg)
-[Register Browser](/Images/RegisterResponse.jpg)
+![Register Postman](/Images/RegisterResponse.jpg)
+
+- In Postman, replace the previous information in the address bar and table.with the information in the picture below.
+- Key info is grant_type, username, and password. Uncheck any other fields in the body.
+- Make sure to use the same username and password as previously
+
+![Register Token](/Images/RegisterToken.jpg)
+
+- Click on the __Headers__ tab, make sure __Content Type__ is checked, and press __Send__.
+
+![Token Response](/Images/RegisterTokenHeaders.jpg)
+
+- You should get a reponse with a token.
+- Copy the token (the characters inside the quotation marks) and save the Postman Request.
+- The token will be used as the user login information.
+
+![Token Response](/Images/TokenResponse.jpg)
+
+- In Postman, click on the + to create a new request.
+
+
 
 
 
