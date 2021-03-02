@@ -114,8 +114,44 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 - You are now registered. Repeat these steps each time you are creating a new user account.
 
-### Adding a driver
+### Adding a Driver
+
+After the program is running, and you have created a user account, the following steps may be used to create a driver
+  - In Postman, ensure the token is entered, then click on the body.
+  - The following may be discerned by examining the API documantation in the browser
+  - Enter the request URL and the Key and Value information for the following as in the image
+  - For DaysAvailable, enter numbers for days of the week separated by commas where
+    - Sunday = 1, Monday = 2, Tuesday = 4, Wednesday = 8, Thursday = 16, Friday = 32, and Saturday = 64.
+  - For TypeOfBoat, use the following:
+    - FishingBoat = 1, HouseBoat = 2, PontoonBoat = 3, SailBoat = 4, SpeedBoat = 5.
+ 
+![Create Driver](/Images/CreateDriver.jpg)
+ 
+### Adding a Renter
+ 
+- The following may be discerned by examining the API documantation in the browser
+  - Enter the request URL and the Key and Value information for the following as in the image  
+  - For DateOfBirth, the format should be: YYYY-MM-DD
+  - CreditCardNumber should be 16 digits    
+ 
+![Create Renter](/Images/CreateDriver.jpg)
+ 
+### Getting a list of all Drivers
+ 
+Send the Get request in Postman for the  URL https://localhost:44327/api/Driver/
+ 
+![Get Drivers](/Images/GetAllDrivers.jpg)
 
 
+## Resources
 
-
+- General resources for creation of this README file are:
+  - [Make a README](https://www.makeareadme.com/)
+  - [Basic Syntax | Markdown Guide](https://www.markdownguide.org/basic-syntax/)
+- This project was modeled after the Eleven-Fifty Academy Blue Badge tutorial Eleven Note
+  - [Eleven Note Tutorial](https://elevenfifty.instructure.com/courses/517/pages/eleven-note-0-dot-00-introduction?module_item_id=35656)
+  - The information in Eleven Note was also used to help create this README.
+- Resources for implementing Day of the Week Availability for Drivers
+  - [Enum, Flags, and Bitwise Operators](https://www.alanzucconi.com/2015/07/26/enum-flags-and-bitwise-operators/)
+  - [C# Json.NET Render Flags Enum as String Array](https://stackoverflow.com/questions/43143175/c-sharp-json-net-render-flags-enum-as-string-array)
+  - [How do you pass multiple enum values in C#?](https://stackoverflow.com/questions/1030090/how-do-you-pass-multiple-enum-values-in-c)
