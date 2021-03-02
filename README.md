@@ -61,3 +61,31 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 ## Usage
 
+### Initial Setup and Registration
+
+- Open the Boats-4-U solution in Visual Studio and run the program by pressing the icon in the image
+
+![Run the program](/Images/RunSolution.jpg)
+
+- This should ope your browser.
+- Copy the URL _https://localhost:XXXXX_
+- Open Postman
+- Paste the URL into the address bar of Postman and make sure the HTTP drop-down is set to _POST_
+- In the browser, click on API to check the documentation.
+
+![API Click](/Images/APIDocumentationLink.jpg)
+
+- Under Account you should see a Register endpoint. Click on it.
+
+[Register Browser](/Images/RegisterBrowser.jpg)
+
+- Go to Postman and paste the Register address into the address bar.
+- Select body and x-www-form-urlencoded and enter the key information as in the image.
+- Enter your email and password information.
+- Make sure it is set to POST and send the request. You should get a 200 Ok Response.
+
+[Register Browser](/Images/RegisterBrowser.jpg)
+[Register Browser](/Images/RegisterResponse.jpg)
+
+
+
