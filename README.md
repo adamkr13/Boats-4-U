@@ -150,13 +150,37 @@ For TypeOfBoat (the number at the end), use the following:
 
 ![Get Drivers By Boat Type](/Images/GetDriversByBoatType.jpg)
 
+### Getting a list of Drivers by Occupancy
+
+Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetByOccupancy/24
+This returns all drivers with a maximum occupancy at least as high as the number entered
+
+![Get Drivers By Occupancy](/Images/GetDriversByOccupancy.jpg)
+
+### Getting a list of Drivers by Location
+
+It may be useful to get a list of all drivers to see what locations are available before using this.
+Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetByLocation/location
+
+- Where: location is the text of the location you'd like to go
+
+![Get Drivers By Location](/Images/GetDriversByLocation.jpg)
+
+### Getting a list of Drivers by Day of the Week
+
+Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetByDaysOfWeek/dayOfWeek
+
+- Where: dayOfWeek is an integer with Sunday = 1, Monday = 2, Tuesday = 4, Wednesday = 8, Thursday = 16, Friday = 32, and Saturday = 64.
+
+![Get Drivers By Day of the Week](/Images/GetDriversByDayOfWeek.jpg)
+
 
 ## Resources
 
 - General resources for creation of this README file are:
   - [Make a README](https://www.makeareadme.com/)
   - [Basic Syntax | Markdown Guide](https://www.markdownguide.org/basic-syntax/)
-- This project was modeled after the Eleven-Fifty Academy Blue Badge tutorial Eleven Note
+- This project was modeled after the Eleven-Fifty Academy Blue Badge tutorial for Eleven Note
   - [Eleven Note Tutorial](https://elevenfifty.instructure.com/courses/517/pages/eleven-note-0-dot-00-introduction?module_item_id=35656)
   - The information in Eleven Note was also used to help create this README.
 - Resources for implementing Day of the Week Availability for Drivers
