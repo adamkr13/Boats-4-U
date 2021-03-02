@@ -20,7 +20,7 @@ Renters can create, update and delete a profile that includes:
 - the renter's date of birth
 - the credit card number
 
-In order to assist in making reseervations, renters can also view boat drivers filtered by:
+In order to assist in making reservations, renters can also view boat drivers filtered by:
 - day of the week available
 - boat type
 - maximum occupants
@@ -141,6 +141,14 @@ After the program is running, and you have created a user account, the following
 Send the Get request in Postman for the  URL https://localhost:44327/api/Driver/
  
 ![Get Drivers](/Images/GetAllDrivers.jpg)
+
+### Getting a list of Drivers by Boat Type
+
+Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetyByBoatType/1
+For TypeOfBoat (the number at the end), use the following:
+    - FishingBoat = 1, HouseBoat = 2, PontoonBoat = 3, SailBoat = 4, SpeedBoat = 5.
+
+![Get Drivers By Boat Type](/Images/GetDriversByBoatType.jpg)
 
 
 ## Resources
