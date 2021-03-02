@@ -144,11 +144,11 @@ Send the Get request in Postman for the  URL https://localhost:44327/api/Driver/
 
 ### Getting a list of Drivers by Boat Type
 
-Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetyByBoatType/1
+Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetByBoatType/1
 For TypeOfBoat (the number at the end), use the following:
     - FishingBoat = 1, HouseBoat = 2, PontoonBoat = 3, SailBoat = 4, SpeedBoat = 5.
 
-![Get Drivers By Boat Type](/Images/GetDriversByBoatType.jpg)
+![Get Drivers By Boat Type](/Images/GetDriversByBoatType)
 
 
 ## Resources
