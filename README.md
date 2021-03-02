@@ -94,7 +94,7 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 - Click on the __Headers__ tab, make sure __Content Type__ is checked, and press __Send__.
 
-![Token Response](/Images/RegisterTokenHeaders.jpg)
+![Token Headers](/Images/RegisterTokenHeaders.jpg)
 
 - You should get a reponse with a token.
 - Copy the token (the characters inside the quotation marks) and save the Postman Request.
@@ -104,6 +104,17 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 - In Postman, click on the + to create a new request.
 
+![New Request](/Images/PostmanNewRequest.jpg)
+
+- In Header, add a Key for __Authorization__.
+- For the Value, add Bearer followed by a space
+- Paste the copied token after the space.
+
+![Postman Authorization](/Images/PostmanAuthorization.jpg)
+
+- You are now registered. Repeat these steps each time you are creating a new user account.
+
+### Adding a driver
 
 
 
