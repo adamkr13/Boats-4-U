@@ -114,8 +114,33 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 - You are now registered. Repeat these steps each time you are creating a new user account.
 
-### Adding a driver
+### Adding a Driver
 
+After the program is running, and you have created a user account, the following steps may be used to create a driver
+  - In Postman, ensure the token is entered, then click on the body.
+  - The following may be discerned by examining the API documantation in the browser
+  - Enter the request URL and the Key and Value information for the following as in the image
+  - For DaysAvailable, enter numbers for days of the week separated by commas where
+    - Sunday = 1, Monday = 2, Tuesday = 4, Wednesday = 8, Thursday = 16, Friday = 32, and Saturday = 64.
+  - For TypeOfBoat, use the following:
+    - FishingBoat = 1, HouseBoat = 2, PontoonBoat = 3, SailBoat = 4, SpeedBoat = 5.
+ 
+![Create Driver](/Images/CreateDriver.jpg)
+ 
+### Adding a Renter
+ 
+- The following may be discerned by examining the API documantation in the browser
+  - Enter the request URL and the Key and Value information for the following as in the image  
+  - For DateOfBirth, the format should be: YYYY-MM-DD
+  - CreditCardNumber should be 16 digits    
+ 
+![Create Renter](/Images/CreateDriver.jpg)
+ 
+### Getting a list of all Drivers
+ 
+Send the Get request in Postman for the  URL https://localhost:44327/api/Driver/
+ 
+![Get Drivers](/Images/GetAllDrivers.jpg)
 
 
 ## Resources
