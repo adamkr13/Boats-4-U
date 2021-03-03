@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Boats_4_U.Data;
 using Newtonsoft.Json;
 
-namespace Boats_4_U.Models
+namespace Boats_4_U.Models.Renter
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class RenterListItem

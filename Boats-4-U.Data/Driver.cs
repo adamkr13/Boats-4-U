@@ -58,7 +58,6 @@ namespace Boats_4_U.Data
         }
 
         public virtual List<Reservation> ReservationDriver { get; set; } = new List<Reservation>();
-
         public virtual List<DriverRating> DriverRatings { get; set; } = new List<DriverRating>();
 
         public double Rating
@@ -78,7 +77,7 @@ namespace Boats_4_U.Data
             }
         }
 
-        public bool IsRecommended
+        public bool DriverIsRecommended
         {
             get
             {
@@ -94,7 +93,7 @@ namespace Boats_4_U.Data
 
                 foreach (DriverRating driverRating in DriverRatings)
                 {
-                    averageFunRating += driverRating.DriverFun;
+                    averageFunRating += driverRating.DriverFunScore;
                 }
 
                 return DriverRatings.Count > 0
@@ -111,7 +110,7 @@ namespace Boats_4_U.Data
 
                 foreach (DriverRating driverRating in DriverRatings)
                 {
-                    averageSafetyRating += driverRating.DriverSafety;
+                    averageSafetyRating += driverRating.DriverSafetyScore;
                 }
 
                 return DriverRatings.Count > 0
@@ -128,7 +127,7 @@ namespace Boats_4_U.Data
 
                 foreach (var driverRating in DriverRatings)
                 {
-                    averageCleanlinessRating += driverRating.DriverCleanliness;
+                    averageCleanlinessRating += driverRating.DriverCleanlinessScore;
                 }
 
                 return DriverRatings.Count > 0
