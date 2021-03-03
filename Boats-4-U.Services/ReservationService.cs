@@ -41,11 +41,16 @@ namespace Boats_4_U.Services
 
             using (var ctx = new ApplicationDbContext())
             {
+                var driver = ctx.Drivers.Find(model.DriverId);
+
+                if (model.NumberOfPassengers > driver.MaximumOccupants - 1)
+                    return false;
+
                 ctx.Reservations.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-        
+
         /// <summary>
         /// This will get all of the reservations.
         /// </summary>
@@ -111,31 +116,31 @@ namespace Boats_4_U.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                    var query =
-                        ctx
-                        .Reservations
-                        .Where(e => e.DriverId == id)
-                        .Select(
-                            e =>
-                                new ReservationDetailTwo
-                                {
-                                    ReservationId = e.ReservationId,
-                                    ApplicationUser = e.ApplicationUser,
-                                    RenterFirstName = e.Renter.RenterFirstName,
-                                    RenterLastName = e.Renter.RenterLastName,
-                                    DriverFirstName = e.Driver.DriverFirstName,
-                                    DriverLastName = e.Driver.DriverLastName,
-                                    DateReservedFor = e.DateReservedFor,
-                                    ReservationDuration = e.ReservationDuration,
-                                    TypeOfBoat = e.Driver.TypeOfBoat,
-                                    NumberOfPassengers = e.NumberOfPassengers,
-                                    ReservationDetails = e.ReservationDetails,
-                                    CreditCardNumber = e.Renter.CreditCardNumber,
-                                    HourlyRate = e.Driver.HourlyRate,
-                                    DateReservationMade = e.DateReservationMade
-                                }
-                           );
-                    return query.ToArray();
+                var query =
+                    ctx
+                    .Reservations
+                    .Where(e => e.DriverId == id)
+                    .Select(
+                        e =>
+                            new ReservationDetailTwo
+                            {
+                                ReservationId = e.ReservationId,
+                                ApplicationUser = e.ApplicationUser,
+                                RenterFirstName = e.Renter.RenterFirstName,
+                                RenterLastName = e.Renter.RenterLastName,
+                                DriverFirstName = e.Driver.DriverFirstName,
+                                DriverLastName = e.Driver.DriverLastName,
+                                DateReservedFor = e.DateReservedFor,
+                                ReservationDuration = e.ReservationDuration,
+                                TypeOfBoat = e.Driver.TypeOfBoat,
+                                NumberOfPassengers = e.NumberOfPassengers,
+                                ReservationDetails = e.ReservationDetails,
+                                CreditCardNumber = e.Renter.CreditCardNumber,
+                                HourlyRate = e.Driver.HourlyRate,
+                                DateReservationMade = e.DateReservationMade
+                            }
+                       );
+                return query.ToArray();
             }
         }
         /// <summary>
@@ -267,7 +272,7 @@ namespace Boats_4_U.Services
                 var test = (ctx.SaveChanges() > 0);
             }
         }
-        
+
         /// <summary>
         /// This helps if the Driver is Null
         /// </summary>

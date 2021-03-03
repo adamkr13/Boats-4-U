@@ -30,6 +30,7 @@ namespace Boats_4_U.WebAPI.Controllers
 
             if (!service.CreateReservation(reservation))
                 return InternalServerError();
+            //dont have  access to ctx here
 
             return Ok("Your reservation was successfully created.");
         }
