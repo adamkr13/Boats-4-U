@@ -82,12 +82,16 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok(drivers);
         }
 
+
         /// <summary>
         /// This allows all of the drivers with a certain boat type to be retrieved
         /// </summary>
         /// <param name="boatType">This is the desired boat type</param>
         /// <returns>This returns all drivers with the particular boat type</returns>
         [Route("api/Driver/GetyByBoatType/{boatType}")]
+
+        [Route("api/Driver/GetByBoatType/{boatType}")]
+
         public IHttpActionResult GetByBoatType(BoatType boatType)
         {
             DriverService driverService = CreateDriverService();
