@@ -214,6 +214,31 @@ Send the Get request in Postman for the URL https://localhost:44327/api/Driver/G
   
 ![Update Reservation](/Images/UpdateReservation.jpg)
 
+### Deleting a Driver
+
+Send the Delete request in Postman for the URL https://localhost:44327/api/Driver/id
+
+- Where id is the Driver Id
+
+![Delete Driver](/Images/DeleteDriver.jpg)
+
+### Deleting a Renter
+
+Send the Delete request in Postman for the URL https://localhost:44327/api/Renter/id
+
+- Where id is the Renter Id
+
+![Delete Renter](/Images/DeleteRenter.jpg)
+
+### Deleting a Reservation
+
+Send the Delete request in Postman for the URL https://localhost:44327/api/Reservation/id
+
+- Where id is the Reservation Id
+
+![Delete Driver](/Images/DeleteReservation.jpg)
+
+
 ## Resources
 
 - General resources for creation of this README file are:
