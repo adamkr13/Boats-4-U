@@ -13,12 +13,17 @@ namespace Boats_4_U.Services
     {
         private readonly Guid _userId;
 
+        
         public RenterService(Guid userId)
         {  
             _userId = userId;
         }
 
-        // POST
+        /// <summary>
+        /// This will create a new renter!
+        /// </summary>
+        /// <param name="model">The renters model, the different aspects of the renter (First Name, Last Name, Date of Birth and Credit Card Number).</param> 
+        /// <returns>This does not return a value.</returns>
         public bool CreateRenter(RenterCreate model)
         {
             var entity =
@@ -39,7 +44,10 @@ namespace Boats_4_U.Services
             }
         }
 
-        // GET
+        /// <summary>
+        /// This will get all Renters in the database.
+        /// </summary>
+        /// <returns>This returns the Id, First Name, Last Name and Date of Birth for all of the renters.</returns>
         public IEnumerable<RenterListItem> GetRenters()
         {
             using (var ctx = new ApplicationDbContext())
@@ -60,7 +68,11 @@ namespace Boats_4_U.Services
             }
         }
 
-        // GET by Id
+        /// <summary>
+        /// This will get the renter by his Id number.
+        /// </summary>
+        /// <param name="id">This is his personal Id number.</param> 
+        /// <returns>This returns the Id, Full Name and Age of the renter.</returns>
         public RenterDetail GetRenterById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -79,7 +91,11 @@ namespace Boats_4_U.Services
             }
         }
 
-        // PUT
+        /// <summary>
+        /// This will update the information of the renter.
+        /// </summary>
+        /// <param name="model">This is the model and it includes the updated First Name, Last Name, Date of Birth and Credit Card Number of the renter.</param> 
+        /// <returns>This does not return anything.</returns>
         public bool UpdateRenter(RenterUpdate model)
         {
             using(var ctx = new ApplicationDbContext())
@@ -97,7 +113,11 @@ namespace Boats_4_U.Services
             }
         }
 
-        // DELETE
+        /// <summary>
+        /// This will delete a renter.
+        /// </summary>
+        /// <param name="renterId">This is the renters Id.</param> 
+        /// <returns>This does not return anything.</returns>
         public bool DeleteRenter(int renterId)
         {
             using (var ctx = new ApplicationDbContext())
