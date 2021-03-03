@@ -10,9 +10,14 @@ using System.Web.Http;
 
 namespace Boats_4_U.WebAPI.Controllers
 {
+    
     public class ReservationController : ApiController
     {
-        // POST
+        /// <summary>
+        /// This allows a reservation to be created
+        /// </summary>
+        /// <param name="reservation"></param>
+        /// <returns>This returns the message "Your reservation was successfully created."</returns>
         [HttpPost]
         public IHttpActionResult Post(ReservationCreate reservation)
         {
@@ -28,6 +33,11 @@ namespace Boats_4_U.WebAPI.Controllers
 
             return Ok("Your reservation was successfully created.");
         }
+
+        /// <summary>
+        /// This allows all of the reservations to be retrieved
+        /// </summary>
+        /// <returns>This returns all of the reservations</returns>
         // GET
         [HttpGet]
         public IHttpActionResult Get()
@@ -36,7 +46,12 @@ namespace Boats_4_U.WebAPI.Controllers
             var reservations = reservationService.GetReservations();
             return Ok(reservations);
         }
-        // GET Reservation by Reservation Id
+        
+        /// <summary>
+        /// This allows a particular reservation to be retrieved
+        /// </summary>
+        /// <param name="id">This is the Id of the interesed reservation</param>
+        /// <returns>This returns the desired reservation</returns>
         [Route("api/Reservation/{id}")]
         public IHttpActionResult GetByReservationId(int id)
         {
@@ -44,7 +59,12 @@ namespace Boats_4_U.WebAPI.Controllers
             var reservation = reservationService.GetReservationById(id);
             return Ok(reservation);
         }
-        // GET Reservation by Driver Id
+
+        /// <summary>
+        /// This allows the reservations of a particular driver
+        /// </summary>
+        /// <param name="id">This is the id of that driver</param>
+        /// <returns>This returns the particular driver's reservations</returns>
         [Route("api/Reservation/GetByDriverId/{id}")]
         public IHttpActionResult GetByDriverId(int id)
         {
@@ -52,7 +72,12 @@ namespace Boats_4_U.WebAPI.Controllers
             var reservation = reservationService.GetReservationByDriverId(id);
             return Ok(reservation);
         }
-        // GET Reservation by Renter Id
+
+        /// <summary>
+        /// This allows the reservations of a particular renter
+        /// </summary>
+        /// <param name="id">This is the id of that renter</param>
+        /// <returns>This returns the particular renter's reservations</returns>
         [Route("api/Reservation/GetByRenterId/{id}")]
         public IHttpActionResult GetByRenterId(int id)
         {
@@ -60,7 +85,12 @@ namespace Boats_4_U.WebAPI.Controllers
             var reservation = reservationService.GetReservationByRenterId(id);
             return Ok(reservation);
         }
-        // GET Reservation by Date
+        
+        /// <summary>
+        /// This allows the reservations on a particular day to be retrieved
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns>This returns all of the reservations on that day</returns>
         [Route("api/Reservation/GetByDate/{date}")]
         public IHttpActionResult GetByDate(DateTimeOffset date)
         {
@@ -69,7 +99,11 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok(reservation);
         }
 
-        // PUT
+        /// <summary>
+        /// This allows a reservation to be changed
+        /// </summary>
+        /// <param name="reservation"></param>
+        /// <returns>This does not return anything</returns>
         [HttpPut]
         public IHttpActionResult Put(ReservationEdit reservation)
         {
@@ -83,8 +117,13 @@ namespace Boats_4_U.WebAPI.Controllers
 
             return Ok();
         }
+        
+        /// <summary>
+        /// This allows a particular reservation to be deleted
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>This does not return anything</returns>
         [Route("api/Reservation/{id}")]
-        // DELETE
         [HttpDelete]
         public IHttpActionResult Delete(int id)
         {
