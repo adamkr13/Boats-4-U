@@ -29,7 +29,7 @@ namespace Boats_4_U.WebAPI.Controllers
             var service = CreateReservationService();
 
             if (!service.CreateReservation(reservation))
-                return InternalServerError();
+                return InternalServerError();            
 
             return Ok("Your reservation was successfully created.");
         }
