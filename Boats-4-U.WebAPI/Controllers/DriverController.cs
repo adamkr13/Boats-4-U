@@ -58,7 +58,7 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok(drivers);
         }
 
-        [Route("api/Driver/GetyByBoatType/{boatType}")]
+        [Route("api/Driver/GetByBoatType/{boatType}")]
         public IHttpActionResult GetByBoatType(BoatType boatType)
         {
             DriverService driverService = CreateDriverService();
