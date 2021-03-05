@@ -42,12 +42,29 @@ namespace Boats_4_U.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var driver = ctx.Drivers.Find(model.DriverId);
-                var day = model.DateReservedFor.DayOfWeek;
+                int day = (int) model.DateReservedFor.DayOfWeek;
+                if (day == 0)
+                    day = 1;
+                if (day == 1)
+                    day = 2;
+                if (day == 2)
+                    day = 4;
+                if (day == 3)
+                    day = 8;
+                if (day == 4)
+                    day = 16;
+                if (day == 5)
+                    day = 32;
+                if (day == 6)
+                    day = 64;
+
+                DaysOfWeek dayOfWeek = (DaysOfWeek)day;
 
                 if (model.NumberOfPassengers > driver.MaximumOccupants - 1)
                     return false;
-                
-                //if (model.DateReservedFor.DayOfWeek != driver.DaysAvailable)
+
+                if (!driver.DaysAvailable.HasFlag(dayOfWeek))
+                    return false;
 
                 ctx.Reservations.Add(entity);
                 return ctx.SaveChanges() == 1;
@@ -238,6 +255,31 @@ namespace Boats_4_U.Services
                 entity.ReservationDuration = model.ReservationDuration;
                 entity.ReservationDetails = model.ReservationDetails;
                 entity.DateReservationMade = DateTimeOffset.Now;
+
+                var driver = ctx.Drivers.Find(entity.DriverId);
+                int day = (int)entity.DateReservedFor.DayOfWeek;
+                if (day == 0)
+                    day = 1;
+                if (day == 1)
+                    day = 2;
+                if (day == 2)
+                    day = 4;
+                if (day == 3)
+                    day = 8;
+                if (day == 4)
+                    day = 16;
+                if (day == 5)
+                    day = 32;
+                if (day == 6)
+                    day = 64;
+
+                DaysOfWeek dayOfWeek = (DaysOfWeek)day;
+
+                if (entity.NumberOfPassengers > driver.MaximumOccupants - 1)
+                    return false;
+
+                if (!driver.DaysAvailable.HasFlag(dayOfWeek))
+                    return false;
 
                 return ctx.SaveChanges() == 1;
             }
