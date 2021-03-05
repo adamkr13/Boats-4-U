@@ -60,5 +60,39 @@ namespace Boats_4_U.Services
                     };
             }
         }
+
+       
+        public bool UpdateDriverRating(DriverRatingUpdate model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .DriverRatings
+                    .Single(e => e.DriverRatingId == model.DriverRatingId && e.ApplicationUser == _userId);
+
+                entity.DriverId = model.DriverId;
+                entity.DriverFunScore = model.DriverFunScore;
+                entity.DriverSafetyScore = model.DriverSafetyScore;
+                entity.DriverCleanlinessScore = model.DriverCleanlinessScore;
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
+       
+        public bool DeleteDriverRating(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                    .DriverRatings
+                    .Single(e => e.DriverRatingId == id && e.ApplicationUser == _userId);
+
+                ctx.DriverRatings.Remove(entity);
+
+                return ctx.SaveChanges() == 1;
+            }
+        }
     }
 }

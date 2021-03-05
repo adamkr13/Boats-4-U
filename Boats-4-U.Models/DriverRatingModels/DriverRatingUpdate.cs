@@ -8,5 +8,10 @@ namespace Boats_4_U.Models.DriverRatingModels
 {
     public class DriverRatingUpdate
     {
+        public int DriverRatingId { get; set; }
+        public int DriverId { get; set; }
+        public double DriverFunScore { get; set; }
+        public double DriverSafetyScore { get; set; }
+        public double DriverCleanlinessScore { get; set; }
     }
 }

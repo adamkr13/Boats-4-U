@@ -36,6 +36,32 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok(rating);
         }
 
+        [HttpPut]
+        public IHttpActionResult Put(DriverRatingUpdate rating)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var service = CreateDriverRatingService();
+
+            if (!service.UpdateDriverRating(rating))
+                return InternalServerError();
+
+            return Ok($"Driver rating has been successfully updated.");
+        }
+
+        [HttpDelete]
+        [Route("api/DriverRating/{driverRatingId}")]
+        public IHttpActionResult Delete(int driverRatingId)
+        {
+            var service = CreateDriverRatingService();
+
+            if (!service.DeleteDriverRating(driverRatingId))
+                return InternalServerError();
+
+            return Ok($"Driver rating has been successfully deleted.");
+        }
+
         private DriverRatingService CreateDriverRatingService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

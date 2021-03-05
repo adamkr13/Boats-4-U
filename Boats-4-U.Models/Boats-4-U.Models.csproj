@@ -85,7 +85,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DriverRatingModels\DriverRatingListItem.cs" />
     <Compile Include="Driver\DriverCreate.cs" />
     <Compile Include="Driver\DriverDetail.cs" />
     <Compile Include="Driver\DriverDetailTwo.cs" />
