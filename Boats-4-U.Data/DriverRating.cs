@@ -29,7 +29,7 @@ namespace Boats_4_U.Data
         [Required, Range(0, 10)]
         public double DriverCleanlinessScore { get; set; }
 
-        public double AverageDriverRating
+        public double AverageOfDriverRatingScores
         {
             get
             {

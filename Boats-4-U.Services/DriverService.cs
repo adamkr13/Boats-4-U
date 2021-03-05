@@ -52,6 +52,7 @@ namespace Boats_4_U.Services
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
+                            DriverRatings = e.DriverRatings
                         });
                 return query.ToArray();
             }
@@ -74,7 +75,8 @@ namespace Boats_4_U.Services
                             DaysAvailable = e.DaysAvailable,
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
-                            HourlyRate = e.HourlyRate
+                            HourlyRate = e.HourlyRate,
+                            DriverRatings = e.DriverRatings
                         });
                 return query.ToArray();
             }
@@ -98,7 +100,8 @@ namespace Boats_4_U.Services
                             DaysAvailable = e.DaysAvailable,
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
-                            HourlyRate = e.HourlyRate
+                            HourlyRate = e.HourlyRate,
+                            DriverRatings = e.DriverRatings
                         });
                 return query.ToArray();
             }
@@ -122,7 +125,8 @@ namespace Boats_4_U.Services
                             DaysAvailable = e.DaysAvailable,
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
-                            HourlyRate = e.HourlyRate
+                            HourlyRate = e.HourlyRate,
+                            DriverRatings = e.DriverRatings
                         });
                 return query.ToArray();
             }
@@ -146,7 +150,8 @@ namespace Boats_4_U.Services
                             DaysAvailable = e.DaysAvailable,
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
-                            HourlyRate = e.HourlyRate
+                            HourlyRate = e.HourlyRate,
+                            DriverRatings = e.DriverRatings
                         });
                 return query.ToArray();
             }
@@ -169,7 +174,8 @@ namespace Boats_4_U.Services
                         DaysAvailable = entity.DaysAvailable,
                         BoatName = entity.BoatName,
                         MaximumOccupants = entity.MaximumOccupants,
-                        HourlyRate = entity.HourlyRate                    
+                        HourlyRate = entity.HourlyRate,    
+                        Rating = entity.Rating
                     };
             }
         }

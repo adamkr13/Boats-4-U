@@ -28,11 +28,12 @@ namespace Boats_4_U.WebAPI.Controllers
         }
 
         [HttpGet]
-        public IHttpActionResult Get()
+        [Route("api/DriverRating/{id}")]
+        public IHttpActionResult Get(int id)
         {
             var service = CreateDriverRatingService();
-            var ratings = service.GetDriverRatings();
-            return Ok(ratings);
+            var rating = service.GetDriverRatingById(id);
+            return Ok(rating);
         }
 
         private DriverRatingService CreateDriverRatingService()

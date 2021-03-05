@@ -38,26 +38,26 @@ namespace Boats_4_U.Services
             }
         }
 
-        public IEnumerable<DriverRatingListItem> GetDriverRatings()
+        public DriverRatingDetail GetDriverRatingById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                var query =
+                var entity =
                     ctx
                     .DriverRatings
-                    .Select(
-                        e =>
-                        new DriverRatingListItem
-                        {
-                            DriverId = e.Driver.DriverId,
-                            DriverFirstName = e.Driver.DriverFirstName,
-                            DriverLastName = e.Driver.DriverLastName,
-                            DriverRatings = e.Driver.DriverRatings
-                        }
-                        );
-
-                return query.ToArray();
-
+                    .Single(e => e.DriverRatingId == id);
+                    return
+                    new DriverRatingDetail
+                    {
+                        DriverRatingId = entity.DriverRatingId,
+                        ApplicationUser = entity.ApplicationUser,
+                        DriverId = entity.DriverId,
+                        DriverFullName = entity.Driver.DriverFullName,
+                        DriverFunScore = entity.DriverFunScore,
+                        DriverSafetyScore = entity.DriverSafetyScore,
+                        DriverCleanlinessScore = entity.DriverCleanlinessScore,
+                        AverageOfDriverRatingScores = entity.AverageOfDriverRatingScores
+                    };
             }
         }
     }

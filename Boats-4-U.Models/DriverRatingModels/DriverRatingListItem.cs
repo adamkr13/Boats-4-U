@@ -38,7 +38,7 @@ namespace Boats_4_U.Models.DriverRatingModels
 
                 foreach (var rating in DriverRatings)
                 {
-                    totalAverageRating += rating.AverageDriverRating;
+                    totalAverageRating += rating.AverageOfDriverRatingScores;
                 }
 
                 return DriverRatings.Count > 0
