@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Boats_4_U.Models
+namespace Boats_4_U.Models.ReservationModels
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class ReservationListItem

@@ -1,4 +1,5 @@
 ﻿using Boats_4_U.Models;
+using Boats_4_U.Models.ReservationModels;
 using Boats_4_U.Services;
 using Microsoft.AspNet.Identity;
 using System;
