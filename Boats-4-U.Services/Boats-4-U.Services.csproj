@@ -22,7 +22,8 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Debug\Boats-4-U.Services.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -263,6 +264,7 @@
   <ItemGroup>
     <Compile Include="DriverService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RenterRatingService.cs" />
     <Compile Include="DriverRatingService.cs" />
     <Compile Include="RenterService.cs" />
     <Compile Include="ReservationService.cs" />
