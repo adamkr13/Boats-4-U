@@ -267,6 +267,9 @@
     <Compile Include="Driver\DriverEdit.cs" />
     <Compile Include="Driver\DriverListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RenterRatingModels\RenterRatingDetail.cs" />
+    <Compile Include="RenterRatingModels\RenterRatingCreate.cs" />
+    <Compile Include="RenterRatingModels\RenterRatingListItem.cs" />
     <Compile Include="Renter\RenterCreate.cs" />
     <Compile Include="Renter\RenterDetail.cs" />
     <Compile Include="Renter\RenterListItem.cs" />
