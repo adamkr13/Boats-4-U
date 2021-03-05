@@ -21,6 +21,9 @@ namespace Boats_4_U.Models.Renter
         public string RenterFirstName { get; set; }
         public string RenterLastName { get; set; }
 
+        /// <summary>
+        /// This created the full name from the First and Last Names
+        /// </summary>
         [JsonProperty]
         public string RenterFullName
         {
@@ -35,6 +38,9 @@ namespace Boats_4_U.Models.Renter
 
         public DateTime DateOfBirth { get; set; }
 
+        /// <summary>
+        /// The created the age of the renter in years
+        /// </summary>
         [JsonProperty]
         public int RenterAge
         {

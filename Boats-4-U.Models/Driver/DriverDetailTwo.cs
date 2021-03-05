@@ -20,6 +20,9 @@ namespace Boats_4_U.Models.Driver
         public string DriverFirstName { get; set; }
         public string DriverLastName { get; set; }
 
+        /// <summary>
+        /// This created the Driver's Full Name from the Drivers First and Last Names
+        /// </summary>
         [JsonProperty]
         public string DriverFullName
         {
@@ -38,6 +41,9 @@ namespace Boats_4_U.Models.Driver
 
         public BoatType TypeOfBoat { get; set; }
 
+        /// <summary>
+        /// This created the Type of Boat from the Enum ensuring you can only have a type in the Enum list
+        /// </summary>
         [JsonProperty]
         public string BoatName
         {

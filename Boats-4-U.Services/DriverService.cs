@@ -18,6 +18,11 @@ namespace Boats_4_U.Services
             _userId = userId;
         }
 
+        /// <summary>
+        /// This will create a new driver!
+        /// </summary>
+        /// <param name="model">The drivers model, the different aspects of the driver (First Name, Last Name, Hourly Rate, Location, Type of Boat, Days Available, Maximum Number of Occupants).</param> 
+        /// <returns>This does not return a value.</returns>
         public bool CreateDriver(DriverCreate model)
         {
             var entity =
@@ -38,6 +43,11 @@ namespace Boats_4_U.Services
                 return ctx.SaveChanges() == 1;
             }
         }
+
+        /// <summary>
+        /// This will get all of the drivers!
+        /// </summary>
+        /// <returns>This will return the Id, First Name, Last Name and Location of all the drivers.</returns>
         public IEnumerable<DriverListItem> GetDrivers()
         {
             using (var ctx = new ApplicationDbContext())
@@ -57,6 +67,12 @@ namespace Boats_4_U.Services
                 return query.ToArray();
             }
         }
+
+        /// <summary>
+        /// This will get all of the drivers at a specific location.
+        /// </summary>
+        /// <param name="location"> This is the location of the driver.</param>
+        /// <returns>This will return the Id, First Name, Last Name, Location, Days Available, Type of Boat, Maximum Occupancy and Hourly Rate of all the drivers at that location.</returns>
         public IEnumerable<DriverDetailTwo> GetDriversByLocation(string location)
         {
             using (var ctx = new ApplicationDbContext())
@@ -82,6 +98,11 @@ namespace Boats_4_U.Services
             }
         }
 
+        /// <summary>
+        /// This will get all of the drivers with a specific type of boat.
+        /// </summary>
+        /// <param name="boatType">This is the boat type of the driver.</param> 
+        /// <returns>This returns the Id, First Name, Last Name, Location, Days Available, Type of Boat, Maximum Occupancy and Hourly Rate of all of the drivers with a specific type of boat.</returns>
         public IEnumerable<DriverDetailTwo> GetDriversByBoatType(BoatType boatType)
         {
             using (var ctx = new ApplicationDbContext())
@@ -107,6 +128,11 @@ namespace Boats_4_U.Services
             }
         }
 
+        /// <summary>
+        /// This will get all of the drivers with a specific type of boat.
+        /// </summary>
+        /// <param name="occupancy">This is the maximum occupancy of the boat desired.</param> 
+        /// <returns>This will return the Id, First Name, Last Name, Location, Days Available, Type of Boat, Maximum Occupancy and Hourly Rate of all of the drivers that can hold that many people.</returns>
         public IEnumerable<DriverDetailTwo> GetDriversByOccupancy(int occupancy)
         {
             using (var ctx = new ApplicationDbContext())
@@ -132,6 +158,11 @@ namespace Boats_4_U.Services
             }
         }
 
+        /// <summary>
+        /// This gets all of the drivers by which days they are available.
+        /// </summary>
+        /// <param name="daysOfWeek">This is the days of the week that the driver is available</param> 
+        /// <returns>This returns the Id, Firsst Name, Last Name, Location, Days Available, Type of Boat, Maximum Occupancy and Hourly Rate of all of the drivers available on that day.</returns>
         public IEnumerable<DriverDetailTwo> GetDriversByDaysAvailable(DaysOfWeek daysOfWeek)
         {
             using (var ctx = new ApplicationDbContext())
@@ -157,6 +188,11 @@ namespace Boats_4_U.Services
             }
         }
 
+        /// <summary>
+        /// This will get the driver by their Id.
+        /// </summary>
+        /// <param name="id">This is the Id of the driver.</param> 
+        /// <returns>This will give the Id, Full Name, Location, Days Available, Boat Name, Maximum Occupancy and Hourly Rate of the driver with that Id.</returns>
         public DriverDetail GetDriverById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -180,6 +216,11 @@ namespace Boats_4_U.Services
             }
         }
 
+        /// <summary>
+        /// This allows you to update the drivers information.
+        /// </summary>
+        /// <param name="model">This is the model of the drivers updated information</param> 
+        /// <returns></returns>
         public bool UpdateDriver(DriverEdit model)
         {
             using(var ctx = new ApplicationDbContext())
@@ -200,6 +241,11 @@ namespace Boats_4_U.Services
             }
         }
 
+        /// <summary>
+        /// This will remove the driver from the database
+        /// </summary>
+        /// <param name="driverId">This is the driversId</param> 
+        /// <returns>This does not return anything.</returns>
         public bool DeleteDriver(int driverId)
         {
             using (var ctx = new ApplicationDbContext())

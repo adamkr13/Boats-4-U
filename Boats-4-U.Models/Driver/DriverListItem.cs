@@ -17,9 +17,14 @@ namespace Boats_4_U.Models.Driver
         [JsonProperty]
         public Guid ApplicationUser { get; set; }
 
+
         public string DriverFirstName { get; set; }
         public string DriverLastName { get; set; }
 
+
+        /// <summary>
+        /// This creates the Full Names by adding the First and Last Names
+        /// </summary>
         [JsonProperty]
         public string DriverFullName
         {
