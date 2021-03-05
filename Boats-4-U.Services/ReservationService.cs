@@ -42,9 +42,12 @@ namespace Boats_4_U.Services
             using (var ctx = new ApplicationDbContext())
             {
                 var driver = ctx.Drivers.Find(model.DriverId);
+                
 
                 if (model.NumberOfPassengers > driver.MaximumOccupants - 1)
                     return false;
+                
+                //if (model.DateReservedFor.DayOfWeek != driver.DaysAvailable)
 
                 ctx.Reservations.Add(entity);
                 return ctx.SaveChanges() == 1;
