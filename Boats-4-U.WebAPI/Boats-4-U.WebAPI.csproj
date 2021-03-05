@@ -385,6 +385,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\DriverController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\DriverRatingController.cs" />
     <Compile Include="Controllers\RenterController.cs" />
     <Compile Include="Controllers\RenterRatingController.cs" />
     <Compile Include="Controllers\ReservationController.cs" />

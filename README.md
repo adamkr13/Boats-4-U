@@ -248,6 +248,7 @@ Send the Delete request in Postman for the URL https://localhost:44327/api/Reser
   - [Eleven Note Tutorial](https://elevenfifty.instructure.com/courses/517/pages/eleven-note-0-dot-00-introduction?module_item_id=35656)
   - The information in Eleven Note was also used to help create this README.
 - Resources for implementing Day of the Week Availability for Drivers
+  - [Enum.HasFlag(Enum) Method](https://docs.microsoft.com/en-us/dotnet/api/system.enum.hasflag?view=net-5.0)
   - [Enum, Flags, and Bitwise Operators](https://www.alanzucconi.com/2015/07/26/enum-flags-and-bitwise-operators/)
   - [C# Json.NET Render Flags Enum as String Array](https://stackoverflow.com/questions/43143175/c-sharp-json-net-render-flags-enum-as-string-array)
   - [How do you pass multiple enum values in C#?](https://stackoverflow.com/questions/1030090/how-do-you-pass-multiple-enum-values-in-c)

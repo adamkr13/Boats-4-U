@@ -1,5 +1,6 @@
 ﻿using Boats_4_U.Data;
 using Boats_4_U.Models;
+using Boats_4_U.Models.Renter;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
