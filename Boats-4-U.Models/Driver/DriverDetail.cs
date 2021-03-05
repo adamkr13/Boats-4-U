@@ -17,6 +17,7 @@ namespace Boats_4_U.Models.Driver
         public DaysOfWeek DaysAvailable { get; set; }
         public string BoatName { get; set; }
         public int MaximumOccupants { get; set; }
-        public decimal HourlyRate { get; set; }       
+        public decimal HourlyRate { get; set; }    
+        public double Rating { get; set; }
     }
 }

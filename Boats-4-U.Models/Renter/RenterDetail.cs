@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boats_4_U.Models
+namespace Boats_4_U.Models.Renter
 {
     public class RenterDetail
     {
