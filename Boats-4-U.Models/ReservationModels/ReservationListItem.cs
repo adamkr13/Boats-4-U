@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace Boats_4_U.Models
+namespace Boats_4_U.Models.ReservationModels
 {
     [JsonObject(MemberSerialization.OptIn)]
     public class ReservationListItem
@@ -16,6 +16,9 @@ namespace Boats_4_U.Models
         [JsonProperty]
         public Guid ApplicationUser { get; set; }
 
+        /// <summary>
+        /// This creates the day of the week the reservation was made for
+        /// </summary>
         [JsonProperty]
         public string DisplayDateReservedFor
         {
@@ -27,7 +30,10 @@ namespace Boats_4_U.Models
                 return displayDate;
             }
         }
-
+        
+        /// <summary>
+        /// This creates the day of the week that the reservation was made
+        /// </summary>
         [JsonProperty]
         public string DisplayDateReservationMade
         {

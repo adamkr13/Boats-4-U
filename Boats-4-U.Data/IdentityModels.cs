@@ -37,6 +37,8 @@ namespace Boats_4_U.Data
         public DbSet<Driver> Drivers { get; set; }
         public DbSet<Renter> Renters { get; set; }
         public DbSet<Reservation> Reservations { get; set; }
+        public DbSet<RenterRating> RenterRatings { get; set; }
+        public DbSet<DriverRating> DriverRatings { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

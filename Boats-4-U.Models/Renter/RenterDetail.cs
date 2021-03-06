@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Boats_4_U.Models
+namespace Boats_4_U.Models.Renter
 {
     public class RenterDetail
     {
@@ -15,5 +15,9 @@ namespace Boats_4_U.Models
         public string RenterFullName { get; set; }
 
         public int RenterAge { get; set; }
+
+        public double Rating { get; set; }
+
+        public string Recommended { get; set; }
     }
 }

@@ -18,7 +18,11 @@ namespace Boats_4_U.Services
             _userId = userId;
         }
 
-        // POST - Create new Reservation
+        /// <summary>
+        /// This will create a new reservation.
+        /// </summary>
+        /// <param name="model">This is the model of the reservation and includes Driver Id, Renter Id, Number of Passangers, Date of Reservation, Reservation Duration, Reservation Details and Date the Reservation was made.</param> 
+        /// <returns>This does not return anything.</returns>
         public bool CreateReservation(ReservationCreate model)
         {
             var entity =
@@ -37,11 +41,40 @@ namespace Boats_4_U.Services
 
             using (var ctx = new ApplicationDbContext())
             {
+                var driver = ctx.Drivers.Find(model.DriverId);
+                int day = (int) model.DateReservedFor.DayOfWeek;
+                if (day == 0)
+                    day = 1;
+                if (day == 1)
+                    day = 2;
+                if (day == 2)
+                    day = 4;
+                if (day == 3)
+                    day = 8;
+                if (day == 4)
+                    day = 16;
+                if (day == 5)
+                    day = 32;
+                if (day == 6)
+                    day = 64;
+
+                DaysOfWeek dayOfWeek = (DaysOfWeek)day;
+
+                if (model.NumberOfPassengers > driver.MaximumOccupants - 1)
+                    return false;
+
+                if (!driver.DaysAvailable.HasFlag(dayOfWeek))
+                    return false;
+
                 ctx.Reservations.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
         }
-        // GET - View all Reservations (for all Users)
+
+        /// <summary>
+        /// This will get all of the reservations.
+        /// </summary>
+        /// <returns>This returns the Reservation Id, Reservation Date and the Date the Reservation was made.</returns>
         public IEnumerable<ReservationListItem> GetReservations()
         {
             using (var ctx = new ApplicationDbContext())
@@ -62,7 +95,12 @@ namespace Boats_4_U.Services
                 return query.ToArray();
             }
         }
-        // GET - View Reservation by Reservation ID - This theoretically will work for Drivers and Renters with the correct Id
+
+        /// <summary>
+        /// This will get the reservation by its Id.
+        /// </summary>
+        /// <param name="id">This is the Id of the Reservation.</param> 
+        /// <returns>This returns the Id, Renter Full Name Driver Full Name, Reservation Date, Reservation Duration, Boat Name, Number of Passangers, Reservation Details, Last Four Digits of the Credit Card Number, Estimated Total Cost and Date Reservation was Made.</returns>
         public ReservationDetail GetReservationById(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -89,39 +127,47 @@ namespace Boats_4_U.Services
                     };
             }
         }
-        // GET - View Reservation(s) by Driver - This theoretically will work for Drivers or Renters wanting to view Reservations by a particular Driver - would like to only allow Driver role to have access to this service
+        /// <summary>
+        /// This will get the reservation by a driver Id.
+        /// </summary>
+        /// <param name="id">This is the Id of the Driver</param>
+        /// <returns>This returns the Id, Renter First Name, Renter Last Name, Driver First Name, Driver Last Name, Reservation Date, Reservation Duration, Type of Boat, Number of Passangers, Reservation Details, Credit Card Number, Hourly Rate, and Date Reservation was Made.</returns>
         public IEnumerable<ReservationDetailTwo> GetReservationByDriverId(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
-                    var query =
-                        ctx
-                        .Reservations
-                        .Where(e => e.DriverId == id)
-                        .Select(
-                            e =>
-                                new ReservationDetailTwo
-                                {
-                                    ReservationId = e.ReservationId,
-                                    ApplicationUser = e.ApplicationUser,
-                                    RenterFirstName = e.Renter.RenterFirstName,
-                                    RenterLastName = e.Renter.RenterLastName,
-                                    DriverFirstName = e.Driver.DriverFirstName,
-                                    DriverLastName = e.Driver.DriverLastName,
-                                    DateReservedFor = e.DateReservedFor,
-                                    ReservationDuration = e.ReservationDuration,
-                                    TypeOfBoat = e.Driver.TypeOfBoat,
-                                    NumberOfPassengers = e.NumberOfPassengers,
-                                    ReservationDetails = e.ReservationDetails,
-                                    CreditCardNumber = e.Renter.CreditCardNumber,
-                                    HourlyRate = e.Driver.HourlyRate,
-                                    DateReservationMade = e.DateReservationMade
-                                }
-                           );
-                    return query.ToArray();
+                var query =
+                    ctx
+                    .Reservations
+                    .Where(e => e.DriverId == id)
+                    .Select(
+                        e =>
+                            new ReservationDetailTwo
+                            {
+                                ReservationId = e.ReservationId,
+                                ApplicationUser = e.ApplicationUser,
+                                RenterFirstName = e.Renter.RenterFirstName,
+                                RenterLastName = e.Renter.RenterLastName,
+                                DriverFirstName = e.Driver.DriverFirstName,
+                                DriverLastName = e.Driver.DriverLastName,
+                                DateReservedFor = e.DateReservedFor,
+                                ReservationDuration = e.ReservationDuration,
+                                TypeOfBoat = e.Driver.TypeOfBoat,
+                                NumberOfPassengers = e.NumberOfPassengers,
+                                ReservationDetails = e.ReservationDetails,
+                                CreditCardNumber = e.Renter.CreditCardNumber,
+                                HourlyRate = e.Driver.HourlyRate,
+                                DateReservationMade = e.DateReservationMade
+                            }
+                       );
+                return query.ToArray();
             }
         }
-        // GET - View Reservation(s) by Renter - This theoretically is only accessible by unique Renters - Renters will only be able to see Reservations associated with their unique User Id
+        /// <summary>
+        /// This will get the reservations for a particular user.
+        /// </summary>
+        /// <param name="id">This is the Renters Id</param>
+        /// <returns>This will return the Resercation Id, Renter First Name, Renter Last Name, Driver First Name, Driver Last Name, Reservation Date, Type of Boat, Number of Passangers, Reservation Details, Credit Card Number, Hourly Rate and Date Reservation was Made.</returns>
         public IEnumerable<ReservationDetailTwo> GetReservationByRenterId(int id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -154,7 +200,11 @@ namespace Boats_4_U.Services
                 return query.ToArray();
             }
         }
-        // GET - View Reservation(s) by Date
+        /// <summary>
+        /// This will get the reservations by a certain date
+        /// </summary>
+        /// <param name="date">This is the date of interest.</param>
+        /// <returns>This will return the Ids, Renter First Name, Renter Last Name, Driver First Name, Driver Last Name, Reservation Date, Reservation Duration, Type of Boat, Number of Passangers, Reservation Details, Credit Card Number,  Hourly Rate and Date Reservation was Made of all the Reservations on that Day.</returns>
         public IEnumerable<ReservationDetailTwo> GetReservationByDate(DateTimeOffset date)
         {
             using (var ctx = new ApplicationDbContext())
@@ -186,7 +236,11 @@ namespace Boats_4_U.Services
                 return query.ToArray();
             }
         }
-        // PUT - Update Reservation
+        /// <summary>
+        /// This will all you to update a Reservation.
+        /// </summary>
+        /// <param name="model">This is the model of the reservation.  It includes the Number of Passangers, Reservation Date, Reservation Duration, Reservation Details and Date Reservation was Made.</param>
+        /// <returns>This does not return anything.</returns>
         public bool UpdateReservation(ReservationEdit model)
         {
             using (var ctx = new ApplicationDbContext())
@@ -202,10 +256,39 @@ namespace Boats_4_U.Services
                 entity.ReservationDetails = model.ReservationDetails;
                 entity.DateReservationMade = DateTimeOffset.Now;
 
+                var driver = ctx.Drivers.Find(entity.DriverId);
+                int day = (int)entity.DateReservedFor.DayOfWeek;
+                if (day == 0)
+                    day = 1;
+                if (day == 1)
+                    day = 2;
+                if (day == 2)
+                    day = 4;
+                if (day == 3)
+                    day = 8;
+                if (day == 4)
+                    day = 16;
+                if (day == 5)
+                    day = 32;
+                if (day == 6)
+                    day = 64;
+
+                DaysOfWeek dayOfWeek = (DaysOfWeek)day;
+
+                if (entity.NumberOfPassengers > driver.MaximumOccupants - 1)
+                    return false;
+
+                if (!driver.DaysAvailable.HasFlag(dayOfWeek))
+                    return false;
+
                 return ctx.SaveChanges() == 1;
             }
         }
-        // DELETE - Delete Reservation
+        /// <summary>
+        /// This will delete a reservation.
+        /// </summary>
+        /// <param name="reservationId">This is the Id of the Reservation.</param>
+        /// <returns>This will not return anything.</returns>
         public bool DeleteReservation(int reservationId)
         {
             using (var ctx = new ApplicationDbContext())
@@ -220,7 +303,10 @@ namespace Boats_4_U.Services
                 return ctx.SaveChanges() == 1;
             }
         }
-        // Helper
+        /// <summary>
+        /// This helps if the Renter is Null
+        /// </summary>
+        /// <param name="Id">This is the renter Id</param>
         public void NullRenter(int Id)
         {
             using (var ctx = new ApplicationDbContext())
@@ -231,7 +317,11 @@ namespace Boats_4_U.Services
                 var test = (ctx.SaveChanges() > 0);
             }
         }
-        // Helper
+
+        /// <summary>
+        /// This helps if the Driver is Null
+        /// </summary>
+        /// <param name="Id">This is the Driver Id</param>
         public void NullDriver(int Id)
         {
             using (var ctx = new ApplicationDbContext())
