@@ -56,7 +56,7 @@ namespace Boats_4_U.Data
                 return boatName;
             }
         }
-
+        
         public virtual List<Reservation> ReservationDriver { get; set; } = new List<Reservation>();
         public virtual List<DriverRating> DriverRatings { get; set; } = new List<DriverRating>();
 
