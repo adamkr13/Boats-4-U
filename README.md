@@ -119,7 +119,7 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 After the program is running, and you have created a user account, the following steps may be used to create a driver
   - In Postman, ensure the token is entered, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser.
+  - The following may be discerned by examining the API documentation in the browser.
   - Enter the request URL and the Key and Value information for the following as in the image.
   - For DaysAvailable, enter numbers for days of the week separated by commas where
     - Sunday = 1, Monday = 2, Tuesday = 4, Wednesday = 8, Thursday = 16, Friday = 32, and Saturday = 64.
@@ -130,7 +130,7 @@ After the program is running, and you have created a user account, the following
  
 ### Adding a Renter
  
-- The following may be discerned by examining the API documantation in the browser
+- The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Key and Value information for the following as in the image  
   - For DateOfBirth, the format should be: YYYY-MM-DD
   - CreditCardNumber must be 16 digits    
@@ -179,7 +179,7 @@ Send the Get request in Postman for the URL https://localhost:44327/api/Driver/G
 ### Creating a Reservation
 
 - In Postman, ensure the token is entered, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
+  - The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Key and Value information for the following as in the image
   - Enter the DateReservedFor as YYYY-MM-DD
   - Enter the ReservationDuration in hours
@@ -190,7 +190,7 @@ Send the Get request in Postman for the URL https://localhost:44327/api/Driver/G
 ### Editing a Driver
 
 - In Postman, ensure the token is entered and PUT is selected, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
+  - The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   
 ![Update Driver](/Images/UpdateDriver.jpg)
@@ -198,7 +198,7 @@ Send the Get request in Postman for the URL https://localhost:44327/api/Driver/G
 ### Editing a Renter
 
 - In Postman, ensure the token is entered and PUT is selected, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
+  - The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - For DateOfBirth, the format should be: YYYY-MM-DD
   - CreditCardNumber must be 16 digits
@@ -208,7 +208,7 @@ Send the Get request in Postman for the URL https://localhost:44327/api/Driver/G
 ### Editing a Reservation
 
 - In Postman, ensure the token is entered, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
+  - The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Key and Value information for the following as in the image
   - Enter the DateReservedFor as YYYY-MM-DD
   - Enter the ReservationDuration in hours
