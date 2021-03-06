@@ -184,7 +184,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Driv
 
 - Where ID is the integer ID of the desired Driver.
 
-![Get Driver By ID](/Images/GetDriverByID.png)
+![Get Driver By ID](https://github.com/adamkr13/Boats-4-U/Images/GetDriverByID.png)
 
 ### Getting a list of all Renters
  
@@ -332,7 +332,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - Enter the RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore as a number from 0.0 through 10.0
 
-
+![Update Renter Rating](/Images/EditRenterRating.JPG)
 
 ### Deleting a Driver
 
