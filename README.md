@@ -121,6 +121,7 @@ After the program is running, and you have created a user account, the following
   - In Postman, ensure the token is entered, then click on the body.
   - The following may be discerned by examining the API documantation in the browser.
   - Enter the request URL and the Key and Value information for the following as in the image.
+  - Make sure that **POST** is selected
   - For DaysAvailable, enter numbers for days of the week separated by commas where
     - Sunday = 1, Monday = 2, Tuesday = 4, Wednesday = 8, Thursday = 16, Friday = 32, and Saturday = 64.
   - For TypeOfBoat, use the following:
@@ -131,7 +132,8 @@ After the program is running, and you have created a user account, the following
 ### Adding a Renter
  
 - The following may be discerned by examining the API documantation in the browser
-  - Enter the request URL and the Key and Value information for the following as in the image  
+  - Enter the request URL and the Key and Value information for the following as in the image
+  - Make sure that **POST** is selected  
   - For DateOfBirth, the format should be: YYYY-MM-DD
   - CreditCardNumber must be 16 digits    
  
@@ -139,13 +141,13 @@ After the program is running, and you have created a user account, the following
  
 ### Getting a list of all Drivers
  
-Send the Get request in Postman for the URL https://localhost:44327/api/Driver/
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/
  
 ![Get Drivers](/Images/GetAllDrivers.jpg)
 
 ### Getting a list of Drivers by Boat Type
 
-Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetByBoatType/1
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/GetByBoatType/1
 For TypeOfBoat (the number at the end), use the following:
 
 - FishingBoat = 1, HouseBoat = 2, PontoonBoat = 3, SailBoat = 4, SpeedBoat = 5.
@@ -154,7 +156,7 @@ For TypeOfBoat (the number at the end), use the following:
 
 ### Getting a list of Drivers by Occupancy
 
-Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetByOccupancy/24
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/GetByOccupancy/24
 This returns all drivers with a maximum occupancy at least as high as the number entered
 
 ![Get Drivers By Occupancy](/Images/GetDriversByOccupancy.jpg)
@@ -162,7 +164,7 @@ This returns all drivers with a maximum occupancy at least as high as the number
 ### Getting a list of Drivers by Location
 
 It may be useful to get a list of all drivers to see what locations are available before using this.
-Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetByLocation/location
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/GetByLocation/location
 
 - Where: location is the text of the location you'd like to go
 
@@ -170,26 +172,124 @@ Send the Get request in Postman for the URL https://localhost:44327/api/Driver/G
 
 ### Getting a list of Drivers by Day of the Week
 
-Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetByDaysOfWeek/dayOfWeek
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/GetByDaysOfWeek/dayOfWeek
 
 - Where: dayOfWeek is an integer with Sunday = 1, Monday = 2, Tuesday = 4, Wednesday = 8, Thursday = 16, Friday = 32, and Saturday = 64.
 
 ![Get Drivers By Day of the Week](/Images/GetDriversByDayOfWeek.jpg)
+
+### Get a Driver by ID
+
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/ID
+
+- Where ID is the integer ID of the desired Driver.
+
+
+
+### Getting a list of all Renters
+ 
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Renter/
+ 
+
+
+### Get a Renter by ID
+
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Renter/ID
+
+- Where ID is the integer ID of the desired Renter.
+
+
 
 ### Creating a Reservation
 
 - In Postman, ensure the token is entered, then click on the body.
   - The following may be discerned by examining the API documantation in the browser
   - Enter the request URL and the Key and Value information for the following as in the image
+  - Make sure that **POST** is selected
   - Enter the DateReservedFor as YYYY-MM-DD
   - Enter the ReservationDuration in hours
   - ReservationDetails is a field to enter whatever text one wants to use to describe the reservation
   
 ![Create Reservation](/Images/CreateReservation.jpg)
-  
+
+### Creating a Driver Rating
+
+- In Postman, ensure the token is entered, then click on the body.
+  - The following may be discerned by examining the API documantation in the browser.
+  - Enter the request URL and the Key and Value information for the following as in the image
+  - Make sure that **POST** is selected.
+  - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
+
+
+
+### Creating a Renter Rating
+
+- In Postman, ensure the token is entered, then click on the body.
+  - The following may be discerned by examining the API documantation in the browser.
+  - Enter the request URL and the Key and Value information for the following as in the image
+  - Make sure that **POST** is selected.
+  - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
+
+
+
+### Getting a list of all Drivers
+ 
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/
+
+
+
+### Get a Reservation Rating by ID
+
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation
+
+- Where ID is the integer ID of the desired Reservation.
+
+
+
+### Get a Driver Rating by ID
+
+Send the **Get** request in Postman for the URL https://localhost:44327/api/DriverRating/ID
+
+- Where ID is the integer ID of the desired Driver Rating.
+
+
+
+### Get a Renter Rating by ID
+
+Send the **Get** request in Postman for the URL https://localhost:44327/api/RenterRating/ID
+
+- Where ID is the integer ID of the desired Driver Rating.
+
+
+
+### Get a Reservation by Driver ID
+
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDriverId/ID
+
+- Where ID is the integer ID of the desired Driver.
+
+
+
+### Get a Reservation by Renter ID
+
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByRenterId/ID
+
+- Where ID is the integer ID of the desired Driver.
+
+
+
+### Get a Reservation by Date
+
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDate/ID
+
+- Where ID is the integer ID of the desired Driver.
+
+
+
+
 ### Editing a Driver
 
-- In Postman, ensure the token is entered and PUT is selected, then click on the body.
+- In Postman, ensure the token is entered and **PUT** is selected, then click on the body.
   - The following may be discerned by examining the API documantation in the browser
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   
@@ -197,7 +297,7 @@ Send the Get request in Postman for the URL https://localhost:44327/api/Driver/G
 
 ### Editing a Renter
 
-- In Postman, ensure the token is entered and PUT is selected, then click on the body.
+- In Postman, ensure the token is entered and **PUT** is selected, then click on the body.
   - The following may be discerned by examining the API documantation in the browser
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - For DateOfBirth, the format should be: YYYY-MM-DD
@@ -207,7 +307,7 @@ Send the Get request in Postman for the URL https://localhost:44327/api/Driver/G
 
 ### Editing a Reservation
 
-- In Postman, ensure the token is entered, then click on the body.
+- In Postman, ensure the token is entered and **PUT** is selected, then click on the body.
   - The following may be discerned by examining the API documantation in the browser
   - Enter the request URL and the Key and Value information for the following as in the image
   - Enter the DateReservedFor as YYYY-MM-DD
@@ -215,6 +315,24 @@ Send the Get request in Postman for the URL https://localhost:44327/api/Driver/G
   - ReservationDetails is a field to enter whatever text one wants to use to describe the reservation
   
 ![Update Reservation](/Images/UpdateReservation.jpg)
+
+### Editing a Driver Rating
+
+- In Postman, ensure the token is entered and **PUT** is selected, then click on the body.
+  - The following may be discerned by examining the API documantation in the browser
+  - Enter the request URL and the Updated Key and Value information for the following as in the image
+  - Enter the DriverFunScore, DriverSafetyScore, and DriverCleanlinessScore as a number from 0.0 through 10.0
+
+
+
+### Editing a Renter Rating
+
+- In Postman, ensure the token is entered and **PUT** is selected, then click on the body.
+  - The following may be discerned by examining the API documantation in the browser
+  - Enter the request URL and the Updated Key and Value information for the following as in the image
+  - Enter the RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore as a number from 0.0 through 10.0
+
+
 
 ### Deleting a Driver
 
@@ -239,6 +357,22 @@ Send the Delete request in Postman for the URL https://localhost:44327/api/Reser
 - Where id is the Reservation Id
 
 ![Delete Driver](/Images/DeleteReservation.jpg)
+
+### Deleting a Driver Rating
+
+Send the Delete request in Postman for the URL https://localhost:44327/api/DriverRating/id
+
+- Where id is the Driver Rating Id
+
+
+
+### Deleting a Renter Rating
+
+Send the Delete request in Postman for the URL https://localhost:44327/api/RenterRating/id
+
+- Where id is the Renter Rating Id
+
+
 
 
 ## Resources
