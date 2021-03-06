@@ -10,12 +10,12 @@ This app enables the creation, management, and deletion of: boat driver profiles
 More specifically, boat drivers can create, update, and delete a profile that includes:
 - the driver's name
 - the hourly rental rate
-- the body of water the boat travels
+- the body of water the boat travels (location)
 - the type of boat
 - the days of the week the driver is available
 - the maximum capacity of the boat
 
-Renters can create, update and delete a profile that includes:
+Renters can create, update, and delete a profile that includes:
 - the renter's name
 - the renter's date of birth
 - the credit card number
@@ -86,7 +86,7 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 ![Register Postman](/Images/RegisterResponse.jpg)
 
-- In Postman, replace the previous information in the address bar and table.with the information in the picture below.
+- In Postman, replace the previous information in the address bar and table with the information in the picture below.
 - Key info is grant_type, username, and password. Uncheck any other fields in the body.
 - Make sure to use the same username and password as previously
 
@@ -96,7 +96,7 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 ![Token Headers](/Images/RegisterTokenHeaders.jpg)
 
-- You should get a reponse with a token.
+- You should get a reponse with a token, as seen below.
 - Copy the token (the characters inside the quotation marks) and save the Postman Request.
 - The token will be used as the user login information.
 
@@ -107,8 +107,9 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 ![New Request](/Images/PostmanNewRequest.jpg)
 
 - In Header, add a Key for __Authorization__.
-- For the Value, add Bearer followed by a space
+- For the Value, add Bearer followed by a space.
 - Paste the copied token after the space.
+- Send the request.
 
 ![Postman Authorization](/Images/PostmanAuthorization.jpg)
 
@@ -118,8 +119,8 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 After the program is running, and you have created a user account, the following steps may be used to create a driver
   - In Postman, ensure the token is entered, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
-  - Enter the request URL and the Key and Value information for the following as in the image
+  - The following may be discerned by examining the API documantation in the browser.
+  - Enter the request URL and the Key and Value information for the following as in the image.
   - For DaysAvailable, enter numbers for days of the week separated by commas where
     - Sunday = 1, Monday = 2, Tuesday = 4, Wednesday = 8, Thursday = 16, Friday = 32, and Saturday = 64.
   - For TypeOfBoat, use the following:
@@ -134,7 +135,7 @@ After the program is running, and you have created a user account, the following
   - For DateOfBirth, the format should be: YYYY-MM-DD
   - CreditCardNumber must be 16 digits    
  
-![Create Renter](/Images/CreateDriver.jpg)
+![Create Renter](/Images/CreateRenter.jpg)
  
 ### Getting a list of all Drivers
  
@@ -146,7 +147,8 @@ Send the Get request in Postman for the URL https://localhost:44327/api/Driver/
 
 Send the Get request in Postman for the URL https://localhost:44327/api/Driver/GetByBoatType/1
 For TypeOfBoat (the number at the end), use the following:
-    - FishingBoat = 1, HouseBoat = 2, PontoonBoat = 3, SailBoat = 4, SpeedBoat = 5.
+
+- FishingBoat = 1, HouseBoat = 2, PontoonBoat = 3, SailBoat = 4, SpeedBoat = 5.
 
 ![Get Drivers By Boat Type](/Images/GetDriversByBoatType.jpg)
 
