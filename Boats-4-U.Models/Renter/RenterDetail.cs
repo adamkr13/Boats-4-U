@@ -15,5 +15,9 @@ namespace Boats_4_U.Models.Renter
         public string RenterFullName { get; set; }
 
         public int RenterAge { get; set; }
+
+        public double Rating { get; set; }
+
+        public string Recommended { get; set; }
     }
 }

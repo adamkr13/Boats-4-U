@@ -543,6 +543,34 @@
             <param name="id">This is the Id of the driver to be deleted</param>
             <returns>This does not return anything</returns>
         </member>
+        <member name="M:Boats_4_U.WebAPI.Controllers.DriverRatingController.Post(Boats_4_U.Models.DriverRatingModels.DriverRatingCreate)">
+            <summary>
+            This will allow user to post rating for a Driver.
+            </summary>
+            <param name="rating"></param>
+            <returns>"Rating was successfully created."</returns>
+        </member>
+        <member name="M:Boats_4_U.WebAPI.Controllers.DriverRatingController.Get(System.Int32)">
+            <summary>
+            This will get a specific Driver rating by its Id.
+            </summary>
+            <param name="id"></param>
+            <returns>Details of Driver rating.</returns>
+        </member>
+        <member name="M:Boats_4_U.WebAPI.Controllers.DriverRatingController.Put(Boats_4_U.Models.DriverRatingModels.DriverRatingUpdate)">
+            <summary>
+            This will allow user to update a specific Driver rating by its Id.
+            </summary>
+            <param name="rating"></param>
+            <returns>"Driver rating has been successfully updated."</returns>
+        </member>
+        <member name="M:Boats_4_U.WebAPI.Controllers.DriverRatingController.Delete(System.Int32)">
+            <summary>
+            This will allow user to delete a specific Driver rating by its Id.
+            </summary>
+            <param name="driverRatingId"></param>
+            <returns>"Driver rating has been successfully deleted."</returns>
+        </member>
         <member name="M:Boats_4_U.WebAPI.Controllers.RenterController.Post(Boats_4_U.Models.Renter.RenterCreate)">
             <summary>
             This allows a renter to be created
@@ -576,6 +604,34 @@
             </summary>
             <param name="id"></param>
             <returns>This returns the statment "The Renter was Successfully Deleted!"</returns>
+        </member>
+        <member name="M:Boats_4_U.WebAPI.Controllers.RenterRatingController.Post(Boats_4_U.Models.RenterRatingCreate)">
+            <summary>
+            This will allow user to post rating for a Renter.
+            </summary>
+            <param name="rating"></param>
+            <returns>"Rating was succesffully created."</returns>
+        </member>
+        <member name="M:Boats_4_U.WebAPI.Controllers.RenterRatingController.Get(System.Int32)">
+            <summary>
+            This will allow user to get a specific Renter rating by its Id.
+            </summary>
+            <param name="id"></param>
+            <returns>Details of Renter rating.</returns>
+        </member>
+        <member name="M:Boats_4_U.WebAPI.Controllers.RenterRatingController.Put(Boats_4_U.Models.RenterRatingModels.RenterRatingUpdate)">
+            <summary>
+            This will allow user to update a specific Renter rating by its Id.
+            </summary>
+            <param name="rating"></param>
+            <returns>"Renter rating has been successfully updated."</returns>
+        </member>
+        <member name="M:Boats_4_U.WebAPI.Controllers.RenterRatingController.Delete(System.Int32)">
+            <summary>
+            This will allow user to delete a specific Renter rating by its Id.
+            </summary>
+            <param name="renterRatingId"></param>
+            <returns>"Renter rating has been successfully deleted."</returns>
         </member>
         <member name="M:Boats_4_U.WebAPI.Controllers.ReservationController.Post(Boats_4_U.Models.ReservationModels.ReservationCreate)">
             <summary>

@@ -56,7 +56,7 @@ namespace Boats_4_U.Data
                 return boatName;
             }
         }
-
+        
         public virtual List<Reservation> ReservationDriver { get; set; } = new List<Reservation>();
         public virtual List<DriverRating> DriverRatings { get; set; } = new List<DriverRating>();
 
@@ -82,6 +82,17 @@ namespace Boats_4_U.Data
             get
             {
                 return Rating > 8;
+            }
+        }
+
+        public string Recommended
+        {
+            get
+            {
+                if (DriverIsRecommended == true)
+                    return $"Driver has rating of {Rating} and is highly recommended!";
+
+                return "Driver has a less than stellar rating. Be sure to communicate expectations clearly before finalizing reservation.";
             }
         }
 
