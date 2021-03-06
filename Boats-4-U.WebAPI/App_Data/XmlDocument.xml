@@ -607,12 +607,6 @@
         </member>
         <member name="M:Boats_4_U.WebAPI.Controllers.RenterRatingController.Post(Boats_4_U.Models.RenterRatingCreate)">
             <summary>
-<<<<<<< HEAD
-            This will allow the user to post a Rating for the Renter
-            </summary>
-            <param name="rating"></param>
-            <returns>Returns "Rating was succesffully created."</returns>
-=======
             This will allow user to post rating for a Renter.
             </summary>
             <param name="rating"></param>
@@ -638,7 +632,6 @@
             </summary>
             <param name="renterRatingId"></param>
             <returns>"Renter rating has been successfully deleted."</returns>
->>>>>>> 246a4da017c1468e363e332f266e7bd0992b3f15
         </member>
         <member name="M:Boats_4_U.WebAPI.Controllers.ReservationController.Post(Boats_4_U.Models.ReservationModels.ReservationCreate)">
             <summary>
