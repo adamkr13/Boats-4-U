@@ -184,7 +184,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Driv
 
 - Where ID is the integer ID of the desired Driver.
 
-
+![Get Driver By ID](/Images/GetDriverByID.png)
 
 ### Getting a list of all Renters
  
@@ -336,7 +336,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 ### Deleting a Driver
 
-Send the Delete request in Postman for the URL https://localhost:44327/api/Driver/id
+Send the **Delete** request in Postman for the URL https://localhost:44327/api/Driver/id
 
 - Where id is the Driver Id
 
@@ -344,7 +344,7 @@ Send the Delete request in Postman for the URL https://localhost:44327/api/Drive
 
 ### Deleting a Renter
 
-Send the Delete request in Postman for the URL https://localhost:44327/api/Renter/id
+Send the **Delete** request in Postman for the URL https://localhost:44327/api/Renter/id
 
 - Where id is the Renter Id
 
@@ -352,7 +352,7 @@ Send the Delete request in Postman for the URL https://localhost:44327/api/Rente
 
 ### Deleting a Reservation
 
-Send the Delete request in Postman for the URL https://localhost:44327/api/Reservation/id
+Send the **Delete** request in Postman for the URL https://localhost:44327/api/Reservation/id
 
 - Where id is the Reservation Id
 
@@ -360,7 +360,7 @@ Send the Delete request in Postman for the URL https://localhost:44327/api/Reser
 
 ### Deleting a Driver Rating
 
-Send the Delete request in Postman for the URL https://localhost:44327/api/DriverRating/id
+Send the **Delete** request in Postman for the URL https://localhost:44327/api/DriverRating/id
 
 - Where id is the Driver Rating Id
 
@@ -368,7 +368,7 @@ Send the Delete request in Postman for the URL https://localhost:44327/api/Drive
 
 ### Deleting a Renter Rating
 
-Send the Delete request in Postman for the URL https://localhost:44327/api/RenterRating/id
+Send the **Delete** request in Postman for the URL https://localhost:44327/api/RenterRating/id
 
 - Where id is the Renter Rating Id
 
