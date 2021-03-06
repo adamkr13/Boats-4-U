@@ -332,7 +332,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - Enter the RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore as a number from 0.0 through 10.0
 
-![Update Renter Rating](/Images/EditRenterRating.jpg)
+![Update Renter Rating](/Images/EditRenterRating.JPG)
 
 ### Deleting a Driver
 
