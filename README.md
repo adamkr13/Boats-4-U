@@ -323,7 +323,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - Enter the DriverFunScore, DriverSafetyScore, and DriverCleanlinessScore as a number from 0.0 through 10.0
 
-
+![Update Driver Rating](/Images/EditDriverRating.jpg)
 
 ### Editing a Renter Rating
 
@@ -364,7 +364,7 @@ Send the **Delete** request in Postman for the URL https://localhost:44327/api/D
 
 - Where id is the Driver Rating Id
 
-![Delete Driver](/Images/DeleteDriverRating.jpg)
+![Delete Driver Rating](/Images/DeleteDriverRating.jpg)
 
 ### Deleting a Renter Rating
 
@@ -372,7 +372,7 @@ Send the **Delete** request in Postman for the URL https://localhost:44327/api/R
 
 - Where id is the Renter Rating Id
 
-![Delete Driver](/Images/DeleteRenterRating.jpg)
+![Delete Renter Rating](/Images/DeleteRenterRating.jpg)
 
 
 ## Resources
