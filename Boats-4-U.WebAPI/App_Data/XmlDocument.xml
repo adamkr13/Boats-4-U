@@ -577,6 +577,13 @@
             <param name="id"></param>
             <returns>This returns the statment "The Renter was Successfully Deleted!"</returns>
         </member>
+        <member name="M:Boats_4_U.WebAPI.Controllers.RenterRatingController.Post(Boats_4_U.Models.RenterRatingCreate)">
+            <summary>
+            This will allow the user to post a Rating for the Renter
+            </summary>
+            <param name="rating"></param>
+            <returns>Returns "Rating was succesffully created."</returns>
+        </member>
         <member name="M:Boats_4_U.WebAPI.Controllers.ReservationController.Post(Boats_4_U.Models.ReservationModels.ReservationCreate)">
             <summary>
             This allows a reservation to be created
