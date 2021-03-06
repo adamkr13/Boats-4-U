@@ -119,7 +119,7 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 After the program is running, and you have created a user account, the following steps may be used to create a driver
   - In Postman, ensure the token is entered, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser.
+  - The following may be discerned by examining the API documentation in the browser.
   - Enter the request URL and the Key and Value information for the following as in the image.
   - Make sure that **POST** is selected
   - For DaysAvailable, enter numbers for days of the week separated by commas where
@@ -131,7 +131,7 @@ After the program is running, and you have created a user account, the following
  
 ### Adding a Renter
  
-- The following may be discerned by examining the API documantation in the browser
+- The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Key and Value information for the following as in the image
   - Make sure that **POST** is selected  
   - For DateOfBirth, the format should be: YYYY-MM-DD
@@ -203,7 +203,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
 ### Creating a Reservation
 
 - In Postman, ensure the token is entered, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
+  - The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Key and Value information for the following as in the image
   - Make sure that **POST** is selected
   - Enter the DateReservedFor as YYYY-MM-DD
@@ -215,7 +215,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
 ### Creating a Driver Rating
 
 - In Postman, ensure the token is entered, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser.
+  - The following may be discerned by examining the API documentation in the browser.
   - Enter the request URL and the Key and Value information for the following as in the image
   - Make sure that **POST** is selected.
   - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
@@ -225,7 +225,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
 ### Creating a Renter Rating
 
 - In Postman, ensure the token is entered, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser.
+  - The following may be discerned by examining the API documentation in the browser.
   - Enter the request URL and the Key and Value information for the following as in the image
   - Make sure that **POST** is selected.
   - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
@@ -290,7 +290,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 ### Editing a Driver
 
 - In Postman, ensure the token is entered and **PUT** is selected, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
+  - The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   
 ![Update Driver](/Images/UpdateDriver.jpg)
@@ -298,7 +298,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 ### Editing a Renter
 
 - In Postman, ensure the token is entered and **PUT** is selected, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
+  - The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - For DateOfBirth, the format should be: YYYY-MM-DD
   - CreditCardNumber must be 16 digits
@@ -308,7 +308,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 ### Editing a Reservation
 
 - In Postman, ensure the token is entered and **PUT** is selected, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
+  - The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Key and Value information for the following as in the image
   - Enter the DateReservedFor as YYYY-MM-DD
   - Enter the ReservationDuration in hours
@@ -319,7 +319,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 ### Editing a Driver Rating
 
 - In Postman, ensure the token is entered and **PUT** is selected, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
+  - The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - Enter the DriverFunScore, DriverSafetyScore, and DriverCleanlinessScore as a number from 0.0 through 10.0
 
@@ -328,7 +328,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 ### Editing a Renter Rating
 
 - In Postman, ensure the token is entered and **PUT** is selected, then click on the body.
-  - The following may be discerned by examining the API documantation in the browser
+  - The following may be discerned by examining the API documentation in the browser
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - Enter the RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore as a number from 0.0 through 10.0
 
