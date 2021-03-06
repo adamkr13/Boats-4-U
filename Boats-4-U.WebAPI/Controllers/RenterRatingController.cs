@@ -13,6 +13,11 @@ namespace Boats_4_U.WebAPI.Controllers
 {
     public class RenterRatingController : ApiController
     {
+        /// <summary>
+        /// This will allow the user to post a Rating for the Renter
+        /// </summary>
+        /// <param name="rating"></param>
+        /// <returns>Returns "Rating was succesffully created."</returns>
         [HttpPost]
         public IHttpActionResult Post(RenterRatingCreate rating)
         {
@@ -24,7 +29,7 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.CreateRenterRating(rating))
                 return InternalServerError();
 
-            return Ok("Rating was succesffully created");
+            return Ok("Rating was succesffully created.");
         }
 
         [HttpGet]
