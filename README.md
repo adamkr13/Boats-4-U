@@ -238,7 +238,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Driv
 
 
 
-### Get a Reservation Rating by ID
+### Get a Reservation by ID
 
 Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/ID
 
