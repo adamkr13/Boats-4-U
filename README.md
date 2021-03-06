@@ -364,7 +364,7 @@ Send the **Delete** request in Postman for the URL https://localhost:44327/api/D
 
 - Where id is the Driver Rating Id
 
-![Delete Driver](/Images/DriverRating.jpg)
+![Delete Driver](/Images/DriverRating.JPG)
 
 ### Deleting a Renter Rating
 
@@ -372,7 +372,7 @@ Send the **Delete** request in Postman for the URL https://localhost:44327/api/R
 
 - Where id is the Renter Rating Id
 
-![Delete Driver](/Images/RenterRating.jpg)
+![Delete Driver](/Images/RenterRating.JPG)
 
 
 ## Resources
