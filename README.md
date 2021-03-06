@@ -184,13 +184,13 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Driv
 
 - Where ID is the integer ID of the desired Driver.
 
-![Get Driver By ID](https://github.com/adamkr13/Boats-4-U/Images/GetDriverByID.png)
+![Get Driver By ID](/Images/GetDriverByID.JPG)
 
 ### Getting a list of all Renters
  
 Send the **Get** request in Postman for the URL https://localhost:44327/api/Renter/
  
-
+![Get a list of all Renters](/Images/GetAllRenters.JPG)
 
 ### Get a Renter by ID
 
@@ -198,7 +198,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
 
 - Where ID is the integer ID of the desired Renter.
 
-
+![Get Renter By ID](/Images/GetRenterByID.JPG)
 
 ### Creating a Reservation
 
@@ -220,7 +220,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
   - Make sure that **POST** is selected.
   - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
 
-
+![Create Driver Rating](/Images/EditDriverRating.jpg)
 
 ### Creating a Renter Rating
 
@@ -230,13 +230,13 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
   - Make sure that **POST** is selected.
   - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
 
-
+![Create Renter Rating](/Images/EditRenterRating.JPG)
 
 ### Getting a list of all Drivers
  
 Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/
 
-
+![Get a list of all Drivers](/Images/GetAllDrivers.jpg)
 
 ### Get a Reservation by ID
 
@@ -244,7 +244,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 - Where ID is the integer ID of the desired Reservation.
 
-
+![Get Reservation By ID](/Images/GetResByID.JPG)
 
 ### Get a Driver Rating by ID
 
@@ -252,7 +252,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Driv
 
 - Where ID is the integer ID of the desired Driver Rating.
 
-
+![Get Driver Rating By ID](/Images/GetDriverByRating.JPG)
 
 ### Get a Renter Rating by ID
 
@@ -260,7 +260,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
 
 - Where ID is the integer ID of the desired Driver Rating.
 
-
+![Get Renter Rating By ID](/Images/GetRenterRating.JPG)
 
 ### Get a Reservation by Driver ID
 
@@ -268,7 +268,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 - Where ID is the integer ID of the desired Driver.
 
-
+![Get Reservation By Driver ID](/Images/GetResByDriver.JPG)
 
 ### Get a Reservation by Renter ID
 
@@ -276,7 +276,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 - Where ID is the integer ID of the desired Driver.
 
-
+![Get Reservation By Renter ID](/Images/GetResbyRenter.JPG)
 
 ### Get a Reservation by Date
 
@@ -284,8 +284,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 - Where ID is the integer ID of the desired Driver.
 
-
-
+![Get Reservation By Date](/Images/GetResByDate.JPG)
 
 ### Editing a Driver
 
