@@ -1,4 +1,5 @@
 ﻿using Boats_4_U.Models;
+using Boats_4_U.Models.RenterRatingModels;
 using Boats_4_U.Services;
 using Microsoft.AspNet.Identity;
 using System;
@@ -33,6 +34,32 @@ namespace Boats_4_U.WebAPI.Controllers
             var service = CreateRenterRatingService();
             var rating = service.GetRenterRatingById(id);
             return Ok(rating);
+        }
+
+        [HttpPut]
+        public IHttpActionResult Put(RenterRatingUpdate rating)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest();
+
+            var service = CreateRenterRatingService();
+
+            if (!service.UpdateRenterRating(rating))
+                return InternalServerError();
+
+            return Ok($"Renter rating has been successfully updated.");
+        }
+
+        [HttpDelete]
+        [Route("api/RenterRating/{renterRatingId}")]
+        public IHttpActionResult Delete(int renterRatingId)
+        {
+            var service = CreateRenterRatingService();
+
+            if (!service.DeleteRenterRating(renterRatingId))
+                return InternalServerError();
+
+            return Ok($"Renter rating has been successfully deleted.");
         }
 
         private RenterRatingService CreateRenterRatingService()

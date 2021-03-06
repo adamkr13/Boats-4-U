@@ -273,8 +273,10 @@
     <Compile Include="DriverRatingModels\DriverRatingCreate.cs" />
     <Compile Include="DriverRatingModels\DriverRatingDetail.cs" />
     <Compile Include="DriverRatingModels\DriverRatingUpdate.cs" />
+    <Compile Include="RenterRatingModels\RenterRatingUpdate.cs" />
     <Compile Include="Renter\RenterCreate.cs" />
     <Compile Include="Renter\RenterDetail.cs" />
+    <Compile Include="Renter\RenterDetailTwo.cs" />
     <Compile Include="Renter\RenterListItem.cs" />
     <Compile Include="Renter\RenterUpdate.cs" />
     <Compile Include="ReservationModels\ReservationDetailTwo.cs" />
