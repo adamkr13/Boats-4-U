@@ -130,12 +130,23 @@ namespace Boats_4_U.Models.Driver
             }
         }
 
-        [JsonProperty]
         public bool DriverIsRecommended
         {
             get
             {
                 return Rating > 8;
+            }
+        }
+
+        [JsonProperty]
+        public string Recommended
+        {
+            get
+            {
+                if (DriverIsRecommended == true)
+                    return $"Driver has rating of {Rating} and is highly recommended!";
+
+                return "Driver has a less than stellar rating. Be sure to communicate expectations clearly before finalizing reservation.";
             }
         }
     }

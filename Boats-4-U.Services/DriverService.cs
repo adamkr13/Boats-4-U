@@ -211,7 +211,8 @@ namespace Boats_4_U.Services
                         BoatName = entity.BoatName,
                         MaximumOccupants = entity.MaximumOccupants,
                         HourlyRate = entity.HourlyRate,    
-                        Rating = entity.Rating
+                        Rating = entity.Rating,
+                        Recommended = entity.Recommended
                     };
             }
         }

@@ -19,5 +19,6 @@ namespace Boats_4_U.Models.Driver
         public int MaximumOccupants { get; set; }
         public decimal HourlyRate { get; set; }    
         public double Rating { get; set; }
+        public string Recommended { get; set; }
     }
 }

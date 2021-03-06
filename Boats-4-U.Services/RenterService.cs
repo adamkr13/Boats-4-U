@@ -62,7 +62,8 @@ namespace Boats_4_U.Services
                             ApplicationUser = e.ApplicationUser,
                             RenterFirstName = e.RenterFirstName,
                             RenterLastName = e.RenterLastName,
-                            DateOfBirth = e.DateOfBirth
+                            DateOfBirth = e.DateOfBirth,
+                            RenterRatings = e.RenterRatings
                         }
                         );
                 return query.ToArray();
@@ -87,7 +88,9 @@ namespace Boats_4_U.Services
                         RenterId = entity.RenterId,
                         ApplicationUser = entity.ApplicationUser,
                         RenterFullName = entity.RenterFullName,
-                        RenterAge = entity.RenterAge
+                        RenterAge = entity.RenterAge,
+                        Rating = entity.Rating,
+                        Recommended = entity.Recommended
                     };
             }
         }
