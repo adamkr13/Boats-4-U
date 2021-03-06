@@ -14,10 +14,10 @@ namespace Boats_4_U.WebAPI.Controllers
     public class RenterRatingController : ApiController
     {
         /// <summary>
-        /// This will allow the user to post a Rating for the Renter
+        /// This will allow user to post rating for a Renter.
         /// </summary>
         /// <param name="rating"></param>
-        /// <returns>Returns "Rating was succesffully created."</returns>
+        /// <returns>"Rating was succesffully created."</returns>
         [HttpPost]
         public IHttpActionResult Post(RenterRatingCreate rating)
         {
@@ -32,6 +32,11 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok("Rating was succesffully created.");
         }
 
+        /// <summary>
+        /// This will allow user to get a specific Renter rating by its Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Details of Renter rating.</returns>
         [HttpGet]
         [Route("api/RenterRating/{id}")]
         public IHttpActionResult Get(int id)
@@ -41,6 +46,11 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok(rating);
         }
 
+        /// <summary>
+        /// This will allow user to update a specific Renter rating by its Id.
+        /// </summary>
+        /// <param name="rating"></param>
+        /// <returns>"Renter rating has been successfully updated."</returns>
         [HttpPut]
         public IHttpActionResult Put(RenterRatingUpdate rating)
         {
@@ -55,6 +65,11 @@ namespace Boats_4_U.WebAPI.Controllers
             return Ok($"Renter rating has been successfully updated.");
         }
 
+        /// <summary>
+        /// This will allow user to delete a specific Renter rating by its Id.
+        /// </summary>
+        /// <param name="renterRatingId"></param>
+        /// <returns>"Renter rating has been successfully deleted."</returns>
         [HttpDelete]
         [Route("api/RenterRating/{renterRatingId}")]
         public IHttpActionResult Delete(int renterRatingId)
