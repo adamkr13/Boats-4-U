@@ -340,7 +340,7 @@ Send the **Delete** request in Postman for the URL https://localhost:44327/api/D
 
 - Where id is the Driver Id
 
-![Delete Driver](https://github.com/adamkr13/Boats-4-U/Images/DeleteDriver.jpg)
+![Delete Driver](/Images/DeleteDriver.jpg)
 
 ### Deleting a Renter
 
