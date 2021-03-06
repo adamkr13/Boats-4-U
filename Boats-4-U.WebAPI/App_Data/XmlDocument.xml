@@ -543,7 +543,7 @@
             <param name="id">This is the Id of the driver to be deleted</param>
             <returns>This does not return anything</returns>
         </member>
-        <member name="M:Boats_4_U.WebAPI.Controllers.RenterController.Post(Boats_4_U.Models.RenterCreate)">
+        <member name="M:Boats_4_U.WebAPI.Controllers.RenterController.Post(Boats_4_U.Models.Renter.RenterCreate)">
             <summary>
             This allows a renter to be created
             </summary>
@@ -563,7 +563,7 @@
             <param name="id"></param>
             <returns>This returns the particular renter of interest</returns>
         </member>
-        <member name="M:Boats_4_U.WebAPI.Controllers.RenterController.Put(Boats_4_U.Models.RenterUpdate)">
+        <member name="M:Boats_4_U.WebAPI.Controllers.RenterController.Put(Boats_4_U.Models.Renter.RenterUpdate)">
             <summary>
             This allows a renter's information to be edited
             </summary>
@@ -577,7 +577,7 @@
             <param name="id"></param>
             <returns>This returns the statment "The Renter was Successfully Deleted!"</returns>
         </member>
-        <member name="M:Boats_4_U.WebAPI.Controllers.ReservationController.Post(Boats_4_U.Models.ReservationCreate)">
+        <member name="M:Boats_4_U.WebAPI.Controllers.ReservationController.Post(Boats_4_U.Models.ReservationModels.ReservationCreate)">
             <summary>
             This allows a reservation to be created
             </summary>
@@ -618,7 +618,7 @@
             <param name="date"></param>
             <returns>This returns all of the reservations on that day</returns>
         </member>
-        <member name="M:Boats_4_U.WebAPI.Controllers.ReservationController.Put(Boats_4_U.Models.ReservationEdit)">
+        <member name="M:Boats_4_U.WebAPI.Controllers.ReservationController.Put(Boats_4_U.Models.ReservationModels.ReservationEdit)">
             <summary>
             This allows a reservation to be changed
             </summary>

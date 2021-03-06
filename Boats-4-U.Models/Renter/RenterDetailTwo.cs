@@ -1,32 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Boats_4_U.Data;
+using Newtonsoft.Json;
 
-namespace Boats_4_U.Data
+namespace Boats_4_U.Models.Renter
 {
-    public class Renter
+    [JsonObject(MemberSerialization.OptIn)]
+    public class RenterDetailTwo
     {
-        [Key]
+        [JsonProperty]
         public int RenterId { get; set; }
 
-        [Required]
+        [JsonProperty]
         public Guid ApplicationUser { get; set; }
 
-        [Required]
         public string RenterFirstName { get; set; }
-
-        [Required]
         public string RenterLastName { get; set; }
 
-        [Required]
-        public DateTime DateOfBirth { get; set; }
-
-        [Required]
-        public string CreditCardNumber { get; set; }
-
+        [JsonProperty]
         public string RenterFullName
         {
             get
@@ -36,54 +30,10 @@ namespace Boats_4_U.Data
             }
         }
 
-        public string Last4Digits
-        {
-            get
-            {
-                var creditCardNumber = $"{CreditCardNumber}";
+        [JsonProperty]
+        public int RenterAge { get; set; }
 
-                return creditCardNumber.Substring(creditCardNumber.Length - 4, 4);
-            }
-        }
-
-        public int RenterAge
-        {
-            get
-            {
-                var today = DateTime.Today;
-                var age = today.Year - DateOfBirth.Year;
-                if (DateOfBirth.Date > today.AddYears(-age)) age--;
-                return age;
-            }
-        }
-
-        public virtual List<Reservation> ReservationRenter { get; set; } = new List<Reservation>();
-        public virtual List<RenterRating> RenterRatings { get; set; } = new List<RenterRating>();
-
-        public double Rating
-        {
-            get
-            {
-                double totalAverageRating = 0;
-
-                foreach (var rating in RenterRatings)
-                {
-                    totalAverageRating += rating.AverageRenterRating;
-                }
-
-                return RenterRatings.Count > 0
-                    ? Math.Round(totalAverageRating / RenterRatings.Count, 2)
-                    : 0;
-            }
-        }
-
-        public bool RenterIsRecommended
-        {
-            get
-            {
-                return Rating > 8;
-            }
-        }
+        public virtual List<RenterRating> RenterRatings { get; set; }
 
         public double CleanlinessRating
         {
@@ -101,7 +51,6 @@ namespace Boats_4_U.Data
                     : 0;
             }
         }
-
         public double SafetyRating
         {
             get
@@ -118,7 +67,6 @@ namespace Boats_4_U.Data
                     : 0;
             }
         }
-
         public double PunctualityRating
         {
             get
@@ -133,6 +81,33 @@ namespace Boats_4_U.Data
                 return RenterRatings.Count > 0
                     ? Math.Round(averagePunctualityRating / RenterRatings.Count, 2)
                     : 0;
+            }
+        }
+
+        [JsonProperty]
+        public double Rating
+        {
+            get
+            {
+                double totalAverageRating = 0;
+
+                foreach (var rating in RenterRatings)
+                {
+                    totalAverageRating += rating.AverageRenterRating;
+                }
+
+                return RenterRatings.Count > 0
+                    ? Math.Round(totalAverageRating / RenterRatings.Count, 2)
+                    : 0;
+            }
+        }
+
+        [JsonProperty]
+        public bool RenterIsRecommended
+        {
+            get
+            {
+                return Rating > 8;
             }
         }
     }
