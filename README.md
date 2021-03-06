@@ -184,7 +184,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Driv
 
 - Where ID is the integer ID of the desired Driver.
 
-![Get Driver By ID](/Images/GetDriverByID.jpg)
+![Get Driver By ID](/Images/GetDriverByID.png)
 
 ### Getting a list of all Renters
  
