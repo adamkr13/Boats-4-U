@@ -1,26 +1,44 @@
 ﻿using Boats_4_U.Data;
+using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace Boats_4_U.Models.Driver
 {
     [JsonObject(MemberSerialization.OptIn)]
-    public class DriverListItem
+    public class DriverListItem : ApiController
     {
         [JsonProperty]
         public int DriverId { get; set; }
-        
-        [JsonProperty]
+
         public Guid ApplicationUser { get; set; }
 
+        [JsonProperty]
+        public string Username
+        {
+            get
+            {
+                using (var ctx = new ApplicationDbContext())
+                {
+                    string applicationUser = ApplicationUser.ToString();
+
+                    var user =
+                        ctx
+                        .Users
+                        .Where(p => p.Id == applicationUser).FirstOrDefault();
+
+                    return user.UserName;
+                }
+            }
+        }
 
         public string DriverFirstName { get; set; }
         public string DriverLastName { get; set; }
-
 
         /// <summary>
         /// This creates the Full Names by adding the First and Last Names
