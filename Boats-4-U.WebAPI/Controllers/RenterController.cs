@@ -18,7 +18,7 @@ namespace Boats_4_U.WebAPI.Controllers
         /// This allows a renter to be created
         /// </summary>
         /// <param name="renter"></param>
-        /// <returns>This returns the statment "The Renter was Successfully Created!"</returns>
+        /// <returns>"The renter was successfully created."</returns>
         public IHttpActionResult Post(RenterCreate renter)
         {
             if (!ModelState.IsValid)
@@ -29,7 +29,7 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.CreateRenter(renter))
                 return InternalServerError();
 
-            return Ok("The Renter was Successfully Created!");
+            return Ok("The renter was successfully created.");
         }
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Boats_4_U.WebAPI.Controllers
         }
 
         /// <summary>
-        /// This allows a particular renter to be retrieved
+        /// This allows a particular renter to be retrieved by Id
         /// </summary>
         /// <param name="id"></param>
         /// <returns>This returns the particular renter of interest</returns>
@@ -60,7 +60,7 @@ namespace Boats_4_U.WebAPI.Controllers
         /// This allows a renter's information to be edited
         /// </summary>
         /// <param name="renter"></param>
-        /// <returns>This returns the statment "The Renter was Successfully Updated!"</returns>
+        /// <returns>"The renter was successfully updated."</returns>
         public IHttpActionResult Put(RenterUpdate renter)
         {
             if (!ModelState.IsValid)
@@ -71,14 +71,14 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.UpdateRenter(renter))
                 return InternalServerError();
 
-            return Ok("The Renter was Successfully Updated!");
+            return Ok("The renter was successfully updated.");
         }
 
         /// <summary>
         /// This allows a renter to be deleted
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>This returns the statment "The Renter was Successfully Deleted!"</returns>
+        /// <returns>"The renter was successfully deleted."</returns>
         [Route("api/Renter/{id}")]
         public IHttpActionResult Delete(int id)
         {
@@ -92,7 +92,7 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.DeleteRenter(id))
                 return InternalServerError();
 
-            return Ok("The Renter was Successfully Deleted!");
+            return Ok("The renter was successfully deleted.");
         }
 
         private RenterService CreateRenterService()

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Boats-4-U.Data</name>
+    </assembly>
+    <members>
+        <member name="P:Boats_4_U.Data.RenterRating.RenterId">
+            <summary>
+            Relates this Renter to the RenterId
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Data.RenterRating.RenterCleanlinessScore">
+            <summary>
+            Limits the rating from 0-10
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Data.RenterRating.RenterSafetyScore">
+            <summary>
+            Limits the rating from 0-10
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Data.RenterRating.RenterPunctualityScore">
+            <summary>
+            Limits the rating from 0-10
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Data.RenterRating.AverageRenterRating">
+            <summary>
+            Averages the 3 ratings
+            </summary>
+        </member>
+    </members>
+</doc>

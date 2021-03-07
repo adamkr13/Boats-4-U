@@ -1,0 +1,171 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Boats-4-U.Services</name>
+    </assembly>
+    <members>
+        <member name="M:Boats_4_U.Services.DriverService.CreateDriver(Boats_4_U.Models.Driver.DriverCreate)">
+            <summary>
+            This will create a new driver!
+            </summary>
+            <param name="model">The drivers model, the different aspects of the driver (First Name, Last Name, Hourly Rate, Location, Type of Boat, Days Available, Maximum Number of Occupants).</param> 
+            <returns>This does not return a value.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.DriverService.GetDrivers">
+            <summary>
+            This will get all of the drivers!
+            </summary>
+            <returns>This will return the Id, First Name, Last Name and Location of all the drivers.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.DriverService.GetDriversByLocation(System.String)">
+            <summary>
+            This will get all of the drivers at a specific location.
+            </summary>
+            <param name="location"> This is the location of the driver.</param>
+            <returns>This will return the Id, First Name, Last Name, Location, Days Available, Type of Boat, Maximum Occupancy and Hourly Rate of all the drivers at that location.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.DriverService.GetDriversByBoatType(Boats_4_U.Data.BoatType)">
+            <summary>
+            This will get all of the drivers with a specific type of boat.
+            </summary>
+            <param name="boatType">This is the boat type of the driver.</param> 
+            <returns>This returns the Id, First Name, Last Name, Location, Days Available, Type of Boat, Maximum Occupancy and Hourly Rate of all of the drivers with a specific type of boat.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.DriverService.GetDriversByOccupancy(System.Int32)">
+            <summary>
+            This will get all of the drivers with a specific type of boat.
+            </summary>
+            <param name="occupancy">This is the maximum occupancy of the boat desired.</param> 
+            <returns>This will return the Id, First Name, Last Name, Location, Days Available, Type of Boat, Maximum Occupancy and Hourly Rate of all of the drivers that can hold that many people.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.DriverService.GetDriversByDaysAvailable(Boats_4_U.Data.DaysOfWeek)">
+            <summary>
+            This gets all of the drivers by which days they are available.
+            </summary>
+            <param name="daysOfWeek">This is the days of the week that the driver is available</param> 
+            <returns>This returns the Id, Firsst Name, Last Name, Location, Days Available, Type of Boat, Maximum Occupancy and Hourly Rate of all of the drivers available on that day.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.DriverService.GetDriverById(System.Int32)">
+            <summary>
+            This will get the driver by their Id.
+            </summary>
+            <param name="id">This is the Id of the driver.</param> 
+            <returns>This will give the Id, Full Name, Location, Days Available, Boat Name, Maximum Occupancy and Hourly Rate of the driver with that Id.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.DriverService.UpdateDriver(Boats_4_U.Models.Driver.DriverEdit)">
+            <summary>
+            This allows you to update the drivers information.
+            </summary>
+            <param name="model">This is the model of the drivers updated information</param> 
+            <returns></returns>
+        </member>
+        <member name="M:Boats_4_U.Services.DriverService.DeleteDriver(System.Int32)">
+            <summary>
+            This will remove the driver from the database
+            </summary>
+            <param name="driverId">This is the driversId</param> 
+            <returns>This does not return anything.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.RenterService.CreateRenter(Boats_4_U.Models.Renter.RenterCreate)">
+            <summary>
+            This will create a new renter!
+            </summary>
+            <param name="model">The renters model, the different aspects of the renter (First Name, Last Name, Date of Birth and Credit Card Number).</param> 
+            <returns>This does not return a value.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.RenterService.GetRenters">
+            <summary>
+            This will get all Renters in the database.
+            </summary>
+            <returns>This returns the Id, First Name, Last Name and Date of Birth for all of the renters.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.RenterService.GetRenterById(System.Int32)">
+            <summary>
+            This will get the renter by his Id number.
+            </summary>
+            <param name="id">This is his personal Id number.</param> 
+            <returns>This returns the Id, Full Name and Age of the renter.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.RenterService.UpdateRenter(Boats_4_U.Models.Renter.RenterUpdate)">
+            <summary>
+            This will update the information of the renter.
+            </summary>
+            <param name="model">This is the model and it includes the updated First Name, Last Name, Date of Birth and Credit Card Number of the renter.</param> 
+            <returns>This does not return anything.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.RenterService.DeleteRenter(System.Int32)">
+            <summary>
+            This will delete a renter.
+            </summary>
+            <param name="renterId">This is the renters Id.</param> 
+            <returns>This does not return anything.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.ReservationService.CreateReservation(Boats_4_U.Models.ReservationModels.ReservationCreate)">
+            <summary>
+            This will create a new reservation.
+            </summary>
+            <param name="model">This is the model of the reservation and includes Driver Id, Renter Id, Number of Passangers, Date of Reservation, Reservation Duration, Reservation Details and Date the Reservation was made.</param> 
+            <returns>This does not return anything.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.ReservationService.GetReservations">
+            <summary>
+            This will get all of the reservations.
+            </summary>
+            <returns>This returns the Reservation Id, Reservation Date and the Date the Reservation was made.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.ReservationService.GetReservationById(System.Int32)">
+            <summary>
+            This will get the reservation by its Id.
+            </summary>
+            <param name="id">This is the Id of the Reservation.</param> 
+            <returns>This returns the Id, Renter Full Name Driver Full Name, Reservation Date, Reservation Duration, Boat Name, Number of Passangers, Reservation Details, Last Four Digits of the Credit Card Number, Estimated Total Cost and Date Reservation was Made.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.ReservationService.GetReservationByDriverId(System.Int32)">
+            <summary>
+            This will get the reservation by a driver Id.
+            </summary>
+            <param name="id">This is the Id of the Driver</param>
+            <returns>This returns the Id, Renter First Name, Renter Last Name, Driver First Name, Driver Last Name, Reservation Date, Reservation Duration, Type of Boat, Number of Passangers, Reservation Details, Credit Card Number, Hourly Rate, and Date Reservation was Made.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.ReservationService.GetReservationByRenterId(System.Int32)">
+            <summary>
+            This will get the reservations for a particular user.
+            </summary>
+            <param name="id">This is the Renters Id</param>
+            <returns>This will return the Resercation Id, Renter First Name, Renter Last Name, Driver First Name, Driver Last Name, Reservation Date, Type of Boat, Number of Passangers, Reservation Details, Credit Card Number, Hourly Rate and Date Reservation was Made.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.ReservationService.GetReservationByDate(System.DateTimeOffset)">
+            <summary>
+            This will get the reservations by a certain date
+            </summary>
+            <param name="date">This is the date of interest.</param>
+            <returns>This will return the Ids, Renter First Name, Renter Last Name, Driver First Name, Driver Last Name, Reservation Date, Reservation Duration, Type of Boat, Number of Passangers, Reservation Details, Credit Card Number,  Hourly Rate and Date Reservation was Made of all the Reservations on that Day.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.ReservationService.UpdateReservation(Boats_4_U.Models.ReservationModels.ReservationEdit)">
+            <summary>
+            This will all you to update a Reservation.
+            </summary>
+            <param name="model">This is the model of the reservation.  It includes the Number of Passangers, Reservation Date, Reservation Duration, Reservation Details and Date Reservation was Made.</param>
+            <returns>This does not return anything.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.ReservationService.DeleteReservation(System.Int32)">
+            <summary>
+            This will delete a reservation.
+            </summary>
+            <param name="reservationId">This is the Id of the Reservation.</param>
+            <returns>This will not return anything.</returns>
+        </member>
+        <member name="M:Boats_4_U.Services.ReservationService.NullRenter(System.Int32)">
+            <summary>
+            This helps if the Renter is Null
+            </summary>
+            <param name="Id">This is the renter Id</param>
+        </member>
+        <member name="M:Boats_4_U.Services.ReservationService.NullDriver(System.Int32)">
+            <summary>
+            This helps if the Driver is Null
+            </summary>
+            <param name="Id">This is the Driver Id</param>
+        </member>
+    </members>
+</doc>

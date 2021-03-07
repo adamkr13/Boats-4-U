@@ -1,0 +1,83 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Boats-4-U.Models</name>
+    </assembly>
+    <members>
+        <member name="P:Boats_4_U.Models.Driver.DriverCreate.DriverFirstName">
+            <summary>
+            Driver First Name
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.Driver.DriverDetailTwo.DriverFullName">
+            <summary>
+            This created the Driver's Full Name from the Drivers First and Last Names
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.Driver.DriverDetailTwo.BoatName">
+            <summary>
+            This created the Type of Boat from the Enum ensuring you can only have a type in the Enum list
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.Driver.DriverListItem.DriverFullName">
+            <summary>
+            This creates the Full Names by adding the First and Last Names
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.Renter.RenterListItem.RenterFullName">
+            <summary>
+            This created the full name from the First and Last Names
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.Renter.RenterListItem.RenterAge">
+            <summary>
+            The created the age of the renter in years
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.ReservationModels.ReservationDetailTwo.RenterFullName">
+            <summary>
+            This created the Renters Full Name from the Renter's First and Last Names
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.ReservationModels.ReservationDetailTwo.DriverFullName">
+            <summary>
+            This created the Driver's Full Name from the Driver's First and Last Names
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.ReservationModels.ReservationDetailTwo.DisplayDateReservedFor">
+            <summary>
+            This creates the Day of the week for the reservation
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.ReservationModels.ReservationDetailTwo.BoatName">
+            <summary>
+            This creates the Type of Boat from the Enum ensuring that you can only have a Boat on the Enum list
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.ReservationModels.ReservationDetailTwo.Last4Digits">
+            <summary>
+            This allows the last four numbers to be shown from the sixteen digit credit card number
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.ReservationModels.ReservationDetailTwo.EstimatedTotalCost">
+            <summary>
+            This creates the total estimated cost by multiplying the hourly rate by the reservation duration
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.ReservationModels.ReservationDetailTwo.DisplayDateReservationMade">
+            <summary>
+            This creates the day that the reservation was made
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.ReservationModels.ReservationListItem.DisplayDateReservedFor">
+            <summary>
+            This creates the day of the week the reservation was made for
+            </summary>
+        </member>
+        <member name="P:Boats_4_U.Models.ReservationModels.ReservationListItem.DisplayDateReservationMade">
+            <summary>
+            This creates the day of the week that the reservation was made
+            </summary>
+        </member>
+    </members>
+</doc>
