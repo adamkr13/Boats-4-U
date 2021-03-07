@@ -67,7 +67,7 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 
 ![Run the program](/Images/RunSolution.jpg)
 
-- This should ope your browser.
+- This should open your browser.
 - Copy the URL _https://localhost:XXXXX_
 - Open Postman
 - Paste the URL into the address bar of Postman and make sure the HTTP drop-down is set to __POST__
