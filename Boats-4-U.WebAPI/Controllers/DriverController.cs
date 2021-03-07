@@ -18,7 +18,7 @@ namespace Boats_4_U.WebAPI.Controllers
         /// This allow a driver to be created
         /// </summary>
         /// <param name="driver"></param>
-        /// <returns>This does not return anything</returns>
+        /// <returns>"The driver was successfully created."</returns>
         public IHttpActionResult Post(DriverCreate driver)
         {
             if (!ModelState.IsValid)
@@ -29,7 +29,7 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.CreateDriver(driver))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("The driver was successfully created.");
         }
 
         /// <summary>
@@ -70,9 +70,9 @@ namespace Boats_4_U.WebAPI.Controllers
         }
 
         /// <summary>
-        /// This allows all of the drivers with a certain occupancy to be retrieved
+        /// This allows all of the drivers with a certain maximum occupancy to be retrieved
         /// </summary>
-        /// <param name="occupancy">This is the desired occupancy</param>
+        /// <param name="occupancy">This is the desired maximum occupancy</param>
         /// <returns></returns>
         [Route("api/Driver/GetByOccupancy/{occupancy}")]
         public IHttpActionResult GetByMaxOccupants(int occupancy)
@@ -112,7 +112,7 @@ namespace Boats_4_U.WebAPI.Controllers
         /// This allow a drivers information to be changed
         /// </summary>
         /// <param name="driver"></param>
-        /// <returns>This does not return anything</returns>
+        /// <returns>"The driver was successfully updated."</returns>
         public IHttpActionResult Put(DriverEdit driver)
         {
             if (!ModelState.IsValid)
@@ -123,14 +123,14 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.UpdateDriver(driver))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("The driver was successfully updated.");
         }
 
         /// <summary>
         /// This allows a particular Driver to be deleted
         /// </summary>
         /// <param name="id">This is the Id of the driver to be deleted</param>
-        /// <returns>This does not return anything</returns>
+        /// <returns>"The driver was successfully deleted."</returns>
         [Route("api/Driver/{id}")]
         public IHttpActionResult Delete(int id)
         {
@@ -144,7 +144,7 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.DeleteDriver(id))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("The driver was successfully deleted.");
         }
 
         private DriverService CreateDriverService()
