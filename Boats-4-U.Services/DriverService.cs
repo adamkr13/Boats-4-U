@@ -204,7 +204,7 @@ namespace Boats_4_U.Services
                     new DriverDetail
                     {
                         DriverId = entity.DriverId,
-                        ApplicationUser = entity.ApplicationUser,
+                        Username = entity.Username,
                         DriverFullName = entity.DriverFullName,
                         Location = entity.Location,
                         DaysAvailable = entity.DaysAvailable,

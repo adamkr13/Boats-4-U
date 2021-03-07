@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -6,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Http;
 
 namespace Boats_4_U.Data
 {
@@ -38,6 +40,9 @@ namespace Boats_4_U.Data
         [Required]
         public Guid ApplicationUser { get; set; }
 
+        public virtual List<Reservation> ReservationDriver { get; set; } = new List<Reservation>();
+        public virtual List<DriverRating> DriverRatings { get; set; } = new List<DriverRating>();
+
         public string DriverFullName
         {
             get
@@ -46,7 +51,6 @@ namespace Boats_4_U.Data
                 return fullName;
             }
         }
-
         public string BoatName
         {
             get
@@ -56,10 +60,6 @@ namespace Boats_4_U.Data
                 return boatName;
             }
         }
-        
-        public virtual List<Reservation> ReservationDriver { get; set; } = new List<Reservation>();
-        public virtual List<DriverRating> DriverRatings { get; set; } = new List<DriverRating>();
-
         public double Rating
         {
             get
@@ -76,7 +76,6 @@ namespace Boats_4_U.Data
                     : 0;
             }
         }
-
         public bool DriverIsRecommended
         {
             get
@@ -84,7 +83,6 @@ namespace Boats_4_U.Data
                 return Rating > 8;
             }
         }
-
         public string Recommended
         {
             get
@@ -95,7 +93,6 @@ namespace Boats_4_U.Data
                 return "Driver has a less than stellar rating. Be sure to communicate expectations clearly before finalizing reservation.";
             }
         }
-
         public double FunRating
         {
             get
@@ -112,7 +109,6 @@ namespace Boats_4_U.Data
                     : 0;
             }
         }
-
         public double SafetyRating
         {
             get
@@ -129,7 +125,6 @@ namespace Boats_4_U.Data
                     : 0;
             }
         }
-
         public double CleanlinessRating
         {
             get
@@ -146,8 +141,24 @@ namespace Boats_4_U.Data
                     : 0;
             }
         }
-    }
+        public string Username
+        {
+            get
+            {
+                using (var ctx = new ApplicationDbContext())
+                {
+                    string applicationUser = ApplicationUser.ToString();
 
+                    var user =
+                        ctx
+                        .Users
+                        .Where(p => p.Id == applicationUser).FirstOrDefault();
+
+                    return user.UserName;
+                }
+            }
+        }
+    }
     public enum BoatType
     {
         FishingBoat = 1,
@@ -156,7 +167,6 @@ namespace Boats_4_U.Data
         SailBoat,
         SpeedBoat
     }
-
     [Flags]
     [JsonConverter(typeof(FlagConverter))]
     public enum DaysOfWeek
