@@ -272,7 +272,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 ![Get Reservation By Renter ID](/Images/GetResbyRenter.JPG)
 
-### Get a Reservation by Date
+### Get Reservations by Date
 
 Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDate/YYYY-MM-DD
 
