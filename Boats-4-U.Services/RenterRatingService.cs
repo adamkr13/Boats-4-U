@@ -1,4 +1,4 @@
-﻿using Boats_4_U.Data;
+﻿ using Boats_4_U.Data;
 using Boats_4_U.Models;
 using Boats_4_U.Models.RenterRatingModels;
 using System;
@@ -50,7 +50,7 @@ namespace Boats_4_U.Services
                 new RenterRatingDetail
                 {
                     RenterRatingId = entity.RenterRatingId,
-                    ApplicationUser = entity.ApplicationUser,
+                    Username = entity.Username,
                     RenterId = entity.RenterId,
                     RenterFullName = entity.Renter.RenterFullName,
                     RenterCleanlinessScore = entity.RenterCleanlinessScore,

@@ -270,7 +270,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenterRatingModels\RenterRatingDetail.cs" />
     <Compile Include="RenterRatingModels\RenterRatingCreate.cs" />
-    <Compile Include="RenterRatingModels\RenterRatingListItem.cs" />
     <Compile Include="DriverRatingModels\DriverRatingCreate.cs" />
     <Compile Include="DriverRatingModels\DriverRatingDetail.cs" />
     <Compile Include="DriverRatingModels\DriverRatingUpdate.cs" />

@@ -37,5 +37,23 @@ namespace Boats_4_U.Data
                 return Math.Round(totalScore / 3, 2);
             }
         }
+
+        public string Username
+        {
+            get
+            {
+                using (var ctx = new ApplicationDbContext())
+                {
+                    string applicationUser = ApplicationUser.ToString();
+
+                    var user =
+                        ctx
+                        .Users
+                        .Where(p => p.Id == applicationUser).FirstOrDefault();
+
+                    return user.UserName;
+                }
+            }
+        }
     }
 }

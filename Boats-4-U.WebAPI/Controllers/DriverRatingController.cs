@@ -14,10 +14,10 @@ namespace Boats_4_U.WebAPI.Controllers
     public class DriverRatingController : ApiController
     {
         /// <summary>
-        /// This will allow user to post rating for a Driver.
+        /// This will allow a user to post a rating for a driver
         /// </summary>
         /// <param name="rating"></param>
-        /// <returns>"Rating was successfully created."</returns>
+        /// <returns>"The driver rating was successfully created."</returns>
         [HttpPost]
         public IHttpActionResult Post(DriverRatingCreate rating)
         {
@@ -29,14 +29,14 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.CreateDriverRating(rating))
                 return InternalServerError();
 
-            return Ok("Rating was succesffully created.");
+            return Ok("The driver rating was successfully created.");
         }
 
         /// <summary>
-        /// This will get a specific Driver rating by its Id.
+        /// This will get a specific driver rating by its Id
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>Details of Driver rating.</returns>
+        /// <returns>The details of a driver rating</returns>
         [HttpGet]
         [Route("api/DriverRating/{id}")]
         public IHttpActionResult Get(int id)
@@ -47,10 +47,10 @@ namespace Boats_4_U.WebAPI.Controllers
         }
 
         /// <summary>
-        /// This will allow user to update a specific Driver rating by its Id.
+        /// This will allow a user to update a specific driver rating by its Id
         /// </summary>
         /// <param name="rating"></param>
-        /// <returns>"Driver rating has been successfully updated."</returns>
+        /// <returns>"The driver rating has been successfully updated."</returns>
         [HttpPut]
         public IHttpActionResult Put(DriverRatingUpdate rating)
         {
@@ -62,14 +62,14 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.UpdateDriverRating(rating))
                 return InternalServerError();
 
-            return Ok($"Driver rating has been successfully updated.");
+            return Ok("The driver rating has been successfully updated.");
         }
 
         /// <summary>
-        /// This will allow user to delete a specific Driver rating by its Id.
+        /// This will allow a user to delete a specific driver rating by its Id
         /// </summary>
         /// <param name="driverRatingId"></param>
-        /// <returns>"Driver rating has been successfully deleted."</returns>
+        /// <returns>"The driver rating has been successfully deleted."</returns>
         [HttpDelete]
         [Route("api/DriverRating/{driverRatingId}")]
         public IHttpActionResult Delete(int driverRatingId)
@@ -79,7 +79,7 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.DeleteDriverRating(driverRatingId))
                 return InternalServerError();
 
-            return Ok($"Driver rating has been successfully deleted.");
+            return Ok("The driver rating has been successfully deleted.");
         }
 
         private DriverRatingService CreateDriverRatingService()

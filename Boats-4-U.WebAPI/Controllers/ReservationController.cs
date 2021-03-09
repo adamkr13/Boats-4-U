@@ -18,7 +18,7 @@ namespace Boats_4_U.WebAPI.Controllers
         /// This allows a reservation to be created
         /// </summary>
         /// <param name="reservation"></param>
-        /// <returns>This returns the message "Your reservation was successfully created."</returns>
+        /// <returns>"The reservation was successfully created."</returns>
         [HttpPost]
         public IHttpActionResult Post(ReservationCreate reservation)
         {
@@ -39,6 +39,7 @@ namespace Boats_4_U.WebAPI.Controllers
         /// This allows all of the reservations to be retrieved
         /// </summary>
         /// <returns>This returns all of the reservations</returns>
+
         // GET
         [HttpGet]
         public IHttpActionResult Get()
@@ -49,7 +50,7 @@ namespace Boats_4_U.WebAPI.Controllers
         }
         
         /// <summary>
-        /// This allows a particular reservation to be retrieved
+        /// This allows a particular reservation to be retrieved by its Id
         /// </summary>
         /// <param name="id">This is the Id of the interesed reservation</param>
         /// <returns>This returns the desired reservation</returns>
@@ -62,7 +63,7 @@ namespace Boats_4_U.WebAPI.Controllers
         }
 
         /// <summary>
-        /// This allows the reservations of a particular driver
+        /// This allows all the retrieval of all of the reservations of a particular driver
         /// </summary>
         /// <param name="id">This is the id of that driver</param>
         /// <returns>This returns the particular driver's reservations</returns>
@@ -75,7 +76,7 @@ namespace Boats_4_U.WebAPI.Controllers
         }
 
         /// <summary>
-        /// This allows the reservations of a particular renter
+        /// This allows the retrieval of all of the reservations of a particular renter
         /// </summary>
         /// <param name="id">This is the id of that renter</param>
         /// <returns>This returns the particular renter's reservations</returns>
@@ -88,10 +89,10 @@ namespace Boats_4_U.WebAPI.Controllers
         }
         
         /// <summary>
-        /// This allows the reservations on a particular day to be retrieved
+        /// This allows the reservations for a particular date to be retrieved
         /// </summary>
         /// <param name="date"></param>
-        /// <returns>This returns all of the reservations on that day</returns>
+        /// <returns>This returns all of the reservations on that date</returns>
         [Route("api/Reservation/GetByDate/{date}")]
         public IHttpActionResult GetByDate(DateTimeOffset date)
         {
@@ -104,7 +105,7 @@ namespace Boats_4_U.WebAPI.Controllers
         /// This allows a reservation to be changed
         /// </summary>
         /// <param name="reservation"></param>
-        /// <returns>This does not return anything</returns>
+        /// <returns>"The reservation was successfully updated."</returns>
         [HttpPut]
         public IHttpActionResult Put(ReservationEdit reservation)
         {
@@ -116,14 +117,14 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.UpdateReservation(reservation))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("The reservation was successfully updated.");
         }
-        
+
         /// <summary>
         /// This allows a particular reservation to be deleted
         /// </summary>
         /// <param name="id"></param>
-        /// <returns>This does not return anything</returns>
+        /// <returns>"The reservation was successfully deleted."</returns>
         [Route("api/Reservation/{id}")]
         [HttpDelete]
         public IHttpActionResult Delete(int id)
@@ -133,7 +134,7 @@ namespace Boats_4_U.WebAPI.Controllers
             if (!service.DeleteReservation(id))
                 return InternalServerError();
 
-            return Ok();
+            return Ok("The reservation was successfully deleted.");
         }
         // Helper
         private ReservationService CreateReservationService()

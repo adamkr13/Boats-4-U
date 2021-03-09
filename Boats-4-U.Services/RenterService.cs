@@ -86,7 +86,7 @@ namespace Boats_4_U.Services
                     new RenterDetail
                     {
                         RenterId = entity.RenterId,
-                        ApplicationUser = entity.ApplicationUser,
+                        Username = entity.Username,
                         RenterFullName = entity.RenterFullName,
                         RenterAge = entity.RenterAge,
                         Rating = entity.Rating,

@@ -27,6 +27,9 @@ namespace Boats_4_U.Data
         [Required]
         public string CreditCardNumber { get; set; }
 
+        public virtual List<Reservation> ReservationRenter { get; set; } = new List<Reservation>();
+        public virtual List<RenterRating> RenterRatings { get; set; } = new List<RenterRating>();
+
         public string RenterFullName
         {
             get
@@ -35,7 +38,6 @@ namespace Boats_4_U.Data
                 return fullName;
             }
         }
-
         public string Last4Digits
         {
             get
@@ -45,7 +47,6 @@ namespace Boats_4_U.Data
                 return creditCardNumber.Substring(creditCardNumber.Length - 4, 4);
             }
         }
-
         public int RenterAge
         {
             get
@@ -56,10 +57,6 @@ namespace Boats_4_U.Data
                 return age;
             }
         }
-
-        public virtual List<Reservation> ReservationRenter { get; set; } = new List<Reservation>();
-        public virtual List<RenterRating> RenterRatings { get; set; } = new List<RenterRating>();
-
         public double Rating
         {
             get
@@ -76,7 +73,6 @@ namespace Boats_4_U.Data
                     : 0;
             }
         }
-
         public bool RenterIsRecommended
         {
             get
@@ -84,7 +80,6 @@ namespace Boats_4_U.Data
                 return Rating > 8;
             }
         }
-
         public string Recommended
         {
             get
@@ -95,7 +90,6 @@ namespace Boats_4_U.Data
                 return "Renter has a less than stellar rating. Be sure to communicate expectations clearly before finalizing reservation.";
             }
         }
-
         public double CleanlinessRating
         {
             get
@@ -112,7 +106,6 @@ namespace Boats_4_U.Data
                     : 0;
             }
         }
-
         public double SafetyRating
         {
             get
@@ -129,7 +122,6 @@ namespace Boats_4_U.Data
                     : 0;
             }
         }
-
         public double PunctualityRating
         {
             get
@@ -144,6 +136,23 @@ namespace Boats_4_U.Data
                 return RenterRatings.Count > 0
                     ? Math.Round(averagePunctualityRating / RenterRatings.Count, 2)
                     : 0;
+            }
+        }
+        public string Username
+        {
+            get
+            {
+                using (var ctx = new ApplicationDbContext())
+                {
+                    string applicationUser = ApplicationUser.ToString();
+
+                    var user =
+                        ctx
+                        .Users
+                        .Where(p => p.Id == applicationUser).FirstOrDefault();
+
+                    return user.UserName;
+                }
             }
         }
     }

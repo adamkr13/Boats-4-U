@@ -50,7 +50,7 @@ namespace Boats_4_U.Services
                     new DriverRatingDetail
                     {
                         DriverRatingId = entity.DriverRatingId,
-                        ApplicationUser = entity.ApplicationUser,
+                        Username = entity.Username,
                         DriverId = entity.DriverId,
                         DriverFullName = entity.Driver.DriverFullName,
                         DriverFunScore = entity.DriverFunScore,

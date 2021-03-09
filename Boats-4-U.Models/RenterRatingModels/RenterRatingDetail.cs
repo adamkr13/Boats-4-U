@@ -10,7 +10,7 @@ namespace Boats_4_U.Models
     {
         public int RenterRatingId { get; set; }
 
-        public Guid ApplicationUser { get; set; }
+        public string Username { get; set; }
 
         public int RenterId { get; set; }
 

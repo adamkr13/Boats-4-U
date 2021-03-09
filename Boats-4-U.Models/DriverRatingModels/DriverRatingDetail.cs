@@ -9,7 +9,7 @@ namespace Boats_4_U.Models.DriverRatingModels
     public class DriverRatingDetail
     {
         public int DriverRatingId { get; set; }
-        public Guid ApplicationUser { get; set; }
+        public string Username { get; set; }
         public int DriverId { get; set; }
         public string DriverFullName { get; set; }
         public double DriverFunScore { get; set; }

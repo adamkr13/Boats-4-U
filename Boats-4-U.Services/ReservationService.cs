@@ -113,7 +113,7 @@ namespace Boats_4_U.Services
                     new ReservationDetail
                     {
                         ReservationId = entity.ReservationId,
-                        ApplicationUser = entity.ApplicationUser,
+                        Username = entity.Username,
                         RenterFullName = entity.Renter.RenterFullName,
                         DriverFullName = entity.Driver.DriverFullName,
                         DisplayDateReservedFor = entity.DisplayDateReservedFor,
@@ -194,7 +194,6 @@ namespace Boats_4_U.Services
                                 CreditCardNumber = e.Renter.CreditCardNumber,
                                 HourlyRate = e.Driver.HourlyRate,
                                 DateReservationMade = e.DateReservationMade
-
                             }
                        );
                 return query.ToArray();
@@ -239,7 +238,7 @@ namespace Boats_4_U.Services
         /// <summary>
         /// This will all you to update a Reservation.
         /// </summary>
-        /// <param name="model">This is the model of the reservation.  It includes the Number of Passangers, Reservation Date, Reservation Duration, Reservation Details and Date Reservation was Made.</param>
+        /// <param name="model">This is the model of the reservation.  It includes the Number of Passengers, Reservation Date, Reservation Duration, Reservation Details and Date Reservation was Made.</param>
         /// <returns>This does not return anything.</returns>
         public bool UpdateReservation(ReservationEdit model)
         {
