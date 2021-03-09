@@ -109,7 +109,6 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 - In Header, add a Key for __Authorization__.
 - For the Value, add Bearer followed by a space.
 - Paste the copied token after the space.
-- Send the request.
 
 ![Postman Authorization](/Images/PostmanAuthorization.jpg)
 
