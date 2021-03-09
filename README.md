@@ -230,7 +230,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
   - Make sure that **POST** is selected.
   - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
 
-![Create Renter Rating](/Images/CreateRenterRating.JPG)
+![Create Renter Rating](/Images/CreateRenterRating.jpg)
 
 ### Get a Reservation by ID
 
@@ -268,7 +268,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByRenterId/ID
 
-- Where ID is the integer ID of the desired Driver.
+- Where ID is the integer ID of the desired Renter.
 
 ![Get Reservation By Renter ID](/Images/GetResbyRenter.JPG)
 
@@ -316,7 +316,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - Enter the DriverFunScore, DriverSafetyScore, and DriverCleanlinessScore as a number from 0.0 through 10.0
 
-![Update Driver Rating](/Images/EditDriverRating.jpg)
+![Update Driver Rating](/Images/EditDriverRating2.jpg)
 
 ### Editing a Renter Rating
 
@@ -325,7 +325,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - Enter the RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore as a number from 0.0 through 10.0
 
-![Update Renter Rating](/Images/EditRenterRating.JPG)
+![Update Renter Rating](/Images/EditRenterRating2.JPG)
 
 ### Deleting a Driver
 
