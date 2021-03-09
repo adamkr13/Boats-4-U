@@ -274,9 +274,9 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 ### Get a Reservation by Date
 
-Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDate/ID
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDate/YYYY-MM-DD
 
-- Where ID is the integer ID of the desired Driver.
+- Where YYYY-MM-DD is the date that the reservation is for.
 
 ![Get Reservation By Date](/Images/GetResByDate.JPG)
 
