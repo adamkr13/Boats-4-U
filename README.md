@@ -231,12 +231,6 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
 
 ![Create Renter Rating](/Images/EditRenterRating.JPG)
 
-### Getting a list of all Drivers
- 
-Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/
-
-![Get a list of all Drivers](/Images/GetAllDrivers.jpg)
-
 ### Get a Reservation by ID
 
 Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/ID
