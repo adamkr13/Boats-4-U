@@ -218,9 +218,9 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
   - The following may be discerned by examining the API documentation in the browser.
   - Enter the request URL and the Key and Value information for the following as in the image
   - Make sure that **POST** is selected.
-  - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
+  - For DriverCleanlinessScore, DriverSafetyScore, and DriverFunScore; enter numbers 0.0 through 10.0.
 
-![Create Driver Rating](/Images/EditDriverRating.jpg)
+![Create Driver Rating](/Images/CreateDriverRating.jpg)
 
 ### Creating a Renter Rating
 
