@@ -230,13 +230,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
   - Make sure that **POST** is selected.
   - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
 
-![Create Renter Rating](/Images/EditRenterRating.JPG)
-
-### Getting a list of all Drivers
- 
-Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/
-
-![Get a list of all Drivers](/Images/GetAllDrivers.jpg)
+![Create Renter Rating](/Images/CreateRenterRating.JPG)
 
 ### Get a Reservation by ID
 
@@ -262,7 +256,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
 
 ![Get Renter Rating By ID](/Images/GetRenterRating.JPG)
 
-### Get a Reservation by Driver ID
+### Get Reservations by Driver ID
 
 Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDriverId/ID
 
@@ -270,7 +264,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 ![Get Reservation By Driver ID](/Images/GetResByDriver.JPG)
 
-### Get a Reservation by Renter ID
+### Get Reservations by Renter ID
 
 Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByRenterId/ID
 
@@ -278,11 +272,11 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 ![Get Reservation By Renter ID](/Images/GetResbyRenter.JPG)
 
-### Get a Reservation by Date
+### Get Reservations by Date
 
-Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDate/ID
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDate/YYYY-MM-DD
 
-- Where ID is the integer ID of the desired Driver.
+- Where YYYY-MM-DD is the date that the reservation is for.
 
 ![Get Reservation By Date](/Images/GetResByDate.JPG)
 
