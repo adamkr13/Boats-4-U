@@ -1,4 +1,4 @@
-namespace Boats_4_U.Data.Migrations
+﻿namespace Boats_4_U.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
@@ -50,7 +50,7 @@ namespace Boats_4_U.Data.Migrations
                         ReservationDuration = c.Decimal(nullable: false, precision: 18, scale: 2),
                         DateReservationMade = c.DateTimeOffset(nullable: false, precision: 7),
                         ApplicationUser = c.Guid(nullable: false),
-                        Username = c.String(),
+                        UserCreatedReservation = c.String(),
                         ReservationDetails = c.String(),
                         ModifiedDate = c.DateTimeOffset(precision: 7),
                     })

@@ -36,10 +36,7 @@ namespace Boats_4_U.Data
         [Required]
         public Guid ApplicationUser { get; set; }
 
-        public string Username
-        {
-            get;set;
-        }
+        public string UserCreatedReservation { get; set; }
 
         public string ReservationDetails { get; set; }
 
@@ -48,7 +45,7 @@ namespace Boats_4_U.Data
             get
             {
                 var estimatedTotalCost = Driver.HourlyRate * ReservationDuration;
-                return estimatedTotalCost = (decimal)System.Math.Round(estimatedTotalCost,2);
+                return estimatedTotalCost = (decimal)System.Math.Round(estimatedTotalCost, 2);
             }
         }
         public string DisplayDateReservedFor

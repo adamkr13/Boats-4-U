@@ -25,7 +25,10 @@ namespace Boats_4_U.Services
         /// <returns>This does not return a value.</returns>
         public bool CreateDriver(DriverCreate model)
         {
-            var entity =
+            
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
                 new Driver()
                 {
                     ApplicationUser = _userId,
@@ -35,10 +38,10 @@ namespace Boats_4_U.Services
                     Location = model.Location,
                     TypeOfBoat = model.TypeOfBoat,
                     DaysAvailable = model.DaysAvailable,
-                    MaximumOccupants = model.MaximumOccupants
+                    MaximumOccupants = model.MaximumOccupants,
+                    UserCreatedDriver = ctx.Users.Single(d => d.Id == _userId.ToString()).UserName,
                 };
-            using (var ctx = new ApplicationDbContext())
-            {
+
                 ctx.Drivers.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -59,6 +62,7 @@ namespace Boats_4_U.Services
                         {
                             DriverId = e.DriverId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedDriver = e.UserCreatedDriver,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
@@ -85,6 +89,7 @@ namespace Boats_4_U.Services
                         {
                             DriverId = e.DriverId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedDriver = e.UserCreatedDriver,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
@@ -115,6 +120,7 @@ namespace Boats_4_U.Services
                         {
                             DriverId = e.DriverId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedDriver = e.UserCreatedDriver,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
@@ -145,6 +151,7 @@ namespace Boats_4_U.Services
                         {
                             DriverId = e.DriverId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedDriver = e.UserCreatedDriver,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
@@ -175,6 +182,7 @@ namespace Boats_4_U.Services
                         {
                             DriverId = e.DriverId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedDriver = e.UserCreatedDriver,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
@@ -204,7 +212,7 @@ namespace Boats_4_U.Services
                     new DriverDetail
                     {
                         DriverId = entity.DriverId,
-                        Username = entity.Username,
+                        UserCreatedDriver = entity.UserCreatedDriver,
                         DriverFullName = entity.DriverFullName,
                         Location = entity.Location,
                         DaysAvailable = entity.DaysAvailable,

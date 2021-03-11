@@ -17,23 +17,7 @@ namespace Boats_4_U.Models.Driver
         public Guid ApplicationUser { get; set; }
 
         [JsonProperty]
-        public string Username
-        {
-            get
-            {
-                using (var ctx = new ApplicationDbContext())
-                {
-                    string applicationUser = ApplicationUser.ToString();
-
-                    var user =
-                        ctx
-                        .Users
-                        .Where(p => p.Id == applicationUser).FirstOrDefault();
-
-                    return user.UserName;
-                }
-            }
-        }
+        public string UserCreatedDriver { get; set; }
 
         public string DriverFirstName { get; set; }
         public string DriverLastName { get; set; }

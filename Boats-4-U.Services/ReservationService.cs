@@ -41,7 +41,7 @@ namespace Boats_4_U.Services
                     ReservationDuration = model.ReservationDuration,
                     ReservationDetails = model.ReservationDetails,
                     DateReservationMade = DateTimeOffset.Now,
-                    Username = ctx.Users.Single(r => r.Id == _userId.ToString()).UserName,
+                    UserCreatedReservation = ctx.Users.Single(r => r.Id == _userId.ToString()).UserName,
                 };
 
 
@@ -91,7 +91,7 @@ namespace Boats_4_U.Services
                             new ReservationListItem
                             {
                                 ReservationId = e.ReservationId,
-                                ApplicationUser = e.ApplicationUser,
+                                UserCreatedReservation = e.UserCreatedReservation,
                                 DateReservedFor = e.DateReservedFor,
                                 DateReservationMade = e.DateReservationMade,
                             }
@@ -117,7 +117,7 @@ namespace Boats_4_U.Services
                     new ReservationDetail
                     {
                         ReservationId = entity.ReservationId,
-                        Username = entity.Username,
+                        UserCreatedReservation = entity.UserCreatedReservation,
                         RenterFullName = entity.Renter.RenterFullName,
                         DriverFullName = entity.Driver.DriverFullName,
                         DisplayDateReservedFor = entity.DisplayDateReservedFor,
@@ -149,7 +149,7 @@ namespace Boats_4_U.Services
                             new ReservationDetailTwo
                             {
                                 ReservationId = e.ReservationId,
-                                ApplicationUser = e.ApplicationUser,
+                                UserCreatedReservation = e.UserCreatedReservation,
                                 RenterFirstName = e.Renter.RenterFirstName,
                                 RenterLastName = e.Renter.RenterLastName,
                                 DriverFirstName = e.Driver.DriverFirstName,
@@ -185,7 +185,7 @@ namespace Boats_4_U.Services
                             new ReservationDetailTwo
                             {
                                 ReservationId = e.ReservationId,
-                                ApplicationUser = e.ApplicationUser,
+                                UserCreatedReservation = e.UserCreatedReservation,
                                 RenterFirstName = e.Renter.RenterFirstName,
                                 RenterLastName = e.Renter.RenterLastName,
                                 DriverFirstName = e.Driver.DriverFirstName,
@@ -221,7 +221,7 @@ namespace Boats_4_U.Services
                             new ReservationDetailTwo
                             {
                                 ReservationId = e.ReservationId,
-                                ApplicationUser = e.ApplicationUser,
+                                UserCreatedReservation = e.UserCreatedReservation,
                                 RenterFirstName = e.Renter.RenterFirstName,
                                 RenterLastName = e.Renter.RenterLastName,
                                 DriverFirstName = e.Driver.DriverFirstName,

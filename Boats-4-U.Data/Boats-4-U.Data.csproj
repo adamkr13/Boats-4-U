@@ -191,6 +191,11 @@
     <Compile Include="Driver.cs" />
     <Compile Include="FlagConverter.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202103111711537_Initial.cs" />
+    <Compile Include="Migrations\202103111711537_Initial.designer.cs">
+      <DependentUpon>202103111711537_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DriverRating.cs" />
     <Compile Include="Renter.cs" />
@@ -202,6 +207,11 @@
     <None Include="packages.config" />
     <None Include="repository.default.json" />
     <None Include="repository.xml.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202103111711537_Initial.resx">
+      <DependentUpon>202103111711537_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
