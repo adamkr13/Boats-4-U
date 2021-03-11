@@ -27,7 +27,9 @@ namespace Boats_4_U.Services
         /// <returns>This does not return a value.</returns>
         public bool CreateRenter(RenterCreate model)
         {
-            var entity =
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
 
                 new Renter()
                 {
@@ -35,11 +37,10 @@ namespace Boats_4_U.Services
                     RenterFirstName = model.RenterFirstName,
                     RenterLastName = model.RenterLastName,
                     DateOfBirth = model.DateOfBirth,
-                    CreditCardNumber = model.CreditCardNumber
+                    CreditCardNumber = model.CreditCardNumber,
+                    UserCreatedRenter = ctx.Users.Single(r => r.Id == _userId.ToString()).UserName,
                 };
 
-            using (var ctx = new ApplicationDbContext())
-            {
                 ctx.Renters.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -60,6 +61,7 @@ namespace Boats_4_U.Services
                         {
                             RenterId = e.RenterId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedRenter = e.UserCreatedRenter,
                             RenterFirstName = e.RenterFirstName,
                             RenterLastName = e.RenterLastName,
                             DateOfBirth = e.DateOfBirth,
@@ -86,7 +88,7 @@ namespace Boats_4_U.Services
                     new RenterDetail
                     {
                         RenterId = entity.RenterId,
-                        Username = entity.Username,
+                        UserCreatedRenter = entity.UserCreatedRenter,
                         RenterFullName = entity.RenterFullName,
                         RenterAge = entity.RenterAge,
                         Rating = entity.Rating,

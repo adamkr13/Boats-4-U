@@ -10,7 +10,7 @@ namespace Boats_4_U.Models.Renter
     {
         public int RenterId { get; set; }
 
-        public string Username { get; set; }
+        public string UserCreatedRenter { get; set; }
 
         public string RenterFullName { get; set; }
 
