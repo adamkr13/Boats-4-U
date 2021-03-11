@@ -25,7 +25,11 @@ namespace Boats_4_U.Services
         /// <returns>This does not return anything.</returns>
         public bool CreateReservation(ReservationCreate model)
         {
-            var entity =
+            
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
 
                 new Reservation()
                 {
@@ -36,11 +40,11 @@ namespace Boats_4_U.Services
                     DateReservedFor = model.DateReservedFor,
                     ReservationDuration = model.ReservationDuration,
                     ReservationDetails = model.ReservationDetails,
-                    DateReservationMade = DateTimeOffset.Now
+                    DateReservationMade = DateTimeOffset.Now,
+                    Username = ctx.Users.Single(r => r.Id == _userId.ToString()).UserName,
                 };
 
-            using (var ctx = new ApplicationDbContext())
-            {
+
                 var driver = ctx.Drivers.Find(model.DriverId);
                 int day = (int) model.DateReservedFor.DayOfWeek;
                 if (day == 0)
@@ -89,7 +93,7 @@ namespace Boats_4_U.Services
                                 ReservationId = e.ReservationId,
                                 ApplicationUser = e.ApplicationUser,
                                 DateReservedFor = e.DateReservedFor,
-                                DateReservationMade = e.DateReservationMade
+                                DateReservationMade = e.DateReservationMade,
                             }
                         );
                 return query.ToArray();
