@@ -109,7 +109,6 @@ The following Nuget packages may need to be loaded/updated for Visual Studio:
 - In Header, add a Key for __Authorization__.
 - For the Value, add Bearer followed by a space.
 - Paste the copied token after the space.
-- Send the request.
 
 ![Postman Authorization](/Images/PostmanAuthorization.jpg)
 
@@ -218,9 +217,9 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
   - The following may be discerned by examining the API documentation in the browser.
   - Enter the request URL and the Key and Value information for the following as in the image
   - Make sure that **POST** is selected.
-  - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
+  - For DriverCleanlinessScore, DriverSafetyScore, and DriverFunScore; enter numbers 0.0 through 10.0.
 
-![Create Driver Rating](/Images/EditDriverRating.jpg)
+![Create Driver Rating](/Images/CreateDriverRating.jpg)
 
 ### Creating a Renter Rating
 
@@ -230,13 +229,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
   - Make sure that **POST** is selected.
   - For RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore; enter numbers 0.0 through 10.0.
 
-![Create Renter Rating](/Images/EditRenterRating.JPG)
-
-### Getting a list of all Drivers
- 
-Send the **Get** request in Postman for the URL https://localhost:44327/api/Driver/
-
-![Get a list of all Drivers](/Images/GetAllDrivers.jpg)
+![Create Renter Rating](/Images/CreateRenterRating.jpg)
 
 ### Get a Reservation by ID
 
@@ -262,7 +255,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rent
 
 ![Get Renter Rating By ID](/Images/GetRenterRating.JPG)
 
-### Get a Reservation by Driver ID
+### Get Reservations by Driver ID
 
 Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDriverId/ID
 
@@ -270,19 +263,19 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
 
 ![Get Reservation By Driver ID](/Images/GetResByDriver.JPG)
 
-### Get a Reservation by Renter ID
+### Get Reservations by Renter ID
 
 Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByRenterId/ID
 
-- Where ID is the integer ID of the desired Driver.
+- Where ID is the integer ID of the desired Renter.
 
 ![Get Reservation By Renter ID](/Images/GetResbyRenter.JPG)
 
-### Get a Reservation by Date
+### Get Reservations by Date
 
-Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDate/ID
+Send the **Get** request in Postman for the URL https://localhost:44327/api/Reservation/GetByDate/YYYY-MM-DD
 
-- Where ID is the integer ID of the desired Driver.
+- Where YYYY-MM-DD is the date that the reservation is for.
 
 ![Get Reservation By Date](/Images/GetResByDate.JPG)
 
@@ -322,7 +315,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - Enter the DriverFunScore, DriverSafetyScore, and DriverCleanlinessScore as a number from 0.0 through 10.0
 
-![Update Driver Rating](/Images/EditDriverRating.jpg)
+![Update Driver Rating](/Images/EditDriverRating2.jpg)
 
 ### Editing a Renter Rating
 
@@ -331,7 +324,7 @@ Send the **Get** request in Postman for the URL https://localhost:44327/api/Rese
   - Enter the request URL and the Updated Key and Value information for the following as in the image
   - Enter the RenterCleanlinessScore, RenterSafetyScore, and RenterPunctualityScore as a number from 0.0 through 10.0
 
-![Update Renter Rating](/Images/EditRenterRating.JPG)
+![Update Renter Rating](/Images/EditRenterRating2.JPG)
 
 ### Deleting a Driver
 
