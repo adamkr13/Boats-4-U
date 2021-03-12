@@ -195,6 +195,10 @@
     <Compile Include="Migrations\202103111711537_Initial.designer.cs">
       <DependentUpon>202103111711537_Initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202103111836103_UserNameFix.cs" />
+    <Compile Include="Migrations\202103111836103_UserNameFix.designer.cs">
+      <DependentUpon>202103111836103_UserNameFix.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DriverRating.cs" />
@@ -211,6 +215,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202103111711537_Initial.resx">
       <DependentUpon>202103111711537_Initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202103111836103_UserNameFix.resx">
+      <DependentUpon>202103111836103_UserNameFix.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
