@@ -3,6 +3,8 @@ using Microsoft.AspNet.Identity;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,29 +15,17 @@ namespace Boats_4_U.Models.Driver
     [JsonObject(MemberSerialization.OptIn)]
     public class DriverListItem : ApiController
     {
-        [JsonProperty]
+        [JsonProperty(PropertyName ="Logged in User")]
+        public string LoggedInUser { get; set; }
+
+        [JsonProperty(PropertyName = "Driver Id")]
         public int DriverId { get; set; }
 
         public Guid ApplicationUser { get; set; }
 
-        [JsonProperty]
-        public string Username
-        {
-            get
-            {
-                using (var ctx = new ApplicationDbContext())
-                {
-                    string applicationUser = ApplicationUser.ToString();
 
-                    var user =
-                        ctx
-                        .Users
-                        .Where(p => p.Id == applicationUser).FirstOrDefault();
-
-                    return user.UserName;
-                }
-            }
-        }
+        [JsonProperty(PropertyName = "Driver Created by User")]
+        public string UserCreatedDriver { get; set; }
 
         public string DriverFirstName { get; set; }
         public string DriverLastName { get; set; }
@@ -43,7 +33,7 @@ namespace Boats_4_U.Models.Driver
         /// <summary>
         /// This creates the Full Names by adding the First and Last Names
         /// </summary>
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Driver Full Name")]
         public string DriverFullName
         {
             get
@@ -58,6 +48,7 @@ namespace Boats_4_U.Models.Driver
 
         public virtual List<DriverRating> DriverRatings { get; set; }
 
+        [JsonProperty(PropertyName = "Fun Rating")]
         public double FunRating
         {
             get
@@ -74,6 +65,8 @@ namespace Boats_4_U.Models.Driver
                     : 0;
             }
         }
+
+        [JsonProperty(PropertyName = "Safety Rating")]
         public double SafetyRating
         {
             get
@@ -90,6 +83,8 @@ namespace Boats_4_U.Models.Driver
                     : 0;
             }
         }
+
+        [JsonProperty(PropertyName = "Cleanliness Rating")]
         public double CleanlinessRating
         {
             get

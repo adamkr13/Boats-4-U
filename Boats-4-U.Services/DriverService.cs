@@ -25,7 +25,10 @@ namespace Boats_4_U.Services
         /// <returns>This does not return a value.</returns>
         public bool CreateDriver(DriverCreate model)
         {
-            var entity =
+
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
                 new Driver()
                 {
                     ApplicationUser = _userId,
@@ -35,10 +38,10 @@ namespace Boats_4_U.Services
                     Location = model.Location,
                     TypeOfBoat = model.TypeOfBoat,
                     DaysAvailable = model.DaysAvailable,
-                    MaximumOccupants = model.MaximumOccupants
+                    MaximumOccupants = model.MaximumOccupants,
+                    UserCreatedDriver = ctx.Users.Single(d => d.Id == _userId.ToString()).UserName,
                 };
-            using (var ctx = new ApplicationDbContext())
-            {
+
                 ctx.Drivers.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -59,10 +62,12 @@ namespace Boats_4_U.Services
                         {
                             DriverId = e.DriverId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedDriver = e.UserCreatedDriver,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
-                            DriverRatings = e.DriverRatings
+                            DriverRatings = e.DriverRatings,
+                            LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                         });
                 return query.ToArray();
             }
@@ -85,6 +90,7 @@ namespace Boats_4_U.Services
                         {
                             DriverId = e.DriverId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedDriver = e.UserCreatedDriver,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
@@ -92,7 +98,9 @@ namespace Boats_4_U.Services
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
                             HourlyRate = e.HourlyRate,
-                            DriverRatings = e.DriverRatings
+                            DriverRatings = e.DriverRatings,
+                            LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
+
                         });
                 return query.ToArray();
             }
@@ -115,6 +123,7 @@ namespace Boats_4_U.Services
                         {
                             DriverId = e.DriverId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedDriver = e.UserCreatedDriver,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
@@ -122,7 +131,8 @@ namespace Boats_4_U.Services
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
                             HourlyRate = e.HourlyRate,
-                            DriverRatings = e.DriverRatings
+                            DriverRatings = e.DriverRatings,
+                            LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                         });
                 return query.ToArray();
             }
@@ -145,6 +155,7 @@ namespace Boats_4_U.Services
                         {
                             DriverId = e.DriverId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedDriver = e.UserCreatedDriver,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
@@ -152,7 +163,8 @@ namespace Boats_4_U.Services
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
                             HourlyRate = e.HourlyRate,
-                            DriverRatings = e.DriverRatings
+                            DriverRatings = e.DriverRatings,
+                            LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                         });
                 return query.ToArray();
             }
@@ -175,6 +187,7 @@ namespace Boats_4_U.Services
                         {
                             DriverId = e.DriverId,
                             ApplicationUser = e.ApplicationUser,
+                            UserCreatedDriver = e.UserCreatedDriver,
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
@@ -182,7 +195,8 @@ namespace Boats_4_U.Services
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
                             HourlyRate = e.HourlyRate,
-                            DriverRatings = e.DriverRatings
+                            DriverRatings = e.DriverRatings,
+                            LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                         });
                 return query.ToArray();
             }
@@ -193,7 +207,7 @@ namespace Boats_4_U.Services
         /// </summary>
         /// <param name="id">This is the Id of the driver.</param> 
         /// <returns>This will give the Id, Full Name, Location, Days Available, Boat Name, Maximum Occupancy and Hourly Rate of the driver with that Id.</returns>
-        public DriverDetail GetDriverById(int id)
+        public DriverDetailTwo GetDriverById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -201,18 +215,20 @@ namespace Boats_4_U.Services
                     .Drivers
                     .Single(e => e.DriverId == id);
                 return
-                    new DriverDetail
+                    new DriverDetailTwo
                     {
                         DriverId = entity.DriverId,
-                        Username = entity.Username,
-                        DriverFullName = entity.DriverFullName,
+                        ApplicationUser = entity.ApplicationUser,
+                        UserCreatedDriver = entity.UserCreatedDriver,
+                        DriverFirstName = entity.DriverFirstName,
+                        DriverLastName = entity.DriverLastName,
                         Location = entity.Location,
                         DaysAvailable = entity.DaysAvailable,
-                        BoatName = entity.BoatName,
+                        TypeOfBoat = entity.TypeOfBoat,
                         MaximumOccupants = entity.MaximumOccupants,
-                        HourlyRate = entity.HourlyRate,    
-                        Rating = entity.Rating,
-                        Recommended = entity.Recommended
+                        HourlyRate = entity.HourlyRate,
+                        DriverRatings = entity.DriverRatings,
+                        LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                     };
             }
         }
@@ -224,7 +240,7 @@ namespace Boats_4_U.Services
         /// <returns></returns>
         public bool UpdateDriver(DriverEdit model)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx
                     .Drivers

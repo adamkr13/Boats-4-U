@@ -12,29 +12,17 @@ namespace Boats_4_U.Models.Renter
     [JsonObject(MemberSerialization.OptIn)]
     public class RenterListItem
     {
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Renter Id")]
         public int RenterId { get; set; }
 
         public Guid ApplicationUser { get; set; }
 
-        [JsonProperty]
-        public string Username
-        {
-            get
-            {
-                using (var ctx = new ApplicationDbContext())
-                {
-                    string applicationUser = ApplicationUser.ToString();
+        [JsonProperty(PropertyName = "Renter Created by User")]
+        public string UserCreatedRenter { get; set; }
 
-                    var user =
-                        ctx
-                        .Users
-                        .Where(p => p.Id == applicationUser).FirstOrDefault();
+        [JsonProperty(PropertyName = "Logged in User")]
+        public string LoggedInUser { get; set; }
 
-                    return user.UserName;
-                }
-            }
-        }
 
         public string RenterFirstName { get; set; }
         public string RenterLastName { get; set; }
@@ -42,7 +30,7 @@ namespace Boats_4_U.Models.Renter
         /// <summary>
         /// This created the full name from the First and Last Names
         /// </summary>
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Renter Full Name")]
         public string RenterFullName
         {
             get
@@ -54,12 +42,13 @@ namespace Boats_4_U.Models.Renter
             }
         }
 
+        [JsonProperty(PropertyName = "Renter Date of Birth")]
         public DateTime DateOfBirth { get; set; }
 
         /// <summary>
         /// The created the age of the renter in years
         /// </summary>
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Renter Age")]
         public int RenterAge
         {
             get
@@ -74,7 +63,7 @@ namespace Boats_4_U.Models.Renter
 
         public virtual List<RenterRating> RenterRatings { get; set; } = new List<RenterRating>();
 
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Average Rating")]
         public double Rating
         {
             get
@@ -92,6 +81,7 @@ namespace Boats_4_U.Models.Renter
             }
         }
 
+        [JsonProperty(PropertyName = "Cleanliness Rating")]
         public double CleanlinessRating
         {
             get
@@ -109,6 +99,7 @@ namespace Boats_4_U.Models.Renter
             }
         }
 
+        [JsonProperty(PropertyName = "Safety Rating")]
         public double SafetyRating
         {
             get
@@ -126,6 +117,7 @@ namespace Boats_4_U.Models.Renter
             }
         }
 
+        [JsonProperty(PropertyName = "Punctuality Rating")]
         public double PunctualityRating
         {
             get

@@ -20,7 +20,9 @@ namespace Boats_4_U.Services
 
         public bool CreateRenterRating(RenterRatingCreate model)
         {
-            var entity =
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
 
                 new RenterRating()
                 {
@@ -29,10 +31,9 @@ namespace Boats_4_U.Services
                     RenterCleanlinessScore = model.RenterCleanlinessScore,
                     RenterSafetyScore = model.RenterSafetyScore,
                     RenterPunctualityScore = model.RenterPunctualityScore,
+                    UserCreatedRenterRating = ctx.Users.Single(rr => rr.Id == _userId.ToString()).UserName,
                 };
 
-            using (var ctx = new ApplicationDbContext())
-            {
                 ctx.RenterRatings.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -50,13 +51,14 @@ namespace Boats_4_U.Services
                 new RenterRatingDetail
                 {
                     RenterRatingId = entity.RenterRatingId,
-                    Username = entity.Username,
+                    UserCreatedRenterRating = entity.UserCreatedRenterRating,
                     RenterId = entity.RenterId,
                     RenterFullName = entity.Renter.RenterFullName,
                     RenterCleanlinessScore = entity.RenterCleanlinessScore,
                     RenterSafetyScore = entity.RenterSafetyScore,
                     RenterPunctualityScore = entity.RenterPunctualityScore,
-                    AverageRenterRating = entity.AverageRenterRating
+                    AverageRenterRating = entity.AverageRenterRating,
+                    LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                 };
             }
         }
