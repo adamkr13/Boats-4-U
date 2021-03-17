@@ -18,7 +18,7 @@ namespace Boats_4_U.Models.Driver
         [JsonProperty(PropertyName ="Logged in User")]
         public string LoggedInUser { get; set; }
 
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Driver Id")]
         public int DriverId { get; set; }
 
         public Guid ApplicationUser { get; set; }

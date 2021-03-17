@@ -9,6 +9,7 @@ namespace Boats_4_U.Models.DriverRatingModels
 {
     public class DriverRatingDetail
     {
+        [JsonProperty(PropertyName = "Driver Id")]
         public int DriverRatingId { get; set; }
 
         [JsonProperty(PropertyName = "Driver Rating Created by User")]
