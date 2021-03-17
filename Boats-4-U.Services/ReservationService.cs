@@ -278,20 +278,31 @@ namespace Boats_4_U.Services
 
                 var driver = ctx.Drivers.Find(entity.DriverId);
                 int day = (int)entity.DateReservedFor.DayOfWeek;
-                if (day == 0)
-                    day = 1;
-                if (day == 1)
-                    day = 2;
-                if (day == 2)
-                    day = 4;
-                if (day == 3)
-                    day = 8;
-                if (day == 4)
-                    day = 16;
-                if (day == 5)
-                    day = 32;
-                if (day == 6)
-                    day = 64;
+
+                switch (day)
+                {
+                    case 0:
+                        day = 1;
+                        break;
+                    case 1:
+                        day = 2;
+                        break;
+                    case 2:
+                        day = 4;
+                        break;
+                    case 3:
+                        day = 8;
+                        break;
+                    case 4:
+                        day = 16;
+                        break;
+                    case 5:
+                        day = 32;
+                        break;
+                    case 6:
+                        day = 64;
+                        break;
+                }              
 
                 DaysOfWeek dayOfWeek = (DaysOfWeek)day;
 
