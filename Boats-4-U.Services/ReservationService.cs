@@ -94,6 +94,7 @@ namespace Boats_4_U.Services
                                 UserCreatedReservation = e.UserCreatedReservation,
                                 DateReservedFor = e.DateReservedFor,
                                 DateReservationMade = e.DateReservationMade,
+                                LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                             }
                         );
                 return query.ToArray();
@@ -127,7 +128,8 @@ namespace Boats_4_U.Services
                         ReservationDetails = entity.ReservationDetails,
                         Last4Digits = entity.Renter.Last4Digits,
                         EstimatedTotalCost = entity.EstimatedTotalCost,
-                        DisplayDateReservationMade = entity.DisplayDateReservationMade
+                        DisplayDateReservationMade = entity.DisplayDateReservationMade,
+                        LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                     };
             }
         }
@@ -161,7 +163,8 @@ namespace Boats_4_U.Services
                                 ReservationDetails = e.ReservationDetails,
                                 CreditCardNumber = e.Renter.CreditCardNumber,
                                 HourlyRate = e.Driver.HourlyRate,
-                                DateReservationMade = e.DateReservationMade
+                                DateReservationMade = e.DateReservationMade,
+                                LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                             }
                        );
                 return query.ToArray();
@@ -197,7 +200,8 @@ namespace Boats_4_U.Services
                                 ReservationDetails = e.ReservationDetails,
                                 CreditCardNumber = e.Renter.CreditCardNumber,
                                 HourlyRate = e.Driver.HourlyRate,
-                                DateReservationMade = e.DateReservationMade
+                                DateReservationMade = e.DateReservationMade,
+                                LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                             }
                        );
                 return query.ToArray();
@@ -233,7 +237,8 @@ namespace Boats_4_U.Services
                                 ReservationDetails = e.ReservationDetails,
                                 CreditCardNumber = e.Renter.CreditCardNumber,
                                 HourlyRate = e.Driver.HourlyRate,
-                                DateReservationMade = e.DateReservationMade
+                                DateReservationMade = e.DateReservationMade,
+                                LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                             }
                        );
                 return query.ToArray();

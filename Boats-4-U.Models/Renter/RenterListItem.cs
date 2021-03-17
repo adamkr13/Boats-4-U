@@ -19,6 +19,8 @@ namespace Boats_4_U.Models.Renter
 
         [JsonProperty]
         public string UserCreatedRenter { get; set; }
+        public string LoggedInUser { get; set; }
+
 
         public string RenterFirstName { get; set; }
         public string RenterLastName { get; set; }

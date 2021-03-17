@@ -57,7 +57,8 @@ namespace Boats_4_U.Services
                     RenterCleanlinessScore = entity.RenterCleanlinessScore,
                     RenterSafetyScore = entity.RenterSafetyScore,
                     RenterPunctualityScore = entity.RenterPunctualityScore,
-                    AverageRenterRating = entity.AverageRenterRating
+                    AverageRenterRating = entity.AverageRenterRating,
+                    LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                 };
             }
         }

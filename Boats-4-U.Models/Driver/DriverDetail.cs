@@ -12,6 +12,7 @@ namespace Boats_4_U.Models.Driver
     {
         public int DriverId { get; set; }
         public string UserCreatedDriver { get; set; }
+        public string LoggedInUser { get; set; }
         public string DriverFullName { get; set; }
         public string Location { get; set; }
         public DaysOfWeek DaysAvailable { get; set; }

@@ -18,6 +18,8 @@ namespace Boats_4_U.Models.ReservationModels
 
         [JsonProperty]
         public string UserCreatedReservation { get; set; }
+        public string LoggedInUser { get; set; }
+
 
         public string RenterFirstName { get; set; }
         public string RenterLastName { get; set; }

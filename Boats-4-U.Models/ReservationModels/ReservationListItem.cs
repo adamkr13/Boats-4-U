@@ -18,6 +18,8 @@ namespace Boats_4_U.Models.ReservationModels
 
         [JsonProperty]
         public string UserCreatedReservation { get; set; }
+        public string LoggedInUser { get; set; }
+
 
         /// <summary>
         /// This creates the day of the week the reservation was made for

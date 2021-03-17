@@ -14,9 +14,12 @@ namespace Boats_4_U.Models.Driver
     public class DriverListItem : ApiController
     {
         [JsonProperty]
+        public string LoggedInUser { get; set; }
+        [JsonProperty]
         public int DriverId { get; set; }
 
         public Guid ApplicationUser { get; set; }
+        
 
         [JsonProperty]
         public string UserCreatedDriver { get; set; }

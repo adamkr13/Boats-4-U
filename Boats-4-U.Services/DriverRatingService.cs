@@ -57,7 +57,8 @@ namespace Boats_4_U.Services
                         DriverFunScore = entity.DriverFunScore,
                         DriverSafetyScore = entity.DriverSafetyScore,
                         DriverCleanlinessScore = entity.DriverCleanlinessScore,
-                        AverageOfDriverRatingScores = entity.AverageOfDriverRatingScores
+                        AverageOfDriverRatingScores = entity.AverageOfDriverRatingScores,
+                        LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                     };
             }
         }

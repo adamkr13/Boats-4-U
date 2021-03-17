@@ -11,6 +11,8 @@ namespace Boats_4_U.Models
         public int RenterRatingId { get; set; }
 
         public string UserCreatedRenterRating { get; set; }
+        public string LoggedInUser { get; set; }
+
 
         public int RenterId { get; set; }
 

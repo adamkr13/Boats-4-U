@@ -66,7 +66,8 @@ namespace Boats_4_U.Services
                             DriverFirstName = e.DriverFirstName,
                             DriverLastName = e.DriverLastName,
                             Location = e.Location,
-                            DriverRatings = e.DriverRatings
+                            DriverRatings = e.DriverRatings,
+                            LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                         });
                 return query.ToArray();
             }
@@ -97,7 +98,9 @@ namespace Boats_4_U.Services
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
                             HourlyRate = e.HourlyRate,
-                            DriverRatings = e.DriverRatings
+                            DriverRatings = e.DriverRatings,
+                            LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
+
                         });
                 return query.ToArray();
             }
@@ -128,7 +131,8 @@ namespace Boats_4_U.Services
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
                             HourlyRate = e.HourlyRate,
-                            DriverRatings = e.DriverRatings
+                            DriverRatings = e.DriverRatings,
+                            LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                         });
                 return query.ToArray();
             }
@@ -159,7 +163,8 @@ namespace Boats_4_U.Services
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
                             HourlyRate = e.HourlyRate,
-                            DriverRatings = e.DriverRatings
+                            DriverRatings = e.DriverRatings,
+                            LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                         });
                 return query.ToArray();
             }
@@ -190,7 +195,8 @@ namespace Boats_4_U.Services
                             TypeOfBoat = e.TypeOfBoat,
                             MaximumOccupants = e.MaximumOccupants,
                             HourlyRate = e.HourlyRate,
-                            DriverRatings = e.DriverRatings
+                            DriverRatings = e.DriverRatings,
+                            LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                         });
                 return query.ToArray();
             }
@@ -220,7 +226,8 @@ namespace Boats_4_U.Services
                         MaximumOccupants = entity.MaximumOccupants,
                         HourlyRate = entity.HourlyRate,    
                         Rating = entity.Rating,
-                        Recommended = entity.Recommended
+                        Recommended = entity.Recommended,
+                        LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                     };
             }
         }

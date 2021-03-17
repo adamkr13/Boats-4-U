@@ -19,6 +19,8 @@ namespace Boats_4_U.Models.Driver
         [JsonProperty]
         public string UserCreatedDriver { get; set; }
 
+        public string LoggedInUser { get; set; }
+
         public string DriverFirstName { get; set; }
         public string DriverLastName { get; set; }
 
