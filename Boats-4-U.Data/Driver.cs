@@ -16,7 +16,7 @@ namespace Boats_4_U.Data
         [Key]
         public int DriverId { get; set; }
 
-        [Required]
+        [Required]        
         public string DriverFirstName { get; set; }
 
         [Required]

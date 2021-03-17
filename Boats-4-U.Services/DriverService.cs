@@ -25,7 +25,7 @@ namespace Boats_4_U.Services
         /// <returns>This does not return a value.</returns>
         public bool CreateDriver(DriverCreate model)
         {
-            
+
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
@@ -207,7 +207,7 @@ namespace Boats_4_U.Services
         /// </summary>
         /// <param name="id">This is the Id of the driver.</param> 
         /// <returns>This will give the Id, Full Name, Location, Days Available, Boat Name, Maximum Occupancy and Hourly Rate of the driver with that Id.</returns>
-        public DriverDetail GetDriverById(int id)
+        public DriverDetailTwo GetDriverById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -215,18 +215,19 @@ namespace Boats_4_U.Services
                     .Drivers
                     .Single(e => e.DriverId == id);
                 return
-                    new DriverDetail
+                    new DriverDetailTwo
                     {
                         DriverId = entity.DriverId,
+                        ApplicationUser = entity.ApplicationUser,
                         UserCreatedDriver = entity.UserCreatedDriver,
-                        DriverFullName = entity.DriverFullName,
+                        DriverFirstName = entity.DriverFirstName,
+                        DriverLastName = entity.DriverLastName,
                         Location = entity.Location,
                         DaysAvailable = entity.DaysAvailable,
-                        BoatName = entity.BoatName,
+                        TypeOfBoat = entity.TypeOfBoat,
                         MaximumOccupants = entity.MaximumOccupants,
-                        HourlyRate = entity.HourlyRate,    
-                        Rating = entity.Rating,
-                        Recommended = entity.Recommended,
+                        HourlyRate = entity.HourlyRate,
+                        DriverRatings = entity.DriverRatings,
                         LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                     };
             }
@@ -239,7 +240,7 @@ namespace Boats_4_U.Services
         /// <returns></returns>
         public bool UpdateDriver(DriverEdit model)
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var entity = ctx
                     .Drivers

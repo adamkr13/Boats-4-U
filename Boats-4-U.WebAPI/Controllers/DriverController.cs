@@ -21,6 +21,7 @@ namespace Boats_4_U.WebAPI.Controllers
         /// <returns>"The driver was successfully created."</returns>
         public IHttpActionResult Post(DriverCreate driver)
         {
+            //User.Identity.IsAuthenticated
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
