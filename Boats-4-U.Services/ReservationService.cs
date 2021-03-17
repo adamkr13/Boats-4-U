@@ -25,8 +25,6 @@ namespace Boats_4_U.Services
         /// <returns>This does not return anything.</returns>
         public bool CreateReservation(ReservationCreate model)
         {
-            
-
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
@@ -47,20 +45,32 @@ namespace Boats_4_U.Services
 
                 var driver = ctx.Drivers.Find(model.DriverId);
                 int day = (int) model.DateReservedFor.DayOfWeek;
-                if (day == 0)
-                    day = 1;
-                if (day == 1)
-                    day = 2;
-                if (day == 2)
-                    day = 4;
-                if (day == 3)
-                    day = 8;
-                if (day == 4)
-                    day = 16;
-                if (day == 5)
-                    day = 32;
-                if (day == 6)
-                    day = 64;
+
+                switch (day)
+                {
+                    case 0:
+                        day = 1;
+                        break;
+                    case 1:
+                        day = 2;
+                        break;
+                    case 2:
+                        day = 4;
+                        break;
+                    case 3:
+                        day = 8;
+                        break;
+                    case 4:
+                        day = 16;
+                        break;
+                    case 5:
+                        day = 32;
+                        break;
+                    case 6:
+                        day = 64;
+                        break;
+
+                }                
 
                 DaysOfWeek dayOfWeek = (DaysOfWeek)day;
 
@@ -106,7 +116,7 @@ namespace Boats_4_U.Services
         /// </summary>
         /// <param name="id">This is the Id of the Reservation.</param> 
         /// <returns>This returns the Id, Renter Full Name Driver Full Name, Reservation Date, Reservation Duration, Boat Name, Number of Passangers, Reservation Details, Last Four Digits of the Credit Card Number, Estimated Total Cost and Date Reservation was Made.</returns>
-        public ReservationDetail GetReservationById(int id)
+        public ReservationDetailTwo GetReservationById(int id)
         {
             using (var ctx = new ApplicationDbContext())
             {
@@ -115,20 +125,22 @@ namespace Boats_4_U.Services
                     .Reservations
                     .Single(e => e.ReservationId == id);
                 return
-                    new ReservationDetail
+                    new ReservationDetailTwo
                     {
                         ReservationId = entity.ReservationId,
                         UserCreatedReservation = entity.UserCreatedReservation,
-                        RenterFullName = entity.Renter.RenterFullName,
-                        DriverFullName = entity.Driver.DriverFullName,
-                        DisplayDateReservedFor = entity.DisplayDateReservedFor,
+                        RenterFirstName = entity.Renter.RenterFirstName,
+                        RenterLastName = entity.Renter.RenterLastName,
+                        DriverFirstName = entity.Driver.DriverFirstName,
+                        DriverLastName = entity.Driver.DriverLastName,
+                        DateReservedFor = entity.DateReservedFor,
                         ReservationDuration = entity.ReservationDuration,
-                        BoatName = entity.Driver.BoatName,
+                        TypeOfBoat = entity.Driver.TypeOfBoat,
                         NumberOfPassengers = entity.NumberOfPassengers,
                         ReservationDetails = entity.ReservationDetails,
-                        Last4Digits = entity.Renter.Last4Digits,
-                        EstimatedTotalCost = entity.EstimatedTotalCost,
-                        DisplayDateReservationMade = entity.DisplayDateReservationMade,
+                        CreditCardNumber = entity.Renter.CreditCardNumber,
+                        HourlyRate = entity.Driver.HourlyRate,
+                        DateReservationMade = entity.DateReservationMade,
                         LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                     };
             }

@@ -11,20 +11,22 @@ namespace Boats_4_U.Models.ReservationModels
     [JsonObject(MemberSerialization.OptIn)]
     public class ReservationListItem
     {
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Reservation Id")]
         public int ReservationId { get; set; }
 
         public Guid ApplicationUser { get; set; }
 
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Reservation Created by User")]
         public string UserCreatedReservation { get; set; }
+
+        [JsonProperty(PropertyName = "Logged in User")]
         public string LoggedInUser { get; set; }
 
 
         /// <summary>
         /// This creates the day of the week the reservation was made for
         /// </summary>
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Date Reserved For")]
         public string DisplayDateReservedFor
         {
             get
@@ -35,11 +37,11 @@ namespace Boats_4_U.Models.ReservationModels
                 return displayDate;
             }
         }
-        
+
         /// <summary>
         /// This creates the day of the week that the reservation was made
         /// </summary>
-        [JsonProperty]
+        [JsonProperty(PropertyName = "Date Reservation Made")]
         public string DisplayDateReservationMade
         {
             get
