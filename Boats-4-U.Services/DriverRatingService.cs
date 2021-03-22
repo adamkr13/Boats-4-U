@@ -20,7 +20,9 @@ namespace Boats_4_U.Services
 
         public bool CreateDriverRating(DriverRatingCreate model)
         {
-            var entity =
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
 
                 new DriverRating()
                 {
@@ -29,10 +31,9 @@ namespace Boats_4_U.Services
                     DriverFunScore = model.DriverFunScore,
                     DriverSafetyScore = model.DriverSafetyScore,
                     DriverCleanlinessScore = model.DriverCleanlinessScore,
+                    UserCreatedDriverRating = ctx.Users.Single(dr => dr.Id == _userId.ToString()).UserName,
                 };
 
-            using (var ctx = new ApplicationDbContext())
-            {
                 ctx.DriverRatings.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -50,13 +51,14 @@ namespace Boats_4_U.Services
                     new DriverRatingDetail
                     {
                         DriverRatingId = entity.DriverRatingId,
-                        Username = entity.Username,
+                        UserCreatedDriverRating = entity.UserCreatedDriverRating,
                         DriverId = entity.DriverId,
                         DriverFullName = entity.Driver.DriverFullName,
                         DriverFunScore = entity.DriverFunScore,
                         DriverSafetyScore = entity.DriverSafetyScore,
                         DriverCleanlinessScore = entity.DriverCleanlinessScore,
-                        AverageOfDriverRatingScores = entity.AverageOfDriverRatingScores
+                        AverageOfDriverRatingScores = entity.AverageOfDriverRatingScores,
+                        LoggedInUser = ctx.Users.FirstOrDefault(d => d.Id == _userId.ToString()).UserName
                     };
             }
         }

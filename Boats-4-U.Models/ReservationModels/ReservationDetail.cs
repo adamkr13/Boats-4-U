@@ -12,7 +12,9 @@ namespace Boats_4_U.Models.ReservationModels
     {
         public int ReservationId { get; set; }
 
-        public string Username { get; set; }
+        public string UserCreatedReservation { get; set; }
+        public string LoggedInUser { get; set; }
+
 
         public string RenterFullName { get; set; }
 
