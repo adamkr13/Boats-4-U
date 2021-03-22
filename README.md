@@ -5,7 +5,9 @@ The purpose of this application is to create a platform in which would-be boat e
 
 ## Version
 Version 1 was "released" on March 9, 2021.
+
 Version 2 was "released" on March 22, 2021.
+
 This ReadMe file was created for the release of Version 1 and has not yet been updated to correspond to Version 2.
 
 ## Description
