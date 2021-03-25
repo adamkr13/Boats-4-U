@@ -266,7 +266,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Driver\DriverCreate.cs" />
-    <Compile Include="Driver\DriverDetail.cs" />
     <Compile Include="Driver\DriverDetailTwo.cs" />
     <Compile Include="Driver\DriverEdit.cs" />
     <Compile Include="Driver\DriverListItem.cs" />
@@ -284,7 +283,6 @@
     <Compile Include="ReservationModels\ReservationDetailTwo.cs" />
     <Compile Include="ReservationModels\ReservationEdit.cs" />
     <Compile Include="ReservationModels\ReservationCreate.cs" />
-    <Compile Include="ReservationModels\ReservationDetail.cs" />
     <Compile Include="ReservationModels\ReservationListItem.cs" />
   </ItemGroup>
   <ItemGroup>
