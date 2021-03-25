@@ -3,6 +3,13 @@
 Boats-4-U is an ASP.NET Web Application (.NET Framework) in the C# programming language.
 The purpose of this application is to create a platform in which would-be boat enthusiasts can safely connect with boat owners/operators for the purpose of water recreation.
 
+## Version
+Version 1 was "released" on March 9, 2021.
+
+Version 2 was "released" on March 22, 2021.
+
+This ReadMe file was created for the release of Version 1 and has not yet been updated to correspond to Version 2.
+
 ## Description
 
 This app enables the creation, management, and deletion of: boat driver profiles, boat renter profiles, and boat reservations.
